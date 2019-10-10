@@ -6,6 +6,8 @@ import "./registerServiceWorker";
 
 Vue.config.productionTip = false;
 
+store.dispatch("init");
+
 new Vue({
   router,
   store,

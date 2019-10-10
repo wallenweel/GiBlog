@@ -10,7 +10,7 @@
   // base info
   title: "GiBlog V1",
   caption: "A Blog base on Github Issues.",
-  author: "wallen",
+  owner: "wallen",
   email: "wallen_weel@outlook.com",
 
   // styles
