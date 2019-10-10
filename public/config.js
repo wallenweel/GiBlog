@@ -2,7 +2,7 @@
  * Init Blog's Configuration
  * must: "oauth_token"/"username"/"repos"
  */
-((config, { reset = false }) => {
+((config, reset = false) => {
   if (reset) window.localStorage.removeItem("__init_config");
   if (window.localStorage.getItem("__init_config")) return;
   window.localStorage.setItem("__init_config", JSON.stringify(config));
