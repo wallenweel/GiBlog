@@ -1,5 +1,6 @@
 dependencies:
   core-js: 2.6.9
+  github-api: 3.3.0
   register-service-worker: 1.6.2
   vue: 2.6.10
   vue-router: 3.1.3
@@ -1839,6 +1840,14 @@ packages:
     resolution:
       integrity: sha1-8OAD2cqef1nHpQiUXXsu+aBKVC8=
       tarball: aws4/download/aws4-1.8.0.tgz
+  /axios/0.19.0:
+    dependencies:
+      follow-redirects: 1.5.10
+      is-buffer: 2.0.4
+    dev: false
+    resolution:
+      integrity: sha1-jgm/89kSLhM/e4EByPvdAO09Krg=
+      tarball: axios/download/axios-0.19.0.tgz
   /babel-code-frame/6.26.0:
     dependencies:
       chalk: 1.1.3
@@ -3473,10 +3482,16 @@ packages:
   /debug/2.6.9:
     dependencies:
       ms: 2.0.0
-    dev: true
     resolution:
       integrity: sha1-XRKFFd8TT/Mn6QpMk/Tgd6U2NB8=
-      tarball: debug/download/debug-2.6.9.tgz
+      tarball: debug/download/debug-2.6.9.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdebug%2Fdownload%2Fdebug-2.6.9.tgz
+  /debug/3.1.0:
+    dependencies:
+      ms: 2.0.0
+    dev: false
+    resolution:
+      integrity: sha1-W7WgZyYotkFJVmuhaBnmFRjGcmE=
+      tarball: debug/download/debug-3.1.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdebug%2Fdownload%2Fdebug-3.1.0.tgz
   /debug/3.2.6:
     dependencies:
       ms: 2.1.2
@@ -4861,6 +4876,15 @@ packages:
     resolution:
       integrity: sha1-jdfYc6G6vCB9lOrQwuDkQnbr8ug=
       tarball: flush-write-stream/download/flush-write-stream-1.1.1.tgz
+  /follow-redirects/1.5.10:
+    dependencies:
+      debug: 3.1.0
+    dev: false
+    engines:
+      node: '>=4.0'
+    resolution:
+      integrity: sha1-e3qfmuov3/NnhqlP9kPtB/T/Xio=
+      tarball: follow-redirects/download/follow-redirects-1.5.10.tgz
   /follow-redirects/1.9.0:
     dependencies:
       debug: 3.2.6
@@ -5062,6 +5086,16 @@ packages:
     resolution:
       integrity: sha1-Xv+OPmhNVprkyysSgmBOi6YhSfo=
       tarball: getpass/download/getpass-0.1.7.tgz
+  /github-api/3.3.0:
+    dependencies:
+      axios: 0.19.0
+      debug: 2.6.9
+      js-base64: 2.5.1
+      utf8: 2.1.2
+    dev: false
+    resolution:
+      integrity: sha1-Wqosxnh/9bwns9Acuovd+np/aq0=
+      tarball: github-api/download/github-api-3.3.0.tgz
   /glob-base/0.3.0:
     dependencies:
       glob-parent: 2.0.0
@@ -5873,6 +5907,13 @@ packages:
     resolution:
       integrity: sha1-76ouqdqg16suoTqXsritUf776L4=
       tarball: is-buffer/download/is-buffer-1.1.6.tgz
+  /is-buffer/2.0.4:
+    dev: false
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-PlcvI8hBGlz9lVfISeNmXgspBiM=
+      tarball: is-buffer/download/is-buffer-2.0.4.tgz
   /is-callable/1.1.4:
     dev: true
     engines:
@@ -6717,6 +6758,11 @@ packages:
     resolution:
       integrity: sha1-9nSJdTe2JemsPQt+FgTIKK2RPMs=
       tarball: joi/download/joi-11.4.0.tgz
+  /js-base64/2.5.1:
+    dev: false
+    resolution:
+      integrity: sha1-Hvo57yxfeYC7F4St5KivLeMpESE=
+      tarball: js-base64/download/js-base64-2.5.1.tgz
   /js-beautify/1.10.2:
     dependencies:
       config-chain: 1.1.12
@@ -7565,7 +7611,6 @@ packages:
       integrity: sha1-viwAX9oy4LKa8fBdfEszIUxwH5I=
       tarball: move-concurrently/download/move-concurrently-1.0.1.tgz
   /ms/2.0.0:
-    dev: true
     resolution:
       integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=
       tarball: ms/download/ms-2.0.0.tgz
@@ -11131,6 +11176,11 @@ packages:
     resolution:
       integrity: sha1-1QyMrHmhn7wg8pEfVuuXP04QBw8=
       tarball: use/download/use-3.1.1.tgz
+  /utf8/2.1.2:
+    dev: false
+    resolution:
+      integrity: sha1-H6DZJw6b6FDZsFAn9jUZv0ZFfZY=
+      tarball: utf8/download/utf8-2.1.2.tgz
   /util-deprecate/1.0.2:
     dev: true
     resolution:
@@ -11955,6 +12005,7 @@ specifiers:
   eslint: ^5.16.0
   eslint-plugin-prettier: ^3.1.0
   eslint-plugin-vue: ^5.0.0
+  github-api: ^3.3.0
   prettier: ^1.18.2
   register-service-worker: ^1.6.2
   sass: ^1.19.0
