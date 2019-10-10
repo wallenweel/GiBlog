@@ -2,7 +2,8 @@
  * Init Blog's Configuration
  * must: "oauth_token"/"username"/"repos"
  */
-(config => {
+((config, { reset = false }) => {
+  if (reset) window.localStorage.removeItem("__init_config");
   if (window.localStorage.getItem("__init_config")) return;
   window.localStorage.setItem("__init_config", JSON.stringify(config));
 })({
@@ -13,7 +14,7 @@
   email: "wallen_weel@outlook.com",
 
   // styles
-  theme: "light",
+  theme: "Light",
 
   // get from: Github -> Settings -> Developer settings
   oauth_token: "7b46eb9348b4785ea59a2878ff906cf48ab101ca",
