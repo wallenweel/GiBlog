@@ -27,18 +27,27 @@ export function profileCleaner(profile = {}) {
 export function issuesCleaner(issues = []) {
   return issues.map(
     ({
+      title,
       body: content,
       comments,
       created_at: created,
       html_url: url,
       id,
+      number,
+      state,
+      updated_at: updated,
       labels
     }) => ({
+      title,
       content,
+      excerpt: (content || "").slice(0, 20),
       comments,
       created,
       url,
       id,
+      number,
+      state,
+      updated,
       labels: labelsCleaner(labels)
     })
   );

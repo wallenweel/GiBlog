@@ -63,7 +63,7 @@ export default {
       if (!data.length) return NOT_FOUND_ANY_ISSUES;
 
       const articles = issuesCleaner(data);
-      // debug.log(articles);
+      debug.log(data, articles);
 
       commit("updateArticles", articles);
     };
