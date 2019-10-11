@@ -6,6 +6,7 @@
 
 <style lang="scss">
 @import "~normalize.css";
+@import "~github-markdown-css";
 
 :root {
   --column-left-w: 220px;

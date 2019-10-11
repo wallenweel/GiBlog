@@ -28,6 +28,9 @@ const state = {
   articles: null,
   tags: null,
 
+  article: null,
+  comments: null,
+
   test: true
 };
 

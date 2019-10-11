@@ -1,8 +1,9 @@
 export default {
-  updateConfig(state, { username, theme, repos }) {
-    state.theme = theme;
-    state.repo = repos[0];
+  updateConfig(state, { oauth_token, username, theme, repos }) {
+    state.token = atob(oauth_token);
     state.username = username;
+    state.repo = repos[0];
+    state.theme = theme;
   },
 
   updateProfile(state, profile) {

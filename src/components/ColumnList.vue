@@ -3,7 +3,7 @@
     <div class="list">
       <article
         class="article"
-        v-for="(article, i) of [...articles, ...articles]"
+        v-for="(article, i) of articles"
         :key="i + article.id"
       >
         <h3 class="title">{{ article.title }}</h3>
@@ -76,7 +76,7 @@ export default {
   background-color: var(--articles-item-bg-c);
   font-size: 12px;
   padding: 8px;
-  margin: 6px 0;
+  margin: 12px 0;
   position: relative;
 }
 
