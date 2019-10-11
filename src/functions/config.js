@@ -1,19 +1,17 @@
-import { fuse } from "./utilities";
+import { config as configOpt } from "@/variables";
 
 export default async function getConfig() {
-  const config = window.localStorage.getItem("__init_config");
+  const { file } = configOpt;
 
-  if (!config) return ["not found config", {}];
+  try {
+    const response = await fetch(file);
 
-  return fuse(() => JSON.parse(config));
+    if (response.ok === false && ["404", "401"].includes(status))
+      throw "Not Found Config File.";
+
+    const config = await response.json();
+    return [null, config];
+  } catch (error) {
+    return [error, {}];
+  }
 }
-
-// export default async function getConfig() {
-//   try {
-//     const response = await fetch("/codnfig.json");
-//     const config = await response.json();
-//     return [null, config];
-//   } catch (error) {
-//     return [error, "fetch config failed."];
-//   }
-// }

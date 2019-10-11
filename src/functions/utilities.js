@@ -1,7 +1,8 @@
-export const fuse = (func = () => {}) => {
+export const fuse = (func = () => {}, remark = "") => {
   try {
-    return [null, func()];
+    const result = func();
+    return [null, result];
   } catch (error) {
-    return [error];
+    return [error, remark];
   }
 };
