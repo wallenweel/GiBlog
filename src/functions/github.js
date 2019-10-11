@@ -48,7 +48,7 @@ export function issuesCleaner(issues = []) {
       number,
       state,
       updated,
-      labels: labelsCleaner(labels)
+      tags: labelsCleaner(labels)
     })
   );
 }

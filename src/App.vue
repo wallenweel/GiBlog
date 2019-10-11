@@ -15,6 +15,8 @@
   --column-list-h: 100vh;
   --column-list-bg-c: #eaeaea;
   --column-comment-bg-c: #b4b4b4;
+  --articles-item-bg-c: #ffffff;
+  --text-info-c-light: #777777;
 }
 
 #app {
