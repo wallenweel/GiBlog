@@ -5,6 +5,7 @@ dependencies:
   normalize.css: 8.0.1
   register-service-worker: 1.6.2
   vue: 2.6.10
+  vue-moment: 4.0.0_vue@2.6.10
   vue-router: 3.1.3
   vuex: 3.1.1
 devDependencies:
@@ -7607,6 +7608,11 @@ packages:
     resolution:
       integrity: sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
       tarball: mkdirp/download/mkdirp-0.5.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmkdirp%2Fdownload%2Fmkdirp-0.5.1.tgz
+  /moment/2.24.0:
+    dev: false
+    resolution:
+      integrity: sha1-DQVdU/UFKqZTyfbraLtdEr9cK1s=
+      tarball: moment/download/moment-2.24.0.tgz?cache=0&sync_timestamp=1570772996868&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmoment%2Fdownload%2Fmoment-2.24.0.tgz
   /move-concurrently/1.0.1:
     dependencies:
       aproba: 1.2.0
@@ -11355,6 +11361,16 @@ packages:
     resolution:
       integrity: sha1-bMrNQSKqgPabqqwI/ylaYuOu/P0=
       tarball: vue-loader/download/vue-loader-15.7.1.tgz
+  /vue-moment/4.0.0_vue@2.6.10:
+    dependencies:
+      moment: 2.24.0
+      vue: 2.6.10
+    dev: false
+    peerDependencies:
+      vue: '>=1.x.x'
+    resolution:
+      integrity: sha1-IICdHn1/ymPVVvuNAIuVmT0y9eo=
+      tarball: vue-moment/download/vue-moment-4.0.0.tgz
   /vue-router/3.1.3:
     dev: false
     resolution:
@@ -12027,6 +12043,7 @@ specifiers:
   sass: ^1.19.0
   sass-loader: ^8.0.0
   vue: ^2.6.10
+  vue-moment: ^4.0.0
   vue-router: ^3.0.3
   vue-template-compiler: ^2.6.10
   vuex: ^3.0.1

@@ -5,6 +5,8 @@
     <h5>Tags</h5>
 
     <Tags :tags="tags" />
+
+    <footer class="info">Powered by <a href="#">GiBlog</a> & Github</footer>
   </section>
 </template>
 
@@ -44,5 +46,15 @@ export default {
     margin-bottom: 0;
     padding: 0 8px;
   }
+}
+
+footer.info {
+  width: 100%;
+  color: var(--text-c-dark);
+  font-size: 12px;
+  text-align: center;
+  padding: 8px;
+  bottom: 0;
+  position: absolute;
 }
 </style>

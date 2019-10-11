@@ -1,24 +1,25 @@
 <template>
   <section class="columnContent">
-    <div class="placeholder"></div>
+    <div class="placeholder left"></div>
     <article class="article">
       <header>
         <h1 class="title">{{ article.title }}</h1>
-        <nav class="meta">
-          <a class="created">
-            Created: <span>{{ article.created }}</span>
-          </a>
-          <a class="updated">
-            Updated: <span>{{ article.updated }}</span>
-          </a>
-          <a class="comments">
+        <div class="meta">
+          <div class="created">
+            Created: <span>{{ article.created | moment("calendar") }}</span>
+          </div>
+          <div class="updated">
+            Updated: <span>{{ article.updated | moment("calendar") }}</span>
+          </div>
+          <div class="comments">
             Comments: <span>{{ article.comments }}</span>
-          </a>
-        </nav>
+          </div>
+        </div>
         <Tags :tags="article.tags || []" />
       </header>
       <div class="content markdown-body" v-html="content"></div>
     </article>
+    <!-- <div class="placeholder right"></div> -->
   </section>
 </template>
 
@@ -70,12 +71,48 @@ export default {
 
 .placeholder {
   flex-shrink: 0;
-  width: calc(var(--column-list-w) + var(--column-left-w));
+
+  &.left {
+    width: calc(var(--column-list-w) + var(--column-left-w));
+  }
+  &.right {
+    width: var(--column-comment-w);
+  }
 }
 
 .article {
   width: inherit;
   padding: 16px;
+
+  > header {
+    // border-bottom: 1px solid var(--border-c-lighter);
+    background-color: var(--article-header-bg-c);
+    padding: 8px;
+    margin-bottom: 28px;
+  }
+}
+
+.title {
+  font-size: 22px;
+  margin: 8px 0;
+}
+
+.meta {
+  font-size: 10px;
+  display: flex;
+
+  > div {
+    margin-right: 8px;
+    color: var(--text-c-light);
+
+    > span {
+      color: var(--text-c-darker);
+    }
+  }
+}
+
+.tags {
+  padding: 6px 0;
 }
 
 .content {

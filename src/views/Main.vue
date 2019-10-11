@@ -3,7 +3,7 @@
     <ColumnLeft />
     <ColumnList />
     <ColumnContent />
-    <ColumnComment />
+    <ColumnComment v-if="false" />
   </main>
 </template>
 
