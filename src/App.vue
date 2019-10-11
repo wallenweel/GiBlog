@@ -10,7 +10,7 @@
 :root {
   --column-left-w: 220px;
   --column-left-h: 100vh;
-  --column-left-bg-c: #7a7a7a;
+  --column-left-bg-c: #ffffff;
   --column-list-w: 220px;
   --column-list-h: 100vh;
   --column-list-bg-c: #575656;
