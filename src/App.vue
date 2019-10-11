@@ -7,21 +7,19 @@
 <style lang="scss">
 @import "~normalize.css";
 
+:root {
+  --column-left-w: 220px;
+  --column-left-h: 100vh;
+  --column-left-bg-c: #7a7a7a;
+  --column-list-w: 220px;
+  --column-list-h: 100vh;
+  --column-list-bg-c: #575656;
+  --column-comment-bg-c: #b4b4b4;
+}
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>

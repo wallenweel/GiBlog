@@ -1,5 +1,5 @@
 <template>
-  <main class="main">
+  <main id="main">
     <ColumnLeft />
     <ColumnList />
     <ColumnContent />
@@ -24,8 +24,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.wrap {
+<style lang="scss">
+#main {
+  flex-wrap: wrap;
+  display: flex;
   overflow: hidden;
 }
 </style>

@@ -1,7 +1,10 @@
 <template>
-  <div class="wrap">
+  <section class="wrap">
+    <div>
+      ddd
+    </div>
     ColumnLeft
-  </div>
+  </section>
 </template>
 
 <script>
@@ -12,6 +15,15 @@ export default {
 
 <style lang="scss" scoped>
 .wrap {
+  background-color: var(--column-left-bg-c);
+  width: var(--column-left-w);
+  height: var(--column-left-h);
+  flex-shrink: 0;
   display: flex;
+
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 6;
 }
 </style>
