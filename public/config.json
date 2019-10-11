@@ -1,10 +1,14 @@
-[{
-  "title": "GiBlog Alpha",
-  "caption": "GitHub Issues Blog.",
-  "owner": "wallen",
-  "email": "wallen_weel@outlook.com",
-  "theme": "Default",
-  "oauth_token": "7b46eb9348b4785ea59a2878ff906cf48ab101ca",
-  "username": "wallenweel",
-  "repos": ["notes"]
-}]
+[
+  {
+    "title": "GiBlog Alpha",
+    "caption": "GitHub Issues Blog.",
+    "owner": "wallen",
+    "email": "wallen_weel@outlook.com",
+    "theme": "Default",
+    "gist": false,
+    "username": "wallenweel",
+    "password": null,
+    "oauth_token": "ac7ef23f5141834d566c999a13df735734372bcb",
+    "repos": ["notes"]
+  }
+]

@@ -1,10 +1,14 @@
-[{
-  "title": "GiBlog Alpha",
-  "caption": "GitHub Issues Blog.",
-  "owner": "Your Name",
-  "email": "someone@domain",
-  "theme": "Default",
-  "oauth_token": "",
-  "username": "",
-  "repos": []
-}]
+[
+  {
+    "title": "GiBlog Alpha",
+    "caption": "GitHub Issues Blog.",
+    "owner": "Your Name",
+    "email": "someone@domain",
+    "theme": "Default",
+    "gist": false,
+    "username": "",
+    "password": null,
+    "oauth_token": "",
+    "repos": []
+  }
+]
