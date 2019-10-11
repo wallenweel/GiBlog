@@ -22,7 +22,8 @@ export default {
     dispatch("connectApi", config);
   },
 
-  async connectApi({ dispatch }, { oauth_token: token, username, password }) {
+  async connectApi({ dispatch }, { oauth_token, username, password }) {
+    const token = atob(oauth_token);
     const github = new GitHub({ username, password, token });
     debug.log("Connected to GitHub: ", github);
 
