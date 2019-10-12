@@ -9,26 +9,30 @@ import {
 
 import { CONNECT_API_ERROR, NOT_FOUND_ANY_ISSUES } from "@/types";
 
-/* eslint-disable no-unused-vars */
+// /* eslint-disable no-unused-vars */
 
 export default {
   async init({ commit, dispatch }) {
-    const [err, install] = await getInstall();
-    if (err !== null) return [err];
+    let error = null;
+    let install = null;
+
+    [error, install] = await getInstall();
+    if (error !== null) return [error];
 
     commit("updateInstall", install);
 
-    const [err2, [config]] = await getConfig(install.config);
-    if (err2 !== null) return [err2];
+    let configs = null;
+    [error, configs] = await getConfig(install.config);
+    if (error !== null) return [error];
 
-    debug.info("Read Config: ", config);
+    debug.info("Read Config: ", configs);
 
-    commit("updateConfig", config);
+    commit("updateConfig", configs);
 
-    // const [err2] = dispatch("firstFetching");
-    // if (err2 !== null) return [err2];
+    [error] = await dispatch("firstFetching");
+    if (error !== null) return [error];
 
-    return [null];
+    return [error];
   },
 
   async firstFetching({ dispatch }) {
@@ -49,7 +53,7 @@ export default {
   getMarkdown
 };
 
-async function genApi({ state, dispatch }) {
+async function genApi({ state }) {
   const { username, password, token } = state;
 
   let error = null;

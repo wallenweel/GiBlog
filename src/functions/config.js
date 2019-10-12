@@ -45,7 +45,7 @@ async function getConfigFile(file) {
     const json = await response.json();
     return [null, json];
   } catch (error) {
-    debug.err(error);
+    debug.error(error);
     return [GET_CONFIG_FAILED, error];
   }
 }
@@ -59,7 +59,7 @@ async function getConfigGist(id) {
   const files = Object.values(gist.files);
 
   if (!files.length) {
-    debug.err("Not Found Gist Config, Please Check: ", gist.html_url);
+    debug.error("Not Found Gist Config, Please Check: ", gist.html_url);
     return [NOT_FOUND_CONFIG];
   }
 

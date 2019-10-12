@@ -7,18 +7,25 @@ import actions from "./actions";
 import mutations from "./mutations";
 
 const state = {
+  // install config
   install: {
     repo: null,
-    config: null
+    config: {
+      file: null,
+      gist: null
+    }
   },
 
+  // [{token,...}, {token,...}]
+  configs: null,
+
+  // current config
   repo: null,
   username: null,
   password: null,
   token: null,
 
-  theme: null,
-
+  // data
   profile: {
     id: null,
     name: null,
@@ -31,12 +38,12 @@ const state = {
     updated: null
   },
   articles: null,
-  tags: null,
-
   article: null,
+  tags: null,
   comments: null,
 
-  test: true
+  // settings
+  theme: null
 };
 
 export default new Vuex.Store({

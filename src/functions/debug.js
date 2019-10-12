@@ -16,7 +16,7 @@ export default (function debug() {
   return {
     log: bind("log", false),
     warn: bind("warn"),
-    err: bind("error"),
+    error: bind("error"),
     info: bind("info")
   };
 })();
