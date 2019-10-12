@@ -53,11 +53,24 @@ export function issuesCleaner(issues = []) {
   );
 }
 
-export function labelsCleaner(labels = []) {
-  return labels.map(({ color, id, name, url }) => ({
-    color,
-    id,
-    name,
-    url
-  }));
+export function labelsCleaner(labels = [], withnotag = false) {
+  const notag = [
+    {
+      id: 0,
+      color: "",
+      name: "no tag",
+      url: ""
+    }
+  ];
+
+  if (!labels.length) return notag;
+
+  return [...(withnotag ? notag : []), ...labels].map(
+    ({ color, id, name, url }) => ({
+      color,
+      id,
+      name,
+      url
+    })
+  );
 }

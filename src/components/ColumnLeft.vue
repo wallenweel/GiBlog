@@ -3,7 +3,13 @@
     <OwnerArea />
 
     <h5>Focused Tags</h5>
-    <Tags :tags="focusedTags" @selected="subFocusedTag" />
+    <div class="noFocusedTags" v-if="!focusedTags.length">
+      <span>No focused tags yet.</span>
+    </div>
+    <Tags
+      :tags="tags.filter(({ id }) => focusedTags.includes(id))"
+      @selected="subFocusedTag"
+    />
 
     <h5>All Tags</h5>
     <Tags :tags="tags" @selected="addFocusedTag" />
@@ -20,7 +26,10 @@ import Tags from "./Tags.vue";
 export default {
   name: "ColumnLeft",
   computed: {
-    ...mapState(["tags", "focusedTags"])
+    ...mapState({
+      tags: state => state.tags || [],
+      focusedTags: state => state.focusedTags || []
+    })
   },
   methods: {
     ...mapMutations(["addFocusedTag", "subFocusedTag"])
@@ -50,6 +59,14 @@ export default {
     margin-bottom: 0;
     padding: 0 8px;
   }
+}
+
+.noFocusedTags {
+  color: var(--text-info-c-light);
+  font-style: italic;
+  font-size: 14px;
+  margin-left: 16px;
+  margin-top: 24px;
 }
 
 footer.info {

@@ -94,6 +94,7 @@ async function getIssues({ state, commit, dispatch }) {
     // debug.log(data, articles);
 
     commit("updateArticles", articles);
+    commit("updateFocusedArticles");
   };
 
   const labelsHelper = async () => {
@@ -102,7 +103,7 @@ async function getIssues({ state, commit, dispatch }) {
     if (status !== 200) return CONNECT_API_ERROR;
     if (!data.length) return NOT_FOUND_ANY_ISSUES;
 
-    const tags = labelsCleaner(data);
+    const tags = labelsCleaner(data, true);
     // debug.log(tags);
 
     commit("updateTags", tags);

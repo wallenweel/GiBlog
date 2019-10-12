@@ -27,7 +27,7 @@
   --text-info-c-light: #777777;
   --border-c-lighter: #c2c2c2;
   --tag-text-c: #fafafa;
-  --tag-none-bg-c: #5e5e5e;
+  --tag-none-bg-c: #c5c5c5;
 }
 
 html {

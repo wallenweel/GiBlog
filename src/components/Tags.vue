@@ -1,11 +1,8 @@
 <template>
   <nav :class="['tags', tiny ? 'tiny' : '']">
-    <a class="tag" v-if="!(tags || []).length">
-      <span>no tag</span>
-    </a>
     <a
       class="tag active"
-      @click="handleSelected(tag)"
+      @click="handleSelected(tag.id)"
       v-for="tag of tags"
       :style="{ color: `#${tag.color}` }"
       :key="tag.id"

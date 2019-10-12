@@ -22,6 +22,26 @@ export default {
     state.articles = articles;
   },
 
+  updateFocusedArticles(state) {
+    const articles = state.articles || [];
+    const focusedTags = state.focusedTags || [];
+
+    if (!focusedTags.length) {
+      state.focusedArticles = articles.map(({ id }) => id);
+      return;
+    }
+
+    const focused = articles
+      .filter(
+        ({ tags = [] }) =>
+          !!focusedTags.filter(id => !!tags.filter(tag => id === tag.id).length)
+            .length
+      )
+      .map(({ id }) => id);
+
+    state.focusedArticles = focused;
+  },
+
   updateArticle(state, article) {
     state.article = article;
   },
@@ -30,19 +50,16 @@ export default {
     state.tags = tags;
   },
 
-  addFocusedTag(state, tag) {
+  addFocusedTag(state, id) {
     const tags = state.focusedTags || [];
-    const has = tags.filter(_tag => _tag.id === tag.id);
 
-    if (has.length) return;
+    if (tags.filter(_id => _id === id).length) return;
 
-    state.focusedTags = [...tags, tag];
+    state.focusedTags = [...tags, id];
   },
 
-  subFocusedTag(state, tag) {
-    state.focusedTags = (state.focusedTags || []).filter(
-      _tag => _tag.id !== tag.id
-    );
+  subFocusedTag(state, id) {
+    state.focusedTags = (state.focusedTags || []).filter(_id => _id !== id);
   },
 
   updateComments(state, comments) {

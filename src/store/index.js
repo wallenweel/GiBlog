@@ -38,6 +38,7 @@ const state = {
     updated: null
   },
   articles: null,
+  focusedArticles: null,
   article: null,
   comments: null,
   tags: null,
