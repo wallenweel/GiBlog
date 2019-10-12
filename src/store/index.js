@@ -39,8 +39,9 @@ const state = {
   },
   articles: null,
   article: null,
-  tags: null,
   comments: null,
+  tags: null,
+  focusedTags: null,
 
   // settings
   theme: null

@@ -15,7 +15,7 @@
             Comments: <span>{{ article.comments }}</span>
           </div>
         </div>
-        <Tags :tags="article.tags || []" />
+        <Tags :tags="article.tags" :tiny="true" />
       </header>
       <div class="content markdown-body" v-html="content"></div>
     </article>
@@ -93,7 +93,7 @@ export default {
 }
 
 .title {
-  font-size: 22px;
+  font-size: 18px;
   margin: 8px 0;
 }
 

@@ -2,24 +2,28 @@
   <section class="columnLeft">
     <OwnerArea />
 
-    <h5>Tags</h5>
+    <h5>Focused Tags</h5>
+    <Tags :tags="focusedTags" @selected="subFocusedTag" />
 
-    <Tags :tags="tags" />
+    <h5>All Tags</h5>
+    <Tags :tags="tags" @selected="addFocusedTag" />
 
     <footer class="info">Powered by <a href="#">GiBlog</a> & Github</footer>
   </section>
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex";
 import OwnerArea from "@/components/OwnerArea.vue";
 import Tags from "./Tags.vue";
 
 export default {
   name: "ColumnLeft",
   computed: {
-    tags() {
-      return this.$store.state.tags || [];
-    }
+    ...mapState(["tags", "focusedTags"])
+  },
+  methods: {
+    ...mapMutations(["addFocusedTag", "subFocusedTag"])
   },
   components: {
     OwnerArea,

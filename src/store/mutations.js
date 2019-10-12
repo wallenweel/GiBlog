@@ -22,8 +22,27 @@ export default {
     state.articles = articles;
   },
 
+  updateArticle(state, article) {
+    state.article = article;
+  },
+
   updateTags(state, tags) {
     state.tags = tags;
+  },
+
+  addFocusedTag(state, tag) {
+    const tags = state.focusedTags || [];
+    const has = tags.filter(_tag => _tag.id === tag.id);
+
+    if (has.length) return;
+
+    state.focusedTags = [...tags, tag];
+  },
+
+  subFocusedTag(state, tag) {
+    state.focusedTags = (state.focusedTags || []).filter(
+      _tag => _tag.id !== tag.id
+    );
   },
 
   updateComments(state, comments) {

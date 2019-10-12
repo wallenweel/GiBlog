@@ -3,6 +3,7 @@
     <div class="list">
       <article
         class="article"
+        @click="updateArticle(article)"
         v-for="(article, i) of articles"
         :key="i + article.id"
       >
@@ -12,19 +13,7 @@
           <span class="created">{{ article.created }}</span>
           <span class="comments">{{ article.comments }}</span>
         </div>
-        <nav class="tags">
-          <a class="tag" v-if="!(article.tags || []).length">
-            <span>no tag</span>
-          </a>
-          <a
-            class="tag"
-            v-for="tag of article.tags"
-            :style="{ color: `#${tag.color}` }"
-            :key="tag.id"
-          >
-            <span>{{ tag.name }}</span>
-          </a>
-        </nav>
+        <Tags :tags="article.tags || []" :tiny="true" />
       </article>
 
       <footer>- Found {{ articles.length }} Articles -</footer>
@@ -33,12 +22,21 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+import Tags from "./Tags.vue";
+
 export default {
   name: "ColumnList",
   computed: {
     articles() {
       return this.$store.state.articles || [];
     }
+  },
+  methods: {
+    ...mapMutations(["updateArticle"])
+  },
+  components: {
+    Tags
   }
 };
 </script>
@@ -73,6 +71,7 @@ export default {
 }
 
 .article {
+  cursor: pointer;
   background-color: var(--articles-item-bg-c);
   font-size: 12px;
   padding: 8px;
@@ -99,25 +98,5 @@ h4 {
 .meta {
   font-size: 10px;
   margin-top: 4px;
-}
-
-.tags {
-  margin-top: 4px;
-  white-space: nowrap;
-  overflow: hidden;
-  line-height: 1.75;
-}
-
-.tag {
-  border-radius: 2px;
-  background-color: currentColor;
-  font-size: 10px;
-  white-space: nowrap;
-  padding: 2px 4px;
-  margin-right: 2px;
-
-  > span {
-    color: white;
-  }
 }
 </style>

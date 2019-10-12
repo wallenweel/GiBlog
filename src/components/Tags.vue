@@ -1,10 +1,11 @@
 <template>
-  <nav class="tags">
+  <nav :class="['tags', tiny ? 'tiny' : '']">
     <a class="tag" v-if="!(tags || []).length">
       <span>no tag</span>
     </a>
     <a
-      class="tag"
+      class="tag active"
+      @click="handleSelected(tag)"
       v-for="tag of tags"
       :style="{ color: `#${tag.color}` }"
       :key="tag.id"
@@ -18,7 +19,13 @@
 export default {
   name: "Tags",
   props: {
-    tags: Array
+    tags: Array,
+    tiny: Boolean
+  },
+  methods: {
+    handleSelected(tag) {
+      this.$emit("selected", tag);
+    }
   }
 };
 </script>
@@ -31,17 +38,18 @@ export default {
 .tag {
   cursor: default;
   border-radius: 2px;
-  background-color: currentColor;
   font-size: 12px;
+  line-height: 1.35;
   padding: 4px 6px;
-  margin: 4px 2px;
+  margin-top: 6px;
+  margin-right: 4px;
   display: inline-block;
   position: relative;
 
-  &::before {
+  &::before,
+  &::after {
     content: "";
-    opacity: 0.5;
-    box-shadow: 0 1px 2px 1px currentColor;
+    border-radius: 2px;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -50,15 +58,56 @@ export default {
     display: block;
   }
 
-  > span {
-    color: white;
-    position: relative;
+  &::after {
+    background-color: var(--tag-none-bg-c);
   }
 
-  &:hover {
+  > span {
+    opacity: 0.75;
+    color: var(--tag-text-c);
+    text-shadow: 1px 1px 0px rgba(46, 46, 46, 0.25);
+    position: relative;
+    z-index: 3;
+  }
+
+  &.active {
+    cursor: pointer;
+
     &::before {
-      transition: box-shadow 0.25s ease;
-      box-shadow: 0 2px 4px 2px currentColor;
+      box-shadow: 0 1px 2px 1px currentColor;
+      color: currentColor;
+      opacity: 0.65;
+      z-index: 2;
+    }
+
+    &::after {
+      filter: brightness(0.98);
+      background-color: currentColor;
+      z-index: 1;
+    }
+
+    &:hover {
+      &::before {
+        transition: box-shadow 0.25s ease;
+        box-shadow: 0 2px 4px 2px currentColor;
+      }
+
+      span {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.tags.tiny {
+  padding: 0;
+  .tag {
+    font-size: 9px;
+    padding: 2px 4px;
+
+    &::before,
+    &::after {
+      box-shadow: none;
     }
   }
 }

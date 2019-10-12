@@ -26,6 +26,8 @@
   --text-c-darker: #353535;
   --text-info-c-light: #777777;
   --border-c-lighter: #c2c2c2;
+  --tag-text-c: #fafafa;
+  --tag-none-bg-c: #5e5e5e;
 }
 
 html {
