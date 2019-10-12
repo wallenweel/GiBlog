@@ -4,7 +4,7 @@
       <article
         class="article"
         @click="updateArticle(article)"
-        v-for="(article, i) of articles"
+        v-for="(article, i) of focused"
         :key="i + article.id"
       >
         <h3 class="title">{{ article.title }}</h3>
@@ -16,24 +16,54 @@
         <Tags :tags="article.tags || []" :tiny="true" />
       </article>
 
-      <footer>- Found {{ articles.length }} Articles -</footer>
+      <footer>- Found {{ focused.length }} Articles -</footer>
     </div>
   </section>
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapState, mapMutations } from "vuex";
 import Tags from "./Tags.vue";
 
 export default {
   name: "ColumnList",
+  data() {
+    return {
+      focused: []
+    };
+  },
+  created() {
+    this.focusedArticles();
+  },
   computed: {
-    articles() {
-      return this.$store.state.articles || [];
-    }
+    ...mapState(["articles", "focusedTags"])
   },
   methods: {
-    ...mapMutations(["updateArticle"])
+    ...mapMutations(["updateArticle", "updateArticles"]),
+    focusedArticles() {
+      let articles = [...(this.articles || [])];
+
+      const focusedTags = this.focusedTags || [];
+
+      if (!focusedTags.length) {
+        this.focused = articles;
+        return;
+      }
+
+      articles = articles.filter(
+        ({ tags = [] }) =>
+          !!focusedTags.filter(
+            ({ id }) => !!tags.filter(tag => id === tag.id).length
+          ).length
+      );
+
+      this.focused = articles;
+    }
+  },
+  watch: {
+    focusedTags() {
+      this.focusedArticles();
+    }
   },
   components: {
     Tags
