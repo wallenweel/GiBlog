@@ -12,7 +12,6 @@ export const theme = {
   }
 };
 
-export const config = {
-  example: "./config.example.json",
-  file: "./config.json"
+export const install = {
+  file: "./install.json"
 };

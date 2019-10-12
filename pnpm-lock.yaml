@@ -1,5 +1,6 @@
 dependencies:
   core-js: 2.6.9
+  fetch-retry: 2.2.3
   github-api: 3.3.0
   github-markdown-css: 3.0.1
   normalize.css: 8.0.1
@@ -859,18 +860,18 @@ packages:
       '@hapi/address': 2.1.2
       '@hapi/bourne': 1.3.2
       '@hapi/hoek': 8.3.0
-      '@hapi/topo': 3.1.5
+      '@hapi/topo': 3.1.6
     dev: true
     resolution:
       integrity: sha1-xnW4pxKW8Cgz+NbSQ7NMV7jOGdc=
       tarball: '@hapi/joi/download/@hapi/joi-15.1.1.tgz'
-  /@hapi/topo/3.1.5:
+  /@hapi/topo/3.1.6:
     dependencies:
       '@hapi/hoek': 8.3.0
     dev: true
     resolution:
-      integrity: sha1-O66hfkVlMO2taadcP8fN6X3W0zE=
-      tarball: '@hapi/topo/download/@hapi/topo-3.1.5.tgz'
+      integrity: sha1-aNk1+j6uf91asNf5U/MgXYsr/Ck=
+      tarball: '@hapi/topo/download/@hapi/topo-3.1.6.tgz'
   /@intervolga/optimize-cssnano-plugin/1.0.6_webpack@4.41.1:
     dependencies:
       cssnano: 4.1.10
@@ -2383,7 +2384,7 @@ packages:
   /browserslist/4.7.0:
     dependencies:
       caniuse-lite: 1.0.30000999
-      electron-to-chromium: 1.3.280
+      electron-to-chromium: 1.3.281
       node-releases: 1.1.35
     dev: true
     hasBin: true
@@ -3887,11 +3888,11 @@ packages:
     resolution:
       integrity: sha1-W1q1f3GLedSsqSVEV6/s02+oAig=
       tarball: ejs/download/ejs-2.7.1.tgz
-  /electron-to-chromium/1.3.280:
+  /electron-to-chromium/1.3.281:
     dev: true
     resolution:
-      integrity: sha1-X4lQyDKePhG1nHBf1ZtLjZs95bk=
-      tarball: electron-to-chromium/download/electron-to-chromium-1.3.280.tgz
+      integrity: sha1-Lb658L3/3bFmL5ygDSbEnTHcD34=
+      tarball: electron-to-chromium/download/electron-to-chromium-1.3.281.tgz
   /elliptic/6.5.1:
     dependencies:
       bn.js: 4.11.8
@@ -3924,6 +3925,13 @@ packages:
     resolution:
       integrity: sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
       tarball: encodeurl/download/encodeurl-1.0.2.tgz
+  /encoding/0.1.12:
+    dependencies:
+      iconv-lite: 0.4.24
+    dev: false
+    resolution:
+      integrity: sha1-U4tm8+5izRq1HsMjgp0flIDHS+s=
+      tarball: encoding/download/encoding-0.1.12.tgz
   /end-of-stream/1.4.4:
     dependencies:
       once: 1.4.0
@@ -4003,6 +4011,11 @@ packages:
     resolution:
       integrity: sha1-7fckeAM0VujdqO8J4ArZZQcH83c=
       tarball: es-to-primitive/download/es-to-primitive-1.2.0.tgz
+  /es6-promise/4.2.8:
+    dev: false
+    resolution:
+      integrity: sha1-TrIVlMlyvEBVPSduUQU5FD21Pgo=
+      tarball: es6-promise/download/es6-promise-4.2.8.tgz
   /escape-html/1.0.3:
     dev: true
     resolution:
@@ -4655,6 +4668,14 @@ packages:
     resolution:
       integrity: sha1-VOmr99+i8mzZsWNsWIwa/AXeXVg=
       tarball: fb-watchman/download/fb-watchman-2.0.0.tgz
+  /fetch-retry/2.2.3:
+    dependencies:
+      es6-promise: 4.2.8
+      isomorphic-fetch: 2.2.1
+    dev: false
+    resolution:
+      integrity: sha1-r7IW8QXBIAjbldmBmPzKfOzKDE0=
+      tarball: fetch-retry/download/fetch-retry-2.2.3.tgz
   /figgy-pudding/3.5.1:
     dev: true
     resolution:
@@ -5609,7 +5630,6 @@ packages:
   /iconv-lite/0.4.24:
     dependencies:
       safer-buffer: 2.1.2
-    dev: true
     engines:
       node: '>=0.10.0'
     resolution:
@@ -6231,7 +6251,6 @@ packages:
       integrity: sha1-+xj4fOH+uSUWnJpAfBkxijIG7Yg=
       tarball: is-resolvable/download/is-resolvable-1.1.0.tgz
   /is-stream/1.1.0:
-    dev: true
     engines:
       node: '>=0.10.0'
     resolution:
@@ -6328,6 +6347,14 @@ packages:
     resolution:
       integrity: sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
       tarball: isobject/download/isobject-3.0.1.tgz
+  /isomorphic-fetch/2.2.1:
+    dependencies:
+      node-fetch: 1.7.3
+      whatwg-fetch: 3.0.0
+    dev: false
+    resolution:
+      integrity: sha1-YRrhrPFPXoH3KVB0coGf6XM1WKk=
+      tarball: isomorphic-fetch/download/isomorphic-fetch-2.2.1.tgz
   /isstream/0.1.2:
     dev: true
     resolution:
@@ -7731,6 +7758,14 @@ packages:
     resolution:
       integrity: sha1-79hHTe5O3sQTjN3tWA9VFlAPczQ=
       tarball: node-cache/download/node-cache-4.2.1.tgz
+  /node-fetch/1.7.3:
+    dependencies:
+      encoding: 0.1.12
+      is-stream: 1.1.0
+    dev: false
+    resolution:
+      integrity: sha1-mA9vcthSEaU0fGsrwYxbhMPrR+8=
+      tarball: node-fetch/download/node-fetch-1.7.3.tgz
   /node-forge/0.9.0:
     dev: true
     engines:
@@ -9811,7 +9846,6 @@ packages:
       integrity: sha1-QKNmnzsHfR6UPURinhV91IAjvy4=
       tarball: safe-regex/download/safe-regex-1.1.0.tgz
   /safer-buffer/2.1.2:
-    dev: true
     resolution:
       integrity: sha1-RPoWGwGHuVSd2Eu5GAL5vYOFzWo=
       tarball: safer-buffer/download/safer-buffer-2.1.2.tgz
@@ -11634,6 +11668,11 @@ packages:
     resolution:
       integrity: sha1-WrrPd3wyFmpR0IXWtPPn0nET3bA=
       tarball: whatwg-encoding/download/whatwg-encoding-1.0.5.tgz
+  /whatwg-fetch/3.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-/IBORYzEYACbGiuWa8iBfSV4rvs=
+      tarball: whatwg-fetch/download/whatwg-fetch-3.0.0.tgz
   /whatwg-mimetype/2.3.0:
     dev: true
     resolution:
@@ -12035,6 +12074,7 @@ specifiers:
   eslint: ^5.16.0
   eslint-plugin-prettier: ^3.1.0
   eslint-plugin-vue: ^5.0.0
+  fetch-retry: ^2.2.3
   github-api: ^3.3.0
   github-markdown-css: ^3.0.1
   normalize.css: ^8.0.1

@@ -1,6 +1,10 @@
 export default {
-  updateConfig(state, { oauth_token, username, theme, repos }) {
-    state.token = atob(oauth_token);
+  updateInstall(state, { repo, config }) {
+    Object.assign(state.install, { repo, config });
+  },
+
+  updateConfig(state, { base64_token, username, theme, repos }) {
+    state.token = atob(base64_token);
     state.username = username;
     state.repo = repos[0];
     state.theme = theme;

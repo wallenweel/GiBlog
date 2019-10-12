@@ -8,7 +8,7 @@
     "gist": false,
     "username": "",
     "password": null,
-    "oauth_token": "",
+    "base64_token": "",
     "repos": []
   }
 ]

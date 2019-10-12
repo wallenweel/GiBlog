@@ -7,6 +7,11 @@ import actions from "./actions";
 import mutations from "./mutations";
 
 const state = {
+  install: {
+    repo: null,
+    config: null
+  },
+
   repo: null,
   username: null,
   password: null,

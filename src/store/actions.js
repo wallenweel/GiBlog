@@ -1,5 +1,5 @@
 import GitHub from "github-api";
-import getConfig from "@/functions/config";
+import { getInstall, getConfig } from "@/functions/config";
 import debug from "@/functions/debug";
 import {
   profileCleaner,
@@ -9,20 +9,29 @@ import {
 
 import { CONNECT_API_ERROR, NOT_FOUND_ANY_ISSUES } from "@/types";
 
+/* eslint-disable no-unused-vars */
+
 export default {
   async init({ commit, dispatch }) {
-    const [err, [config]] = await getConfig();
-
+    const [err, install] = await getInstall();
     if (err !== null) return [err];
+
+    commit("updateInstall", install);
+
+    const [err2, [config]] = await getConfig(install.config);
+    if (err2 !== null) return [err2];
 
     debug.info("Read Config: ", config);
 
     commit("updateConfig", config);
 
-    // const [err2, api] = await dispatch("genApi");
-
+    // const [err2] = dispatch("firstFetching");
     // if (err2 !== null) return [err2];
 
+    return [null];
+  },
+
+  async firstFetching({ dispatch }) {
     let error = null;
 
     [error] = await dispatch("getProfile");
@@ -40,7 +49,6 @@ export default {
   getMarkdown
 };
 
-/* eslint-disable no-unused-vars */
 async function genApi({ state, dispatch }) {
   const { username, password, token } = state;
 
