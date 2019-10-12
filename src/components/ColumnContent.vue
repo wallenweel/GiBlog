@@ -1,30 +1,32 @@
 <template>
-  <section class="columnContent" data-ui-column-content>
+  <section class="column-content" data-ui-column-content>
     <div class="placeholder left"></div>
-    <article class="article">
-      <header>
-        <h1 class="title">{{ article.title }}</h1>
-        <div class="meta">
-          <div class="created">
-            Created:
-            <span v-if="article.created">
-              {{ article.created | moment("calendar") }}
-            </span>
+    <div class="wrap">
+      <article class="article">
+        <header>
+          <h1 class="title">{{ article.title }}</h1>
+          <div class="meta">
+            <div class="created">
+              Created:
+              <span v-if="article.created">
+                {{ article.created | moment("calendar") }}
+              </span>
+            </div>
+            <div class="updated">
+              Updated:
+              <span v-if="article.updated">
+                {{ article.updated | moment("calendar") }}
+              </span>
+            </div>
+            <div class="comments">
+              Comments: <span>{{ article.comments }}</span>
+            </div>
           </div>
-          <div class="updated">
-            Updated:
-            <span v-if="article.updated">
-              {{ article.updated | moment("calendar") }}
-            </span>
-          </div>
-          <div class="comments">
-            Comments: <span>{{ article.comments }}</span>
-          </div>
-        </div>
-        <Tags :tags="article.tags" :tiny="true" />
-      </header>
-      <div class="content markdown-body" v-html="content"></div>
-    </article>
+          <Tags :tags="article.tags" :tiny="true" />
+        </header>
+        <div class="content markdown-body" v-html="content"></div>
+      </article>
+    </div>
     <!-- <div class="placeholder right"></div> -->
   </section>
 </template>
@@ -69,10 +71,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.columnContent {
-  width: 100%;
+.column-content {
   min-height: 100vh;
+  width: 100%;
   display: flex;
+
+  > .wrap {
+    width: 100%;
+  }
 }
 
 .placeholder {

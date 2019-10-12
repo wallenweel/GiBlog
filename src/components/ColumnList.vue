@@ -1,22 +1,24 @@
 <template>
-  <section class="columnList" data-ui-column-list>
-    <div class="list">
-      <article
-        class="article"
-        @click="updateArticle(article)"
-        v-for="(article, i) of articleList"
-        :key="i + article.id"
-      >
-        <h3 class="title">{{ article.title }}</h3>
-        <h4 class="excerpt">{{ article.excerpt }}</h4>
-        <div class="meta">
-          <span class="created">{{ article.created }}</span>
-          <span class="comments">{{ article.comments }}</span>
-        </div>
-        <Tags :tags="article.tags || []" :tiny="true" />
-      </article>
+  <section class="column-list" data-ui-column-list>
+    <div class="wrap">
+      <div class="list">
+        <article
+          class="article"
+          @click="updateArticle(article)"
+          v-for="(article, i) of articleList"
+          :key="i + article.id"
+        >
+          <h3 class="title">{{ article.title }}</h3>
+          <h4 class="excerpt">{{ article.excerpt }}</h4>
+          <div class="meta">
+            <span class="created">{{ article.created }}</span>
+            <span class="comments">{{ article.comments }}</span>
+          </div>
+          <Tags :tags="article.tags || []" :tiny="true" />
+        </article>
 
-      <footer>- Found {{ articleList.length }} Articles -</footer>
+        <footer>- Found {{ articleList.length }} Articles -</footer>
+      </div>
     </div>
   </section>
 </template>
@@ -51,25 +53,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.columnList {
-  background-color: var(--column-list-bg-c);
-  width: var(--column-list-w);
-  height: var(--column-list-h);
-  flex-shrink: 0;
-  flex-direction: column;
-  display: flex;
-
+.column-list {
+  height: 0;
+  width: 0;
   top: 0;
-  left: var(--column-left-w);
-  position: fixed;
-  z-index: 6;
+  left: 0;
+  position: absolute;
+  z-index: 4;
 
-  --hide-len: calc((var(--column-left-w) + var(--column-list-w)) * -1);
-  --show-len: calc((var(--column-left-w) * 2 + var(--column-list-w)));
-  left: var(--hide-len);
+  > .wrap {
+    background-color: var(--column-list-bg-c);
+    width: var(--column-list-w);
+    height: var(--column-list-h);
+    flex-shrink: 0;
+    flex-direction: column;
+    display: flex;
 
-  transition: transform 0.25s ease;
-  transform: translateX(var(--show-len));
+    left: calc(var(--column-list-w) * -1);
+    position: relative;
+
+    transition: transform 0.25s ease;
+    transform: translateX(calc(var(--column-left-w) + var(--column-list-w)));
+  }
 }
 
 .list {

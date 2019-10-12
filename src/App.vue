@@ -11,6 +11,9 @@
 @import "./styles/media.scss";
 
 :root {
+  --float-nav-s-b-c: #ffffff;
+  --float-nav-s-w: 240px;
+  --float-nav-s-h: 42px;
   --column-left-w: 220px;
   --column-left-h: 100vh;
   --column-left-bg-c: #ffffff;

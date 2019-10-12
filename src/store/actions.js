@@ -9,7 +9,7 @@ import {
 
 import { CONNECT_API_ERROR, NOT_FOUND_ANY_ISSUES } from "@/types";
 
-// /* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars */
 
 export default {
   async init({ commit, dispatch }) {
@@ -29,7 +29,7 @@ export default {
 
     commit("updateConfig", configs);
 
-    [error] = await dispatch("firstFetching");
+    // [error] = await dispatch("firstFetching");
     if (error !== null) return [error];
 
     return [error];

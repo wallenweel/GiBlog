@@ -1,11 +1,11 @@
 #main {
   @media screen and (max-width: 1024px) {
-    [data-ui-column-left] {
+    [data-ui-column-left] > .wrap {
       transform: translateX(0);
     }
 
-    [data-ui-column-list] {
-      transform: translateX(calc(var(--column-left-w) + var(--column-list-w)));
+    [data-ui-column-list] > .wrap {
+      transform: translateX(var(--column-list-w));
     }
 
     [data-ui-column-content] {
@@ -18,7 +18,7 @@
   }
 
   @media screen and (max-width: 800px) {
-    [data-ui-column-list] {
+    [data-ui-column-list] > .wrap {
       transform: translateX(0);
     }
 

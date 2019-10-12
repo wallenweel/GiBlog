@@ -1,20 +1,22 @@
 <template>
-  <section class="columnLeft" data-ui-column-left>
-    <OwnerArea />
+  <section class="column-left" data-ui-column-left>
+    <div class="wrap">
+      <OwnerArea />
 
-    <h5 class="headline">Focused Tags</h5>
-    <div class="noFocusedTags" v-if="!focusedTags.length">
-      <span>No focused tags yet.</span>
+      <h5 class="headline">Focused Tags</h5>
+      <div class="no-focused-tags" v-if="!focusedTags.length">
+        <span>No focused tags yet.</span>
+      </div>
+      <Tags
+        :tags="tags.filter(({ id }) => focusedTags.includes(id))"
+        @selected="subFocusedTag"
+      />
+
+      <h5 class="headline">All Tags</h5>
+      <Tags :tags="tags" @selected="addFocusedTag" />
+
+      <footer class="info">Powered by <a href="#">GiBlog</a> & Github</footer>
     </div>
-    <Tags
-      :tags="tags.filter(({ id }) => focusedTags.includes(id))"
-      @selected="subFocusedTag"
-    />
-
-    <h5 class="headline">All Tags</h5>
-    <Tags :tags="tags" @selected="addFocusedTag" />
-
-    <footer class="info">Powered by <a href="#">GiBlog</a> & Github</footer>
   </section>
 </template>
 
@@ -42,23 +44,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.columnLeft {
-  background-color: var(--column-left-bg-c);
-  width: var(--column-left-w);
-  height: var(--column-left-h);
-  flex-shrink: 0;
-  flex-direction: column;
-  display: flex;
-
+.column-left {
+  height: 0;
+  width: 0;
   top: 0;
   left: 0;
-  position: fixed;
+  position: absolute;
   z-index: 6;
 
-  left: calc(var(--column-left-w) * -1);
+  > .wrap {
+    background-color: var(--column-left-bg-c);
+    width: var(--column-left-w);
+    height: var(--column-left-h);
+    flex-shrink: 0;
+    flex-direction: column;
+    display: flex;
 
-  transition: transform 0.25s ease;
-  transform: translateX(var(--column-left-w));
+    left: calc(var(--column-left-w) * -1);
+    position: relative;
+
+    transition: transform 0.25s ease;
+    transform: translateX(var(--column-left-w));
+  }
 }
 
 h5.headline {
@@ -66,7 +73,7 @@ h5.headline {
   padding: 0 8px;
 }
 
-.noFocusedTags {
+.no-focused-tags {
   color: var(--text-info-c-light);
   font-style: italic;
   font-size: 14px;
