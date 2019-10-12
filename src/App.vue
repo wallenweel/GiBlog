@@ -8,6 +8,8 @@
 @import "~normalize.css";
 @import "~github-markdown-css";
 
+@import "./styles/media.scss";
+
 :root {
   --column-left-w: 220px;
   --column-left-h: 100vh;

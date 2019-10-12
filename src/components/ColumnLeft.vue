@@ -1,8 +1,8 @@
 <template>
-  <section class="columnLeft">
+  <section class="columnLeft" data-ui-column-left>
     <OwnerArea />
 
-    <h5>Focused Tags</h5>
+    <h5 class="headline">Focused Tags</h5>
     <div class="noFocusedTags" v-if="!focusedTags.length">
       <span>No focused tags yet.</span>
     </div>
@@ -11,7 +11,7 @@
       @selected="subFocusedTag"
     />
 
-    <h5>All Tags</h5>
+    <h5 class="headline">All Tags</h5>
     <Tags :tags="tags" @selected="addFocusedTag" />
 
     <footer class="info">Powered by <a href="#">GiBlog</a> & Github</footer>
@@ -55,10 +55,15 @@ export default {
   position: fixed;
   z-index: 6;
 
-  > h5 {
-    margin-bottom: 0;
-    padding: 0 8px;
-  }
+  left: calc(var(--column-left-w) * -1);
+
+  transition: transform 0.25s ease;
+  transform: translateX(var(--column-left-w));
+}
+
+h5.headline {
+  margin-bottom: 0;
+  padding: 0 8px;
 }
 
 .noFocusedTags {

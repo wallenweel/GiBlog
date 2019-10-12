@@ -1,5 +1,5 @@
 <template>
-  <section class="columnList">
+  <section class="columnList" data-ui-column-list>
     <div class="list">
       <article
         class="article"
@@ -63,6 +63,13 @@ export default {
   left: var(--column-left-w);
   position: fixed;
   z-index: 6;
+
+  --hide-len: calc((var(--column-left-w) + var(--column-list-w)) * -1);
+  --show-len: calc((var(--column-left-w) * 2 + var(--column-list-w)));
+  left: var(--hide-len);
+
+  transition: transform 0.25s ease;
+  transform: translateX(var(--show-len));
 }
 
 .list {

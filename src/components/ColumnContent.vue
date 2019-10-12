@@ -1,5 +1,5 @@
 <template>
-  <section class="columnContent">
+  <section class="columnContent" data-ui-column-content>
     <div class="placeholder left"></div>
     <article class="article">
       <header>

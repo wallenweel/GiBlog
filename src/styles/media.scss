@@ -1,0 +1,33 @@
+#main {
+  @media screen and (max-width: 1024px) {
+    [data-ui-column-left] {
+      transform: translateX(0);
+    }
+
+    [data-ui-column-list] {
+      transform: translateX(calc(var(--column-left-w) + var(--column-list-w)));
+    }
+
+    [data-ui-column-content] {
+      .placeholder {
+        &.left {
+          width: var(--column-list-w);
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    [data-ui-column-list] {
+      transform: translateX(0);
+    }
+
+    [data-ui-column-content] {
+      .placeholder {
+        &.left {
+          width: 0;
+        }
+      }
+    }
+  }
+}
