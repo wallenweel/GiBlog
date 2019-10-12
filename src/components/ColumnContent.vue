@@ -6,10 +6,16 @@
         <h1 class="title">{{ article.title }}</h1>
         <div class="meta">
           <div class="created">
-            Created: <span>{{ article.created | moment("calendar") }}</span>
+            Created:
+            <span v-if="article.created">
+              {{ article.created | moment("calendar") }}
+            </span>
           </div>
           <div class="updated">
-            Updated: <span>{{ article.updated | moment("calendar") }}</span>
+            Updated:
+            <span v-if="article.updated">
+              {{ article.updated | moment("calendar") }}
+            </span>
           </div>
           <div class="comments">
             Comments: <span>{{ article.comments }}</span>
