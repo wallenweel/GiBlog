@@ -2,6 +2,18 @@
   @media screen and (max-width: 1024px) {
     [data-ui-float-nav] > .wrap {
       transform: translateX(0);
+
+      .tray {
+        .search {
+          & + .placeholder {
+            left: calc(48px * 1 - 16px);
+          }
+        }
+
+        .toggle-left {
+          display: block;
+        }
+      }
     }
 
     [data-ui-column-left] > .wrap {

@@ -1,7 +1,7 @@
 <template>
-  <main id="main">
-    <FloatNavBar />
-    <ColumnLeft />
+  <main id="main" @click.stop="handleClear">
+    <FloatNavBar @toggle-left="toggleLeft = !toggleLeft" />
+    <ColumnLeft :data-on="toggleLeft" />
     <ColumnList />
     <ColumnContent />
     <ColumnComment v-if="false" />
@@ -17,6 +17,16 @@ import ColumnComment from "@/components/ColumnComment.vue";
 
 export default {
   name: "Main",
+  data() {
+    return {
+      toggleLeft: null
+    };
+  },
+  methods: {
+    handleClear() {
+      this.toggleLeft = null;
+    }
+  },
   components: {
     FloatNavBar,
     ColumnLeft,

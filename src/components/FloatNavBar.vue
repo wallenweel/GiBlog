@@ -2,10 +2,19 @@
   <nav class="float-nav-bar" data-ui-float-nav>
     <div class="wrap">
       <div class="tray">
-        <Button class="toggle-left" type="icon" color="transparent">
+        <Button
+          class="toggle-left"
+          type="icon"
+          color="transparent"
+          @click.stop="$emit('toggle-left')"
+        >
           <Icon><IconMenu /></Icon>
         </Button>
-        <input class="search" @change="handleInputChange" :data-searched="searched" />
+        <input
+          class="search"
+          :data-searched="searched"
+          @change="handleInputChange"
+        />
         <div class="placeholder">Search...</div>
       </div>
     </div>
@@ -26,7 +35,6 @@ export default {
   },
   methods: {
     handleInputChange({ target }) {
-      // console.log(target.value);
       this.searched = target.value || null;
     }
   },
@@ -45,7 +53,7 @@ export default {
   left: 0;
   top: 0;
   position: absolute;
-  z-index: 9;
+  z-index: 5;
 
   > .wrap {
     width: var(--column-list-w);
@@ -66,6 +74,7 @@ export default {
   font-size: 14px;
   align-items: center;
   display: flex;
+  position: relative;
 }
 
 input.search {
@@ -89,16 +98,16 @@ input.search {
   & + .placeholder {
     user-select: none;
     color: var(--text-info-c-light);
-    left: calc(48px * 1 + 12px);
+    padding-left: 1em;
+    left: 0;
     position: absolute;
     z-index: 0;
   }
 }
 
-button {
-  &.toggle-left {
-    color: var(--float-nav-icon-c);
-    margin-left: -4px;
-  }
+.toggle-left {
+  color: var(--float-nav-icon-c);
+  margin-left: -4px;
+  display: none;
 }
 </style>

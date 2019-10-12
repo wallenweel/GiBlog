@@ -80,6 +80,7 @@ export default {
 .list {
   height: 100%;
   padding: 8px;
+  margin-top: 56px;
   overflow-y: auto;
 
   > footer {

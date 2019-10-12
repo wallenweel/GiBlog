@@ -66,6 +66,12 @@ export default {
     transition: transform 0.25s ease;
     transform: translateX(var(--column-left-w));
   }
+
+  &[data-on] {
+    > .wrap {
+      transform: translateX(var(--column-left-w)) !important;
+    }
+  }
 }
 
 h5.headline {

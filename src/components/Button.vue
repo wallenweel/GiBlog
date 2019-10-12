@@ -4,6 +4,7 @@
     :style="{
       backgroundColor: color
     }"
+    @click="ev => $emit('click', ev)"
   >
     <slot />
   </button>
