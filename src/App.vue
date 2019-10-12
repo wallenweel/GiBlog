@@ -11,9 +11,11 @@
 @import "./styles/media.scss";
 
 :root {
-  --float-nav-s-b-c: #ffffff;
-  --float-nav-s-w: 240px;
-  --float-nav-s-h: 42px;
+  --float-nav-w: 240px;
+  --float-nav-h: 42px;
+  --float-nav-b-c: #ffffff;
+  --float-nav-icon-c: #222222;
+  --float-nav-search-bg: transparent;
   --column-left-w: 220px;
   --column-left-h: 100vh;
   --column-left-bg-c: #ffffff;
@@ -33,6 +35,7 @@
   --border-c-lighter: #c2c2c2;
   --tag-text-c: #fafafa;
   --tag-none-bg-c: #c5c5c5;
+  --btn-normal-bg-c: #cccccc;
 }
 
 html {

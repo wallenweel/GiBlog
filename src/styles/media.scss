@@ -1,5 +1,9 @@
 #main {
   @media screen and (max-width: 1024px) {
+    [data-ui-float-nav] > .wrap {
+      transform: translateX(0);
+    }
+
     [data-ui-column-left] > .wrap {
       transform: translateX(0);
     }
