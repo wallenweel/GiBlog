@@ -23,6 +23,8 @@ export default {
 
 <style lang="scss" scoped>
 button {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
   cursor: pointer;
   background-color: var(--btn-normal-bg-c);
   line-height: 0;
