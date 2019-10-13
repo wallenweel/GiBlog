@@ -6,19 +6,19 @@
           <h1 class="title">{{ article.title }}</h1>
           <div class="meta">
             <div class="created">
-              Created:
-              <span v-if="article.created">
-                {{ article.created | moment("calendar") }}
+              {{ $t("created") }}:
+              <span>
+                {{ $d(new Date(article.created || null), "short") }}
               </span>
             </div>
             <div class="updated">
-              Updated:
-              <span v-if="article.updated">
-                {{ article.updated | moment("calendar") }}
+              {{ $t("updated") }}:
+              <span>
+                {{ $d(new Date(article.updated || null), "long") }}
               </span>
             </div>
             <div class="comments">
-              Comments: <span>{{ article.comments }}</span>
+              {{ $t("comments") }}: <span>{{ article.comments || 0 }}</span>
             </div>
           </div>
           <Tags :tags="article.tags" :tiny="true" />

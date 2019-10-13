@@ -6,6 +6,7 @@ dependencies:
   normalize.css: 8.0.1
   register-service-worker: 1.6.2
   vue: 2.6.10
+  vue-i18n: 8.14.1
   vue-moment: 4.0.0_vue@2.6.10
   vue-router: 3.1.3
   vuex: 3.1.1
@@ -26,6 +27,7 @@ devDependencies:
   prettier: 1.18.2
   sass: 1.23.0
   sass-loader: 8.0.0_sass@1.23.0
+  vue-cli-plugin-i18n: 0.6.0
   vue-template-compiler: 2.6.10
 lockfileVersion: 5.1
 packages:
@@ -2384,7 +2386,7 @@ packages:
   /browserslist/4.7.0:
     dependencies:
       caniuse-lite: 1.0.30000999
-      electron-to-chromium: 1.3.281
+      electron-to-chromium: 1.3.282
       node-releases: 1.1.35
     dev: true
     hasBin: true
@@ -2783,6 +2785,18 @@ packages:
     resolution:
       integrity: sha1-6LmI2SBsaSMC2O6DTnqFwBRNj3c=
       tarball: cli-spinners/download/cli-spinners-2.2.0.tgz
+  /cli-table3/0.5.1:
+    dependencies:
+      object-assign: 4.1.1
+      string-width: 2.1.1
+    dev: true
+    engines:
+      node: '>=6'
+    optionalDependencies:
+      colors: 1.4.0
+    resolution:
+      integrity: sha1-AlI3LZTfxA29jfBgBfSPMfZW8gI=
+      tarball: cli-table3/download/cli-table3-0.5.1.tgz
   /cli-width/2.2.0:
     dev: true
     resolution:
@@ -2910,6 +2924,14 @@ packages:
     resolution:
       integrity: sha1-aBSOf4XUGtdknF+oyBBvCY0inhA=
       tarball: color/download/color-3.1.2.tgz
+  /colors/1.4.0:
+    dev: true
+    engines:
+      node: '>=0.1.90'
+    optional: true
+    resolution:
+      integrity: sha1-xQSRR51MG9rtLJztMs98fcI2D3g=
+      tarball: colors/download/colors-1.4.0.tgz
   /combined-stream/1.0.8:
     dependencies:
       delayed-stream: 1.0.0
@@ -3548,6 +3570,13 @@ packages:
     resolution:
       integrity: sha1-EEmdhohEza1P7ghC34x/bwyVp1M=
       tarball: deepmerge/download/deepmerge-1.5.2.tgz
+  /deepmerge/2.2.1:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-XT/yKgHAD2RUBaL7wX0HeKGAEXA=
+      tarball: deepmerge/download/deepmerge-2.2.1.tgz
   /default-gateway/4.2.0:
     dependencies:
       execa: 1.0.0
@@ -3814,6 +3843,15 @@ packages:
     resolution:
       integrity: sha1-Vuo0HoNOBuZ0ivehyyXaZ+qfjCo=
       tarball: domutils/download/domutils-1.7.0.tgz
+  /dot-object/1.9.0:
+    dependencies:
+      commander: 2.20.3
+      glob: 7.1.4
+    dev: true
+    hasBin: true
+    resolution:
+      integrity: sha1-bj1tg3n3lMUXRZnd8FUo9ZkPB24=
+      tarball: dot-object/download/dot-object-1.9.0.tgz
   /dot-prop/4.2.0:
     dependencies:
       is-obj: 1.0.1
@@ -3828,6 +3866,13 @@ packages:
     resolution:
       integrity: sha1-P7rwIL/XlIhAcuomsel5HUWmKfA=
       tarball: dotenv-expand/download/dotenv-expand-5.1.0.tgz
+  /dotenv/6.2.0:
+    dev: true
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha1-lBwEEFNdlCyL7PKNPzV9vZ1HYGQ=
+      tarball: dotenv/download/dotenv-6.2.0.tgz?cache=0&sync_timestamp=1566099469183&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdotenv%2Fdownload%2Fdotenv-6.2.0.tgz
   /dotenv/7.0.0:
     dev: true
     engines:
@@ -3888,11 +3933,11 @@ packages:
     resolution:
       integrity: sha1-W1q1f3GLedSsqSVEV6/s02+oAig=
       tarball: ejs/download/ejs-2.7.1.tgz
-  /electron-to-chromium/1.3.281:
+  /electron-to-chromium/1.3.282:
     dev: true
     resolution:
-      integrity: sha1-Lb658L3/3bFmL5ygDSbEnTHcD34=
-      tarball: electron-to-chromium/download/electron-to-chromium-1.3.281.tgz
+      integrity: sha1-FhGK6ceaMuqToXWR1bFuKNEPwI0=
+      tarball: electron-to-chromium/download/electron-to-chromium-1.3.282.tgz
   /elliptic/6.5.1:
     dependencies:
       bn.js: 4.11.8
@@ -4237,6 +4282,13 @@ packages:
     resolution:
       integrity: sha1-oeOsGq5KP72Clvz496tzFMu2q+o=
       tarball: eslint/download/eslint-5.16.0.tgz
+  /esm/3.2.25:
+    dev: true
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha1-NCwYwp1WFXaIulzjH4Qx+7eVzBA=
+      tarball: esm/download/esm-3.2.25.tgz
   /espree/3.5.4:
     dependencies:
       acorn: 5.7.3
@@ -4887,6 +4939,14 @@ packages:
     resolution:
       integrity: sha1-XSltbwS9pEpGMKMBQTvbwuwIXsA=
       tarball: flat-cache/download/flat-cache-2.0.1.tgz
+  /flat/4.1.0:
+    dependencies:
+      is-buffer: 2.0.4
+    dev: true
+    hasBin: true
+    resolution:
+      integrity: sha1-CQvsiwXjnLowl0fx1YjwTbr5jbI=
+      tarball: flat/download/flat-4.1.0.tgz
   /flatted/2.0.1:
     dev: true
     resolution:
@@ -5938,7 +5998,6 @@ packages:
       integrity: sha1-76ouqdqg16suoTqXsritUf776L4=
       tarball: is-buffer/download/is-buffer-1.1.6.tgz
   /is-buffer/2.0.4:
-    dev: false
     engines:
       node: '>=4'
     resolution:
@@ -6291,6 +6350,13 @@ packages:
     resolution:
       integrity: sha1-Sw2hRCEE0bM2NA6AeX6GXPOffXI=
       tarball: is-utf8/download/is-utf8-0.2.1.tgz
+  /is-valid-glob/1.0.0:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-Kb8+/3Ab4tTTFdusw5vDn+j2Aao=
+      tarball: is-valid-glob/download/is-valid-glob-1.0.0.tgz
   /is-whitespace/0.3.0:
     dev: true
     engines:
@@ -10004,7 +10070,7 @@ packages:
     dev: true
     resolution:
       integrity: sha1-BF+XgtARrppoA93TgrJDkrPYkPc=
-      tarball: set-blocking/download/set-blocking-2.0.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fset-blocking%2Fdownload%2Fset-blocking-2.0.0.tgz
+      tarball: set-blocking/download/set-blocking-2.0.0.tgz
   /set-value/2.0.1:
     dependencies:
       extend-shallow: 2.0.1
@@ -11316,6 +11382,20 @@ packages:
     resolution:
       integrity: sha1-vXbWojMj4sqP+hICjcBFWcdfkBk=
       tarball: vm-browserify/download/vm-browserify-1.1.0.tgz
+  /vue-cli-plugin-i18n/0.6.0:
+    dependencies:
+      debug: 3.2.6
+      deepmerge: 2.2.1
+      dotenv: 6.2.0
+      flat: 4.1.0
+      rimraf: 2.7.1
+      vue: 2.6.10
+      vue-i18n: 8.14.1
+      vue-i18n-extract: 0.4.14
+    dev: true
+    resolution:
+      integrity: sha1-ixWl6Be29VoF5BGlZffzxbuGwWs=
+      tarball: vue-cli-plugin-i18n/download/vue-cli-plugin-i18n-0.6.0.tgz
   /vue-eslint-parser/2.0.3_eslint@4.19.1:
     dependencies:
       debug: 3.2.6
@@ -11356,6 +11436,23 @@ packages:
     resolution:
       integrity: sha1-UylVzB6yCKPZkLOp+acFdGV+CPI=
       tarball: vue-hot-reload-api/download/vue-hot-reload-api-2.3.4.tgz
+  /vue-i18n-extract/0.4.14:
+    dependencies:
+      cli-table3: 0.5.1
+      dot-object: 1.9.0
+      esm: 3.2.25
+      glob: 7.1.4
+      is-valid-glob: 1.0.0
+      yargs: 13.3.0
+    dev: true
+    hasBin: true
+    resolution:
+      integrity: sha1-7UgTeUS1Yv7Ge8pBqdyq7pOQlzg=
+      tarball: vue-i18n-extract/download/vue-i18n-extract-0.4.14.tgz
+  /vue-i18n/8.14.1:
+    resolution:
+      integrity: sha1-DKCidCwU4BREgWVRV//8x8wxPlA=
+      tarball: vue-i18n/download/vue-i18n-8.14.1.tgz
   /vue-jest/3.0.5_9235beb11cb2cd2c17b886f42402aca4:
     dependencies:
       babel-core: 7.0.0-bridge.0
@@ -12083,6 +12180,8 @@ specifiers:
   sass: ^1.19.0
   sass-loader: ^8.0.0
   vue: ^2.6.10
+  vue-cli-plugin-i18n: ^0.6.0
+  vue-i18n: ^8.14.1
   vue-moment: ^4.0.0
   vue-router: ^3.0.3
   vue-template-compiler: ^2.6.10

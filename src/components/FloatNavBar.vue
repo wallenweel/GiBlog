@@ -27,7 +27,7 @@
           :data-searched="searched"
           @change="handleInputChange"
         />
-        <div class="placeholder">Search...</div>
+        <div class="placeholder">{{ $t("search") }}...</div>
       </div>
     </div>
   </nav>
