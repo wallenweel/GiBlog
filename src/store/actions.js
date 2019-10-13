@@ -25,7 +25,7 @@ export default {
     [error, configs] = await getConfig(install.config);
     if (error !== null) return [error];
 
-    debug.info("Read Config: ", configs);
+    debug.log("Read Config: ", configs);
 
     commit("updateConfig", configs);
 
