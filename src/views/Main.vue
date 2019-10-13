@@ -5,6 +5,8 @@
     :data-left-on="toggleLeft"
     :data-list-on="toggleList"
   >
+    <div data-ui-placeholder="left"></div>
+
     <FloatNavBar @toggle-left="toggleLeft = !toggleLeft" :left="toggleLeft" />
     <ColumnLeft v-model="toggleLeft" />
     <ColumnList />
@@ -37,8 +39,6 @@ export default {
 
 <style lang="scss">
 #main {
-  flex-wrap: wrap;
-  display: flex;
-  overflow: hidden;
+  background-color: var(--main-bg-c);
 }
 </style>

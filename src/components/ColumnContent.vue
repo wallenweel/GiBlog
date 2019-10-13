@@ -1,6 +1,5 @@
 <template>
   <section class="column-content" data-ui-column-content>
-    <div data-ui-placeholder="left"></div>
     <div class="wrap">
       <article class="article">
         <header>
@@ -27,7 +26,6 @@
         <div class="content markdown-body" v-html="content"></div>
       </article>
     </div>
-    <!-- <div data-ui-placeholder="right"></div> -->
   </section>
 </template>
 
@@ -72,12 +70,8 @@ export default {
 
 <style lang="scss" scoped>
 .column-content {
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-
   > .wrap {
-    width: 100%;
+    background-color: var(--column-content-bg-c);
   }
 }
 
@@ -86,7 +80,6 @@ export default {
   padding: 16px;
 
   > header {
-    // border-bottom: 1px solid var(--border-c-lighter);
     background-color: var(--article-header-bg-c);
     padding: 8px;
     margin-bottom: 28px;
