@@ -2,14 +2,26 @@
   <nav class="float-nav-bar" data-ui-float-nav>
     <div class="wrap">
       <div class="tray">
-        <Button
-          class="toggle-left"
-          type="icon"
-          color="transparent"
-          @click.stop="$emit('toggle-left')"
-        >
-          <Icon><IconMenu /></Icon>
-        </Button>
+        <template>
+          <Button
+            class="toggle-left"
+            type="icon"
+            color="transparent"
+            @click.stop="toggleLeft"
+            v-if="!left"
+          >
+            <Icon><IconMenu /></Icon>
+          </Button>
+          <Button
+            class="toggle-left"
+            type="icon"
+            color="transparent"
+            @click.stop="toggleLeft"
+            v-if="left"
+          >
+            <Icon><IconBack /></Icon>
+          </Button>
+        </template>
         <input
           class="search"
           :data-searched="searched"
@@ -25,23 +37,32 @@
 import Button from "./Button.vue";
 import Icon from "./Icon.vue";
 import IconMenu from "./icons/Menu.vue";
+import IconBack from "./icons/Back.vue";
 
 export default {
   name: "FloatNavBar",
+  props: {
+    left: Boolean
+  },
   data() {
     return {
-      searched: null
+      searched: false
     };
   },
   methods: {
     handleInputChange({ target }) {
-      this.searched = target.value || null;
+      this.searched = target.value || false;
+    },
+    toggleLeft() {
+      this.left = !this.left;
+      this.$emit("toggle-left", this.left);
     }
   },
   components: {
     Button,
     Icon,
-    IconMenu
+    IconMenu,
+    IconBack
   }
 };
 </script>

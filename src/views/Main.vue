@@ -5,8 +5,8 @@
     :data-left-on="toggleLeft"
     :data-list-on="toggleList"
   >
-    <FloatNavBar @toggle-left="toggleLeft = !toggleLeft" />
-    <ColumnLeft @hide="toggleLeft = false" />
+    <FloatNavBar @toggle-left="toggleLeft = !toggleLeft" :left="toggleLeft" />
+    <ColumnLeft v-model="toggleLeft" />
     <ColumnList />
     <ColumnContent />
   </main>

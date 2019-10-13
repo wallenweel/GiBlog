@@ -81,6 +81,14 @@
   }
   
   [data-ui-main] {
+    [data-ui-column-left] {
+      .wrap {
+        .hide-left {
+          display: block;
+        }
+      }
+    }
+
     [data-ui-column-list] {
       --column-list-w: 100vw;
       --column-list-p: 0;

@@ -1,11 +1,21 @@
 <template>
   <section class="column-left" data-ui-column-left>
     <div class="wrap">
+      <Button
+        class="hide-left"
+        type="icon"
+        color="transparent"
+        @click="$emit('toggle', false)"
+        v-if="show"
+      >
+        <Icon><IconBack /></Icon>
+      </Button>
+
       <OwnerArea />
 
       <h5 class="headline">Focused Tags</h5>
       <div class="no-focused-tags" v-if="!focusedTags.length">
-        <span>No focused tags yet.</span>
+        <span>{{ show }}No focused tags yet.</span>
       </div>
       <Tags
         :tags="tags.filter(({ id }) => focusedTags.includes(id))"
@@ -17,7 +27,7 @@
 
       <footer class="info">Powered by <a href="#">GiBlog</a> & Github</footer>
     </div>
-    <div class="mask" @click="$emit('hide')"></div>
+    <div class="mask" @click="$emit('toggle', false)"></div>
   </section>
 </template>
 
@@ -25,9 +35,19 @@
 import { mapState, mapMutations } from "vuex";
 import OwnerArea from "@/components/OwnerArea.vue";
 import Tags from "./Tags.vue";
+import Button from "./Button.vue";
+import Icon from "./Icon.vue";
+import IconBack from "./icons/Back.vue";
 
 export default {
   name: "ColumnLeft",
+  model: {
+    prop: "show",
+    event: "toggle"
+  },
+  props: {
+    show: Boolean
+  },
   computed: {
     ...mapState({
       tags: state => state.tags || [],
@@ -39,7 +59,10 @@ export default {
   },
   components: {
     OwnerArea,
-    Tags
+    Tags,
+    Button,
+    Icon,
+    IconBack
   }
 };
 </script>
@@ -66,6 +89,16 @@ export default {
     z-index: 0;
     overflow: hidden;
   }
+}
+
+button.hide-left {
+  color: #ffffff;
+  padding: 12px;
+  display: none;
+  right: 8px;
+  top: 0;
+  position: absolute;
+  z-index: 9;
 }
 
 h5.headline {
