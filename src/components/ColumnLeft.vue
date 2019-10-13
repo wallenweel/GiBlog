@@ -23,7 +23,15 @@
       />
 
       <h5 class="headline">All Tags</h5>
-      <Tags :tags="tags" @selected="addFocusedTag" />
+      <Tags :tags="tags" @selected="addFocusedTag" v-if="tags.length" />
+      <nav class="tags blank" data-ui-blank v-else>
+        <span>&#xa1;&#xa1;</span>
+        <span>&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;</span>
+        <span>&#xa1;&#xa1;&#xa1;</span>
+        <span>&#xa1;&#xa1;&#xa1;&#xa1;</span>
+        <span>&#xa1;&#xa1;</span>
+        <span>&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;</span>
+      </nav>
 
       <footer class="info">Powered by <a href="#">GiBlog</a> & Github</footer>
     </div>
@@ -88,6 +96,19 @@ export default {
     position: absolute;
     z-index: 0;
     overflow: hidden;
+  }
+
+  .blank {
+    &.tags {
+      padding: 16px;
+      overflow-wrap: break-word;
+
+      > span {
+        display: inline-block;
+        font-size: 26px;
+        margin-right: 4px;
+      }
+    }
   }
 }
 

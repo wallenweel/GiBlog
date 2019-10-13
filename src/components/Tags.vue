@@ -1,5 +1,5 @@
 <template>
-  <nav :class="['tags', tiny ? 'tiny' : '']">
+  <nav :class="['tags', tiny ? 'tiny' : '']" :data-type-tiny="tiny">
     <a
       class="tag active"
       @click="handleSelected(tag.id)"
@@ -30,6 +30,16 @@ export default {
 <style lang="scss" scoped>
 .tags {
   padding: 6px 8px;
+
+  &[data-type-tiny] {
+    .tag {
+      &:hover {
+        > span {
+          opacity: 0.75;
+        }
+      }
+    }
+  }
 }
 
 .tag {
@@ -62,7 +72,7 @@ export default {
   > span {
     opacity: 0.75;
     color: var(--tag-text-c);
-    text-shadow: 1px 1px 0px rgba(46, 46, 46, 0.25);
+    // text-shadow: 1px 1px 0px rgba(46, 46, 46, 0.25);
     position: relative;
     z-index: 3;
   }

@@ -2,6 +2,22 @@
   <section class="column-list" data-ui-column-list>
     <div class="wrap">
       <div class="list">
+        <article class="article blank" data-ui-blank v-if="!articleList.length">
+          <h3 class="title">
+            &#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;
+          </h3>
+          <h4 class="excerpt">
+            &#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;
+          </h4>
+          <div class="meta">
+            <span class="created">&#xa1;&#xa1;&nbsp;&nbsp;&#xa1;&#xa1;</span>
+            &nbsp;&nbsp;
+            <span class="comments">&#xa1;&#xa1;&nbsp;&#xa1;</span>
+          </div>
+          <nav class="tags">
+            &#xa1;&#xa1;&#xa1;&#xa1;&nbsp;&nbsp;&#xa1;&#xa1;&nbsp;&nbsp;&#xa1;&#xa1;&#xa1;
+          </nav>
+        </article>
         <article
           class="article"
           @click="updateArticle(article)"
@@ -17,7 +33,9 @@
           <Tags :tags="article.tags || []" :tiny="true" />
         </article>
 
-        <footer>- Found {{ articleList.length }} Articles -</footer>
+        <footer>
+          - {{ $t("f_found_article", { count: articleList.length }) }} -
+        </footer>
       </div>
     </div>
   </section>
@@ -65,25 +83,32 @@ export default {
 .list {
   height: 100%;
   padding: 8px;
+  padding-top: 0;
   margin-top: 56px;
   overflow-y: auto;
 
   > footer {
-    line-height: 56px;
     width: 100%;
     color: var(--text-info-c-light);
     font-size: 12px;
     text-align: center;
+    padding: 24px 0;
   }
 }
 
 .article {
   cursor: pointer;
+  box-shadow: 0 1px 2px 1px var(--articles-item-sd-c);
+  border-radius: 4px;
   background-color: var(--articles-item-bg-c);
   font-size: 12px;
-  padding: 8px;
-  margin: 12px 0;
+  padding: 12px 16px;
+  margin: 6px 0;
   position: relative;
+
+  &.blank {
+    cursor: default;
+  }
 }
 
 h3,
@@ -99,7 +124,25 @@ h4 {
 .excerpt {
   font-weight: normal;
   font-size: 12px;
+  white-space: nowrap;
   margin-top: 4px;
+  overflow: hidden;
+  position: relative;
+
+  &::after {
+    content: "";
+    background-image: linear-gradient(
+      to left,
+      var(--articles-item-bg-c) 2%,
+      transparent
+    );
+    width: 2em;
+    display: block;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+  }
 }
 
 .meta {

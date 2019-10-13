@@ -1,7 +1,9 @@
 {
+  "f_found_article": "发现 {count} 篇文章",
   "blog": "博客",
   "search": "搜索",
   "created": "创建",
   "updated": "更新",
-  "comments": "评论"
+  "article": "文章",
+  "comment": "评论"
 }

@@ -1,7 +1,9 @@
 {
+  "f_found_article": "Found {count} Article",
   "blog": "Blog",
   "search": "Search",
   "created": "Created",
   "updated": "Updated",
-  "comments": "Comments"
+  "article": "Article | Article | Articles",
+  "comment": "Comment | Comments"
 }

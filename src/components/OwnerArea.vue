@@ -8,10 +8,19 @@
         <span :style="{ backgroundImage: `url(${avatar})` }"></span>
       </div>
       <div class="info">
-        <span class="name">{{ name }}</span>
-        <span class="email">{{ email }}</span>
+        <span class="name" v-if="name">{{ name }}</span>
+        <span class="name blank" data-ui-blank v-else>
+          &#xa1;&#xa1;&#xa1;&nbsp;&nbsp;&#xa1;&#xa1;&#xa1;
+        </span>
+        <span class="email" v-if="email">{{ email }}</span>
+        <span class="email blank" data-ui-blank v-else>
+          &#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;
+        </span>
       </div>
-      <div class="description">{{ description }}</div>
+      <div class="description" v-if="description">{{ description }}</div>
+      <div class="description blank" data-ui-blank v-else>
+        &#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;
+      </div>
     </div>
   </header>
 </template>
@@ -50,10 +59,14 @@ export default {
   height: calc(var(--column-left-w) * 0.618);
   position: relative;
   overflow: hidden;
+
+  .blank {
+    color: var(--owner-area-t-c) !important;
+  }
 }
 
 .cover {
-  background-color: #222222;
+  background-color: var(--blank-c-light);
 
   left: -5px;
   bottom: -10px;
@@ -64,10 +77,9 @@ export default {
   > span {
     $s: 100%;
 
-    filter: blur(5px);
-    opacity: 0.5;
+    filter: blur(5px) brightness(0.75) grayscale(0.25);
 
-    background: #fff no-repeat 50% 50%;
+    background: none no-repeat 50% 50%;
     background-size: cover;
     width: $s;
     height: $s;
@@ -76,7 +88,7 @@ export default {
 }
 
 .user {
-  color: #ffffff;
+  color: var(--owner-area-t-c);
   font-size: 12px;
   padding: 8px;
 
@@ -91,7 +103,7 @@ export default {
   > span {
     $s: 46px;
     border-radius: $s / 2;
-    background: #fff no-repeat 50% 50%;
+    background: var(--owner-area-t-c) no-repeat 50% 50%;
     background-size: cover;
     width: $s;
     height: $s;
@@ -114,6 +126,8 @@ export default {
 
 .description {
   opacity: 0.72;
+  width: 100%;
   margin-top: 12px;
+  word-wrap: break-word;
 }
 </style>

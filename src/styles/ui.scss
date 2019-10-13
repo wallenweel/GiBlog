@@ -11,6 +11,15 @@
   }
 }
 
+[data-ui-blank] {
+  user-select: none;
+  color: var(--blank-c-light) !important;
+  line-height: 1;
+  &, > * {
+    letter-spacing: -0.25em;
+  }
+}
+
 [data-ui-placeholder] {
   height: 100%;
   flex-shrink: 0;

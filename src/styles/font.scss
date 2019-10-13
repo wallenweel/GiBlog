@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "blank";
+  src: url("assets/fonts/blank.ttf?dsafsb") format("truetype"),
+    url("assets/fonts/blank.woff?dsafsb") format("woff"),
+    url("assets/fonts/blank.svg?dsafsb#blank") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[data-ui-blank],
+[class^="blank-"],
+[class*=" blank-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "blank" !important;
+  // speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.blank-block::before {
+  content: "\a1"; // &#xa1;
+}
