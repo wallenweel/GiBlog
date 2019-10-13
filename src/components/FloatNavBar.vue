@@ -54,8 +54,7 @@ export default {
       this.searched = target.value || false;
     },
     toggleLeft() {
-      this.left = !this.left;
-      this.$emit("toggle-left", this.left);
+      this.$emit("toggle-left", !this.left);
     }
   },
   components: {

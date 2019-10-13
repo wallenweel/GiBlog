@@ -32,6 +32,7 @@
 
 @media screen and (max-width: 800px) {
   :root {
+    --column-left-w: 260px;
     --column-list-p: 0;
     --float-nav-p: 0;
     --float-nav-w: 100%;
@@ -77,6 +78,7 @@
 
 @media screen and (max-width: 640px) {
   :root {
+    --column-left-w: 280px;
     --float-nav-tray-w: 64%;
   }
   

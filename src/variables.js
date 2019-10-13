@@ -1,6 +1,7 @@
 export const env = process.env.NODE_ENV;
 
-export const isDebug = env === "development";
+export const isDebug = true;
+// export const isDebug = env === "development";
 
 export const app = {
   name: "GiBlog Alpha"

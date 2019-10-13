@@ -95,8 +95,8 @@ button.hide-left {
   color: #ffffff;
   padding: 12px;
   display: none;
-  right: 8px;
-  top: 0;
+  right: 0;
+  top: -8px;
   position: absolute;
   z-index: 9;
 }
