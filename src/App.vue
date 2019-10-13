@@ -8,37 +8,9 @@
 @import "~normalize.css";
 @import "~github-markdown-css";
 
+@import "./styles/variables.scss";
+@import "./styles/ui.scss";
 @import "./styles/media.scss";
-
-:root {
-  --float-nav-w: 240px;
-  --float-nav-h: 42px;
-  --float-nav-b-c: #ffffff;
-  --float-nav-icon-c: #222222;
-  --float-nav-search-bg: transparent;
-  --column-left-w: 220px;
-  --column-left-h: 100vh;
-  --column-left-p: var(--column-left-w); // position
-  --column-left-bg-c: #ffffff;
-  --column-list-w: 280px;
-  --column-list-h: 100vh;
-  --column-list-p: calc(var(--column-left-w) + var(--column-list-w));
-  --column-list-bg-c: #edf2f3;
-  --column-comment-w: 360px;
-  --column-comment-h: 100vh;
-  --column-comment-bg-c: #ffffff;
-  --articles-item-bg-c: #ffffff;
-  --article-header-bg-c: #edf2f3;
-  --text-c-primary: #6f4521;
-  --text-c-light: #858585;
-  --text-c-dark: #5c5c5c;
-  --text-c-darker: #353535;
-  --text-info-c-light: #777777;
-  --border-c-lighter: #c2c2c2;
-  --tag-text-c: #fafafa;
-  --tag-none-bg-c: #c5c5c5;
-  --btn-normal-bg-c: #cccccc;
-}
 
 html {
   box-sizing: border-box;

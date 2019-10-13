@@ -17,6 +17,7 @@
 
       <footer class="info">Powered by <a href="#">GiBlog</a> & Github</footer>
     </div>
+    <div class="mask" @click="$emit('hide')"></div>
   </section>
 </template>
 
@@ -45,30 +46,25 @@ export default {
 
 <style lang="scss" scoped>
 .column-left {
-  height: 0;
-  width: 0;
-  top: 0;
-  left: 0;
-  position: absolute;
-  z-index: 6;
-
   > .wrap {
     background-color: var(--column-left-bg-c);
-    width: var(--column-left-w);
-    height: var(--column-left-h);
     flex-shrink: 0;
     flex-direction: column;
     display: flex;
-
-    left: calc(var(--column-left-w) * -1);
-    position: relative;
-
-    transition: transform 0.25s ease;
-    transform: translateX(var(--column-left-p));
+    z-index: 1;
   }
 
-  &[data-on] {
-    --column-left-p: var(--column-left-w) !important;
+  > .mask {
+    visibility: hidden;
+    opacity: 0;
+    background-color: var(--column-left-mask-bg-c);
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 0;
+    overflow: hidden;
   }
 }
 

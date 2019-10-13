@@ -1,6 +1,6 @@
 <template>
   <section class="column-content" data-ui-column-content>
-    <div class="placeholder left"></div>
+    <div data-ui-placeholder="left"></div>
     <div class="wrap">
       <article class="article">
         <header>
@@ -27,7 +27,7 @@
         <div class="content markdown-body" v-html="content"></div>
       </article>
     </div>
-    <!-- <div class="placeholder right"></div> -->
+    <!-- <div data-ui-placeholder="right"></div> -->
   </section>
 </template>
 
@@ -78,17 +78,6 @@ export default {
 
   > .wrap {
     width: 100%;
-  }
-}
-
-.placeholder {
-  flex-shrink: 0;
-
-  &.left {
-    width: calc(var(--column-list-w) + var(--column-left-w));
-  }
-  &.right {
-    width: var(--column-comment-w);
   }
 }
 

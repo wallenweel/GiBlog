@@ -48,30 +48,22 @@ export default {
 
 <style lang="scss" scoped>
 .float-nav-bar {
-  height: 0;
-  width: 0;
-  left: 0;
-  top: 0;
-  position: absolute;
-  z-index: 5;
-
   > .wrap {
-    width: var(--column-list-w);
     padding: 8px 0;
     justify-content: center;
     display: flex;
-    position: relative;
-
-    transform: translateX(var(--column-left-w));
   }
 }
 
 .tray {
+  border-radius: 8px;
   background-color: var(--float-nav-b-c);
-  height: var(--float-nav-h);
-  width: var(--float-nav-w);
-  padding: 0 8px;
+  height: var(--float-nav-tray-h);
+  width: var(--float-nav-tray-w);
   font-size: 14px;
+  padding: 0 8px;
+  padding-left: 4px;
+  border: 1px solid var(--border-c-lighter);
   align-items: center;
   display: flex;
   position: relative;
@@ -83,7 +75,7 @@ input.search {
   width: 100%;
   border: none;
   outline: none;
-  padding: 8px;
+  padding: 0 16px;
   align-items: center;
   display: flex;
   position: relative;
@@ -99,7 +91,7 @@ input.search {
   & + .placeholder {
     user-select: none;
     color: var(--text-info-c-light);
-    padding: 1em;
+    padding-left: 16px;
     left: 0;
     position: absolute;
     z-index: 0;
@@ -108,7 +100,8 @@ input.search {
 
 .toggle-left {
   color: var(--float-nav-icon-c);
-  margin-left: -4px;
   display: none;
+  position: relative;
+  z-index: 1;
 }
 </style>

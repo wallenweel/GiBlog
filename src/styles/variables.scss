@@ -1,0 +1,33 @@
+:root {
+  --column-left-w: 220px;
+  --column-left-h: 100vh;
+  --column-left-p: var(--column-left-w); // position
+  --column-left-bg-c: #ffffff;
+  --column-left-mask-bg-c: rgba(238, 238, 238, 0.549);
+  --column-list-w: 280px;
+  --column-list-h: 100vh;
+  --column-list-p: calc(var(--column-left-w) + var(--column-list-w));
+  --column-list-bg-c: #edf2f3;
+  --column-comment-w: 360px;
+  --column-comment-h: 100vh;
+  --column-comment-bg-c: #ffffff;
+  --float-nav-w: var(--column-list-w);
+  --float-nav-h: 48px;
+  --float-nav-p: var(--column-left-w);
+  --float-nav-tray-w: 86%;
+  --float-nav-tray-h: 42px;
+  --float-nav-b-c: #ffffff;
+  --float-nav-icon-c: #222222;
+  --float-nav-search-bg: transparent;
+  --articles-item-bg-c: #ffffff;
+  --article-header-bg-c: #edf2f3;
+  --text-c-primary: #6f4521;
+  --text-c-light: #858585;
+  --text-c-dark: #5c5c5c;
+  --text-c-darker: #353535;
+  --text-info-c-light: #777777;
+  --border-c-lighter: #dbdbdb;
+  --tag-text-c: #fafafa;
+  --tag-none-bg-c: #c5c5c5;
+  --btn-normal-bg-c: #cccccc;
+}

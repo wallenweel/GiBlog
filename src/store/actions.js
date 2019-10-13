@@ -29,7 +29,7 @@ export default {
 
     commit("updateConfig", configs);
 
-    // [error] = await dispatch("firstFetching");
+    [error] = await dispatch("firstFetching");
     if (error !== null) return [error];
 
     return [error];

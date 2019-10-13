@@ -1,10 +1,14 @@
 <template>
-  <main id="main" data-ui-main>
+  <main
+    id="main"
+    data-ui-main
+    :data-left-on="toggleLeft"
+    :data-list-on="toggleList"
+  >
     <FloatNavBar @toggle-left="toggleLeft = !toggleLeft" />
-    <ColumnLeft :data-on="toggleLeft" />
+    <ColumnLeft @hide="toggleLeft = false" />
     <ColumnList />
     <ColumnContent />
-    <ColumnComment v-if="false" />
   </main>
 </template>
 
@@ -13,21 +17,20 @@ import FloatNavBar from "@/components/FloatNavBar.vue";
 import ColumnLeft from "@/components/ColumnLeft.vue";
 import ColumnList from "@/components/ColumnList.vue";
 import ColumnContent from "@/components/ColumnContent.vue";
-import ColumnComment from "@/components/ColumnComment.vue";
 
 export default {
   name: "Main",
   data() {
     return {
-      toggleLeft: null
+      toggleLeft: null,
+      toggleList: null
     };
   },
   components: {
     FloatNavBar,
     ColumnLeft,
     ColumnList,
-    ColumnContent,
-    ColumnComment
+    ColumnContent
   }
 };
 </script>

@@ -1,13 +1,19 @@
-#main {
-  @media screen and (max-width: 1024px) {
-    [data-ui-float-nav] > .wrap {
-      transform: translateX(0);
+@media screen and (max-width: 1024px) {
+  :root {
+    --column-left-p: 0;
+    --column-list-p: var(--column-list-w);
+    --float-nav-p: var(--column-left-p);
+  }
 
+  [data-ui-float-nav] {
+    > .wrap {
       .tray {
         .search {
-          & + .placeholder {
-            left: calc(48px * 1 - 16px);
-          }
+          padding-left: 4px;
+        }
+
+        .placeholder {
+          padding-left: calc(42px * 1);
         }
 
         .toggle-left {
@@ -15,33 +21,81 @@
         }
       }
     }
+  }
 
-    [data-ui-column-left] {
-      --column-left-p: 0;
+  [data-ui-column-content] {
+    [data-ui-placeholder="left"] {
+      width: var(--column-list-p);
     }
+  }
+}
 
-    [data-ui-column-list] {
-      --column-list-p: var(--column-list-w);
+@media screen and (max-width: 800px) {
+  :root {
+    --column-list-p: 0;
+    --float-nav-p: 0;
+    --float-nav-w: 100%;
+    --float-nav-tray-w: 64%;
+  }
+
+  [data-ui-main] {
+    &[data-left-on] {
+      --column-list-w: calc(100vw - var(--column-left-w));
+      --float-nav-w: var(--column-list-w);
     }
+  }
 
-    [data-ui-column-content] {
-      .placeholder {
-        &.left {
-          width: var(--column-list-w);
+  [data-ui-float-nav] {
+    > .wrap {
+      margin-top: 8px;
+
+      .tray {
+        .search {
+          padding-left: 8px;
         }
+
+        .placeholder {
+          padding-left: calc(42px * 1 + 4px);
+        }
+
+        border-radius: 42px;
+        padding-left: 8px;
       }
     }
   }
 
-  @media screen and (max-width: 800px) {
+  [data-ui-column-content] {
+    [data-ui-placeholder="left"] {
+      width: 0;
+    }
+
+    > .wrap {
+      padding-top: 72px;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  :root {
+    --float-nav-tray-w: 64%;
+  }
+  
+  [data-ui-main] {
     [data-ui-column-list] {
+      --column-list-w: 100vw;
       --column-list-p: 0;
     }
 
-    [data-ui-column-content] {
-      .placeholder {
-        &.left {
-          width: 0;
+    [data-ui-float-nav] {
+      --float-nav-p: 0;
+      --float-nav-w: 100%;
+    }
+
+    &[data-left-on] {
+      [data-ui-column-left] {
+        > .mask {
+          opacity: 1;
+          visibility: visible;
         }
       }
     }

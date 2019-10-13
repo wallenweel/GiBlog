@@ -54,26 +54,11 @@ export default {
 
 <style lang="scss" scoped>
 .column-list {
-  height: 0;
-  width: 0;
-  top: 0;
-  left: 0;
-  position: absolute;
-  z-index: 4;
-
   > .wrap {
     background-color: var(--column-list-bg-c);
-    width: var(--column-list-w);
-    height: var(--column-list-h);
     flex-shrink: 0;
     flex-direction: column;
     display: flex;
-
-    left: calc(var(--column-list-w) * -1);
-    position: relative;
-
-    transition: transform 0.25s ease;
-    transform: translateX(var(--column-list-p));
   }
 }
 
