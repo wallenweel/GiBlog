@@ -18,9 +18,11 @@
   --float-nav-search-bg: transparent;
   --column-left-w: 220px;
   --column-left-h: 100vh;
+  --column-left-p: var(--column-left-w); // position
   --column-left-bg-c: #ffffff;
   --column-list-w: 280px;
   --column-list-h: 100vh;
+  --column-list-p: calc(var(--column-left-w) + var(--column-list-w));
   --column-list-bg-c: #edf2f3;
   --column-comment-w: 360px;
   --column-comment-h: 100vh;

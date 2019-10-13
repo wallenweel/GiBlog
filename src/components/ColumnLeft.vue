@@ -64,13 +64,11 @@ export default {
     position: relative;
 
     transition: transform 0.25s ease;
-    transform: translateX(var(--column-left-w));
+    transform: translateX(var(--column-left-p));
   }
 
   &[data-on] {
-    > .wrap {
-      transform: translateX(var(--column-left-w)) !important;
-    }
+    --column-left-p: var(--column-left-w) !important;
   }
 }
 

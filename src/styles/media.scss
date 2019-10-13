@@ -16,12 +16,12 @@
       }
     }
 
-    [data-ui-column-left] > .wrap {
-      transform: translateX(0);
+    [data-ui-column-left] {
+      --column-left-p: 0;
     }
 
-    [data-ui-column-list] > .wrap {
-      transform: translateX(var(--column-list-w));
+    [data-ui-column-list] {
+      --column-list-p: var(--column-list-w);
     }
 
     [data-ui-column-content] {
@@ -34,8 +34,8 @@
   }
 
   @media screen and (max-width: 800px) {
-    [data-ui-column-list] > .wrap {
-      transform: translateX(0);
+    [data-ui-column-list] {
+      --column-list-p: 0;
     }
 
     [data-ui-column-content] {

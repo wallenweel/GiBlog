@@ -1,5 +1,5 @@
 <template>
-  <main id="main" @click.stop="handleClear">
+  <main id="main" data-ui-main>
     <FloatNavBar @toggle-left="toggleLeft = !toggleLeft" />
     <ColumnLeft :data-on="toggleLeft" />
     <ColumnList />
@@ -21,11 +21,6 @@ export default {
     return {
       toggleLeft: null
     };
-  },
-  methods: {
-    handleClear() {
-      this.toggleLeft = null;
-    }
   },
   components: {
     FloatNavBar,

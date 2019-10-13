@@ -73,7 +73,7 @@ export default {
     position: relative;
 
     transition: transform 0.25s ease;
-    transform: translateX(calc(var(--column-left-w) + var(--column-list-w)));
+    transform: translateX(var(--column-list-p));
   }
 }
 

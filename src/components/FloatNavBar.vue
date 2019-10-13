@@ -83,6 +83,7 @@ input.search {
   width: 100%;
   border: none;
   outline: none;
+  padding: 8px;
   align-items: center;
   display: flex;
   position: relative;
@@ -98,7 +99,7 @@ input.search {
   & + .placeholder {
     user-select: none;
     color: var(--text-info-c-light);
-    padding-left: 1em;
+    padding: 1em;
     left: 0;
     position: absolute;
     z-index: 0;
