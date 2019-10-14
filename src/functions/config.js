@@ -1,5 +1,5 @@
 import GitHub from "github-api";
-import fetch from "fetch-retry";
+// import fetch from "fetch-retry";
 import { custom } from "@/variables";
 import { fuse } from "@/functions/utilities";
 import debug from "@/functions/debug";
@@ -15,10 +15,11 @@ import {
 
 export default getConfig;
 
+// TODO: add network timeout / retry / status check / etc...
 export async function getConfig() {
-  const { gist, config } = custom;
+  const { gist, config: cfg, settings: sts, example: exp } = custom;
 
-  let [error, gistFiles] = [null, null];
+  let [error, gistFiles, customFiles] = [null, null, null];
 
   [error, gistFiles] = await getGistFiles(gist);
 
@@ -31,28 +32,52 @@ export async function getConfig() {
     return [error, { config, settings }];
   }
 
-  return await getCustomFiles(config);
+  [error, customFiles] = await getCustomFiles(cfg, sts, exp);
+
+  if (error === null) {
+    const [config, settings] = [
+      customFiles[cfg.filename],
+      customFiles[sts.filename]
+    ];
+
+    return [error, { config, settings }];
+  }
+
+  return [error];
 }
 
-async function getCustomFiles({ file }) {
-  try {
-    const response = await fetch(file, {
-      retries: 3,
-      retryDelay: 1000,
-      retryOn(attempt, error, response) {
-        if (error !== null || response.status >= 400) {
-          debug.warn(`retrying, attempt number ${attempt + 1}`);
-          return true;
-        }
-      }
-    });
+async function getCustomFiles(cfg = {}, sts = {}, exp = {}) {
+  let [error, config, settings] = [null, null, null];
 
-    const json = await response.json();
-    return [null, json];
-  } catch (error) {
-    debug.error(error);
-    return [GET_CONFIG_FAILED, error];
-  }
+  const fetchFile = async file => {
+    let error = null;
+
+    try {
+      const response = await fetch(file);
+      const json = await response.json();
+
+      return [error, json];
+    } catch (error) {
+      debug.error(`Get Config File: ${file} Failed.`, error);
+      return [GET_CONFIG_FAILED, error];
+    }
+  };
+
+  [error, config] = await fetchFile(cfg.file);
+  if (error !== null) [error, config] = await fetchFile(exp.config);
+  if (error !== null) return [error];
+
+  [error, settings] = await fetchFile(sts.file);
+  if (error !== null) [error, settings] = await fetchFile(exp.settings);
+  if (error !== null) return [error];
+
+  return [
+    error,
+    {
+      [cfg.filename]: config,
+      [sts.filename]: settings
+    }
+  ];
 }
 
 // TODO: agree use private gist,

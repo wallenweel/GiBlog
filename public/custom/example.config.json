@@ -4,11 +4,11 @@
     "description": "GitHub Issues Blog.",
     "owner": "",
     "email": "",
-    "theme": "Default",
+    "theme": "",
     "repo": "blog",
-    "username": "",
+    "username": "wallenweel",
     "password": "",
-    "base64_token": "",
-    "repos": []
+    "base64_token": "ZjM0OGI4NjBhZDdhY2Y4MTk4NGQ2M2FmYmYwZjYyNzUwZWJlOGRlMA==",
+    "repos": ["GiBlog"]
   }
 ]

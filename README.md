@@ -25,7 +25,9 @@
 
 ### Blog's Config
 
-`gist.ini` > `config.json` > `config.example.json`
+#### Get Config Order
+
+`gist.ini` > `(config|settings).json` > `example.(config|settings).json`
 
 #### In Gist [Recommend]
 
@@ -69,13 +71,15 @@ file path: `[blog]/custom/config.json`
     "email": "",
 
     // blog's theme, default is "Light", and will has "Dark"
-    "theme": "Default",
+    // can replace same option in settings.json
+    "theme": "",
 
     // where your blog was installed
+    // here is installing in a repo named "blog"
     *"repo": "blog",
 
     // github username for fetch repo or login
-    *"username": "",
+    *"username": "wallenweel",
 
     // github login password, just used in testing
     // !! Never Saved in Commits !!
@@ -83,10 +87,12 @@ file path: `[blog]/custom/config.json`
 
     // base64 encryted personal token
     // avoid github to remove token in commits checking
-    "base64_token": "",
+    // at least select: public_repo / read:user
+    *"base64_token": "ZjM0OGI4NjBhZDdhY2Y4MTk4NGQ2M2FmYmYwZjYyNzUwZWJlOGRlMA==",
 
     // can switch repos under the username
-    *"repos": []
+    // do not have to be the installing repo, any you want
+    *"repos": ["GiBlog"]
   }
 ]
 ```

@@ -24,7 +24,7 @@ export default {
     commit("updateSettings", settings);
     debug.log("Updated Settings: ", settings);
 
-    // [error] = await dispatch("firstFetching");
+    [error] = await dispatch("firstFetching");
     if (error !== null) return [error];
 
     return [error];

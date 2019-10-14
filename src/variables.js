@@ -13,7 +13,7 @@ export const theme = {
 };
 
 export const custom = {
-  path: "custom",
+  path: "./custom/",
 
   get gist() {
     return {
@@ -30,8 +30,7 @@ export const custom = {
 
     return {
       filename,
-      file: this.path + "/" + filename,
-      example: this.path + "/config.example.json"
+      file: this.path + filename
     };
   },
   get settings() {
@@ -39,8 +38,15 @@ export const custom = {
 
     return {
       filename,
-      file: this.path + "/" + filename,
-      example: this.path + "/settings.example.json"
+      file: this.path + filename
+    };
+  },
+  get example() {
+    const prefix = "example.";
+
+    return {
+      config: this.path + prefix + this.config.filename,
+      settings: this.path + prefix + this.settings.filename
     };
   }
 };
