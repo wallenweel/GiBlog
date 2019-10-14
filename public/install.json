@@ -1,8 +1,0 @@
-{
-  "repo": "blog",
-  "config": {
-    "example": "/config.example.json",
-    "file": "/config.json",
-    "gist": ""
-  }
-}

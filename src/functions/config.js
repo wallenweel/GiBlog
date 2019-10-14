@@ -50,7 +50,9 @@ async function getConfigFile(file) {
   }
 }
 
-async function getConfigGist(id) {
+// TODO: agree use private gist,
+// by token or username & password
+async function getConfigGist({ id }) {
   const github = new GitHub();
   const { status, data: gist } = await github.getGist(id).read();
 
