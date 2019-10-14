@@ -7,17 +7,8 @@ import actions from "./actions";
 import mutations from "./mutations";
 
 const state = {
-  // install config
-  install: {
-    repo: null,
-    config: {
-      file: null,
-      gist: null
-    }
-  },
-
   // [{token,...}, {token,...}]
-  configs: null,
+  config: null,
 
   // current config
   repo: null,

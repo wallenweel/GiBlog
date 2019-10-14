@@ -1,5 +1,5 @@
 import GitHub from "github-api";
-import { getInstall, getConfig } from "@/functions/config";
+import { getConfig } from "@/functions/config";
 import debug from "@/functions/debug";
 import {
   profileCleaner,
@@ -13,21 +13,16 @@ import { CONNECT_API_ERROR, NOT_FOUND_ANY_ISSUES } from "@/types";
 
 export default {
   async init({ commit, dispatch }) {
-    let error = null;
-    let install = null;
+    let [error, config, settings] = [null, null];
 
-    [error, install] = await getInstall();
+    [error, { config, settings }] = await getConfig();
     if (error !== null) return [error];
 
-    commit("updateInstall", install);
+    commit("updateConfig", config);
+    debug.log("Updated Config: ", config);
 
-    let configs = null;
-    [error, configs] = await getConfig(install.config);
-    if (error !== null) return [error];
-
-    debug.log("Read Config: ", configs);
-
-    commit("updateConfig", configs);
+    commit("updateSettings", settings);
+    debug.log("Updated Settings: ", settings);
 
     // [error] = await dispatch("firstFetching");
     if (error !== null) return [error];

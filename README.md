@@ -44,6 +44,12 @@ public=yes
 # your token in commits and remove it from your settings.
 # Easy Approach: Base64.btoa("your token") in Console(F12)
 base64_token=
+
+# filename of config
+config=config.json
+
+# filename of settings
+settings=settings.json
 ```
 
 #### In File
