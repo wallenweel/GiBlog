@@ -9,7 +9,7 @@
           </h1>
 
           <div class="meta">
-            <div class="created" v-if="article.created">
+            <div class="created" v-if="article.created !== null">
               {{ $t("created") }}:
               <span>
                 {{ $d(new Date(article.created || null), "short") }}
@@ -18,7 +18,7 @@
             <div class="blank" data-ui-blank v-else>
               &#xa1;&#xa1;&nbsp;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;
             </div>
-            <div class="updated" v-if="article.updated">
+            <div class="updated" v-if="article.updated !== null">
               {{ $t("updated") }}:
               <span>
                 {{ $d(new Date(article.updated || null), "long") }}
@@ -27,7 +27,7 @@
             <div class="blank" data-ui-blank v-else>
               &#xa1;&#xa1;&nbsp;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;
             </div>
-            <div class="comments" v-if="article.comments">
+            <div class="comments" v-if="article.comments !== null">
               {{ $t("comment") }}: <span>{{ article.comments || 0 }}</span>
             </div>
             <div class="blank" data-ui-blank v-else>
