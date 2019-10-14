@@ -1,4 +1,6 @@
-# 🌒 GiBlog - A Blog Base on GitHub Issues. [In Development]
+# 📖 GiBlog - A Blog Base on GitHub Issues. [In Development]
+
+> Maybe it's more like a Notebook...
 
 ## Features
 
