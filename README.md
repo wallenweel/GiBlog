@@ -13,6 +13,7 @@
 - [ ] Sample markdown editor to change issue in frontend
 - [ ] Comments and login github to reply
 - [ ] Light and Dark themes
+- [ ] Multiple languages supported
 - [ ] More
 
 ## Development Progress
@@ -26,6 +27,23 @@
 | 🚀  |     |     |     |     |     |     |     |
 
 ## Get Started
+
+### Deployment
+
+1. Clone this repo and install dependencies. see [Project setup](#project-setup)
+2. Build and push all of `/dist/**/*` files to your repo. such as [blog](https://github.com/wallenweel/blog)
+3. Turn on the **GitHub Page** feature in repo settings.
+4. Visit the GitHub Page, should see the [example blog](https://blog.weel.xyz).
+
+### Custom Config
+
+Ⅰ:
+
+Rename `/custom/example.(config|settings).json` to `/custom/(config|settings).json`
+
+Ⅱ:
+
+create a file `custom/gist.ini` then copy example content of config and settings to Gist. see [In Gist](#in-gist-recommend)
 
 ## Configuration
 
