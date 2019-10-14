@@ -76,6 +76,7 @@ export default {
 }
 
 .tray {
+  box-shadow: 0 2px 4px 2px var(--float-nav-sd-c);
   border-radius: 8px;
   background-color: var(--float-nav-b-c);
   height: var(--float-nav-tray-h);
@@ -83,7 +84,7 @@ export default {
   font-size: 14px;
   padding: 0 8px;
   padding-left: 4px;
-  border: 1px solid var(--border-c-lighter);
+  // border: 1px solid var(--border-c-lighter);
   align-items: center;
   display: flex;
   position: relative;

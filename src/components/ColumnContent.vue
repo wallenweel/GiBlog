@@ -114,9 +114,7 @@ export default {
   > header {
     border-radius: 4px;
     background-color: var(--article-header-bg-c);
-    padding: 8px;
-    padding-bottom: 12px;
-    margin-bottom: 28px;
+    padding: 16px;
   }
 
   .blank {
@@ -157,7 +155,7 @@ export default {
 
 .content {
   margin: auto;
-  margin-top: 12px;
+  margin-top: 24px;
   margin-bottom: 56px;
   max-width: 90%;
 }

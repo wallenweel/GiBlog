@@ -2,7 +2,12 @@
   <section class="column-list" data-ui-column-list>
     <div class="wrap">
       <div class="list">
-        <article class="article blank" data-ui-blank v-if="!articleList.length">
+        <article
+          class="article blank"
+          data-ui-blank
+          @click="handleFocusedArticle()"
+          v-if="!articleList.length"
+        >
           <h3 class="title">
             &#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;
           </h3>
@@ -94,8 +99,7 @@ export default {
 .list {
   height: 100%;
   padding: 8px;
-  padding-top: 0;
-  margin-top: 56px;
+  padding-top: 56px;
   overflow-y: auto;
 
   > footer {

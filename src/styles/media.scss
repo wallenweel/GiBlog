@@ -23,6 +23,14 @@
     }
   }
 
+  [data-ui-column-left] {
+    [data-ui-owner-area] {
+      .user {
+        font-size: 14px;
+      }
+    }
+  }
+
   [data-ui-placeholder="left"] {
     width: var(--column-list-p);
   }
@@ -87,11 +95,25 @@
           display: block;
         }
       }
+
+      [data-ui-owner-area] {
+        .user {
+          padding-top: 8px;
+        }
+
+        .avatar {
+          --avatar-sz: 56px;
+        }
+      }
     }
 
     [data-ui-column-list] {
       --column-list-w: 100vw;
       --column-list-p: 0;
+
+      .list {
+        padding-top: 64px;
+      }
     }
 
     [data-ui-float-nav] {

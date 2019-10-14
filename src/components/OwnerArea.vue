@@ -1,5 +1,5 @@
 <template>
-  <header class="ownerArea">
+  <header class="ownerArea" data-ui-owner-area>
     <div class="cover">
       <span :style="{ backgroundImage: `url(${avatar})` }"></span>
     </div>
@@ -100,13 +100,14 @@ export default {
 }
 
 .avatar {
+  --avatar-sz: 48px;
+
   > span {
-    $s: 46px;
-    border-radius: $s / 2;
+    border-radius: var(--avatar-sz);
     background: var(--owner-area-t-c) no-repeat 50% 50%;
     background-size: cover;
-    width: $s;
-    height: $s;
+    width: var(--avatar-sz);
+    height: var(--avatar-sz);
     margin: 8px;
     display: block;
   }

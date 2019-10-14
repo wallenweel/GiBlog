@@ -24,7 +24,7 @@
 
       <h5 class="headline">All Tags</h5>
       <Tags :tags="tags" @selected="handleFocusedTag" v-if="tags.length" />
-      <nav class="tags blank" data-ui-blank v-else>
+      <nav class="tags blank" data-ui-blank @click="handleFocusedTag" v-else>
         <span>&#xa1;&#xa1;</span>
         <span>&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;</span>
         <span>&#xa1;&#xa1;&#xa1;</span>
