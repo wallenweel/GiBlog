@@ -1,27 +1,31 @@
-# 📖 GiBlog - A Blog Base on GitHub Issues. [In Development]
+# 🌒📖 GiBlog - A Blog Base on GitHub Issues
 
-> Maybe it's more like a Notebook...
+> This is a simple markdown blog, use GitHub APIs as backend. emmm... Maybe it seem more like a Notebook 😋.
 
 ## Features
 
 - [ ] Switch repositories, avoid to change config
 - [ ] Switch users, avoid to install in multiple accounts
+- [x] Use Gist file as config, not only local files
 - [x] Category articles(issues) by tags(labels)
 - [ ] Login to update config and settings in frontend
 - [ ] Frontend setup approach, just seems cool
 - [ ] Sample markdown editor to change issue in frontend
 - [ ] Comments and login github to reply
+- [ ] Light and Dark themes
 - [ ] More
 
 ## Development Progress
 
 | ⌚  | 🌚  | 🌑  | 🌒  | 🌓  | 🌔  | 🌕  | 🌝  |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| 🚲  |     |     | 😋  |     |     |     |     |
+| 🚲  |     |     | 🤪  |     |     |     |     |
 | 🛵  |     |     |     |     |     |     |     |
 | 🚗  |     |     |     |     |     |     |     |
 | 🛫  |     |     |     |     |     |     |     |
 | 🚀  |     |     |     |     |     |     |     |
+
+## Get Started
 
 ## Configuration
 
@@ -33,7 +37,7 @@
 
 #### In Gist [Recommend]
 
-file path: `[blog]/gist.ini`
+gist options: `[blog]/gist.ini`
 
 ```ini
 # id of the gist contains blog's config
@@ -58,9 +62,9 @@ settings=settings.json
 
 #### In File
 
-file path: `[blog]/custom/config.json`
+config file: `[blog]/custom/config.json`
 
-```json
+```js
 [
   {
     *"title": "GiBlog Alpha",
@@ -99,6 +103,15 @@ file path: `[blog]/custom/config.json`
 ]
 ```
 
+settings file: `[blog]/custom/settings.json`
+
+```js
+{
+  // Light(Default) or Dark
+  "theme": "Default"
+}
+```
+
 ## Project setup
 
 ```sh
@@ -117,24 +130,6 @@ pnpm run serve
 pnpm run build
 ```
 
-### Run your tests
+## License
 
-```sh
-pnpm run test
-```
-
-### Lints and fixes files
-
-```sh
-pnpm run lint
-```
-
-### Run your unit tests
-
-```sh
-pnpm run test:unit
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+MIT License | Copyright (c) 2019 wallen
