@@ -7,12 +7,28 @@ import {
   labelsCleaner
 } from "@/functions/github";
 
-import { CONNECT_API_ERROR, NOT_FOUND_ANY_ISSUES } from "@/types";
+import {
+  CONNECT_API_ERROR,
+  NOT_FOUND_ANY_ISSUES,
+  BLANK_MARKDOWN_TEXT
+} from "@/types";
 
-/* eslint-disable no-unused-vars */
+// /* eslint-disable no-unused-vars */
 
 export default {
-  async init({ commit, dispatch }) {
+  async init({ dispatch }) {
+    let [error] = [null];
+
+    [error] = await dispatch("getConfig");
+    if (error !== null) return [error];
+
+    [error] = await dispatch("firstFetching");
+    if (error !== null) return [error];
+
+    return [error];
+  },
+
+  async getConfig({ commit }) {
     let [error, config, settings] = [null, null];
 
     [error, { config, settings }] = await getConfig();
@@ -23,9 +39,6 @@ export default {
 
     commit("updateSettings", settings);
     debug.log("Updated Settings: ", settings);
-
-    [error] = await dispatch("firstFetching");
-    if (error !== null) return [error];
 
     return [error];
   },
@@ -50,23 +63,18 @@ export default {
 
 async function genApi({ state }) {
   const { username, password, token } = state;
-
-  let error = null;
-
   const api = new GitHub({ username, password, token });
 
-  return [error, api];
+  return [null, api];
 }
 
 async function getProfile({ commit, dispatch }) {
   const [, api] = await dispatch("genApi");
   const { status, data = [] } = await api.getUser().getProfile();
-  // debug.log(data);
 
   if (status !== 200) return [CONNECT_API_ERROR];
 
   const profile = profileCleaner(data);
-  // debug.log(profile);
 
   commit("updateProfile", profile);
 
@@ -77,7 +85,6 @@ async function getIssues({ state, commit, dispatch }) {
   const [, api] = await dispatch("genApi");
   const { username, repo } = state;
   const issues = api.getIssues(username, repo);
-  // debug.log(issues);
 
   const issuesHelper = async () => {
     const { status, data = [] } = await issues.listIssues();
@@ -86,7 +93,6 @@ async function getIssues({ state, commit, dispatch }) {
     if (!data.length) return NOT_FOUND_ANY_ISSUES;
 
     const articles = issuesCleaner(data);
-    // debug.log(data, articles);
 
     commit("updateArticles", articles);
     commit("updateFocusedArticles");
@@ -99,7 +105,6 @@ async function getIssues({ state, commit, dispatch }) {
     if (!data.length) return NOT_FOUND_ANY_ISSUES;
 
     const tags = labelsCleaner(data, true);
-    // debug.log(tags);
 
     commit("updateTags", tags);
   };
@@ -113,11 +118,10 @@ async function getIssues({ state, commit, dispatch }) {
 }
 
 async function getMarkdown({ dispatch }, text = "") {
-  if (!text) return ["text is blank"];
+  if (!text) return [BLANK_MARKDOWN_TEXT];
 
   const [, api] = await dispatch("genApi");
   const { status, data: html } = await api.getMarkdown().render({ text });
-  // debug.log("html", html);
 
   if (status !== 200) return [CONNECT_API_ERROR];
 

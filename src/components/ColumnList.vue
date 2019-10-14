@@ -20,7 +20,7 @@
         </article>
         <article
           class="article"
-          @click="updateArticle(article)"
+          @click="handleFocusedArticle(article)"
           v-for="(article, i) of articleList"
           :key="i + article.id"
         >
@@ -47,6 +47,9 @@ import Tags from "./Tags.vue";
 
 export default {
   name: "ColumnList",
+  props: {
+    show: Boolean
+  },
   computed: {
     ...mapState(["articles", "focusedArticles", "focusedTags"]),
 
@@ -57,7 +60,15 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(["updateArticle", "updateFocusedArticles"])
+    ...mapMutations(["updateArticle", "updateFocusedArticles"]),
+
+    handleFocusedArticle(article) {
+      this.updateArticle(article);
+
+      if (this.show) {
+        this.$emit("focusedArticle", article);
+      }
+    }
   },
   watch: {
     focusedTags() {

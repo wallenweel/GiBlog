@@ -23,7 +23,7 @@
       />
 
       <h5 class="headline">All Tags</h5>
-      <Tags :tags="tags" @selected="addFocusedTag" v-if="tags.length" />
+      <Tags :tags="tags" @selected="handleFocusedTag" v-if="tags.length" />
       <nav class="tags blank" data-ui-blank v-else>
         <span>&#xa1;&#xa1;</span>
         <span>&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;</span>
@@ -63,7 +63,15 @@ export default {
     })
   },
   methods: {
-    ...mapMutations(["addFocusedTag", "subFocusedTag"])
+    ...mapMutations(["addFocusedTag", "subFocusedTag"]),
+
+    handleFocusedTag(tag) {
+      this.addFocusedTag(tag);
+
+      if (this.show) {
+        this.$emit("focusedTag", tag);
+      }
+    }
   },
   components: {
     OwnerArea,

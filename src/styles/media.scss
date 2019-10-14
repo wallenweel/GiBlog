@@ -107,5 +107,11 @@
         }
       }
     }
+
+    &[data-list-on] {
+      [data-ui-column-list] {
+        --column-list-p: var(--column-list-w) !important;
+      }
+    }
   }
 }

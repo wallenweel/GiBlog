@@ -8,8 +8,8 @@
     <div data-ui-placeholder="left"></div>
 
     <FloatNavBar @toggle-left="toggleLeft = !toggleLeft" :left="toggleLeft" />
-    <ColumnLeft v-model="toggleLeft" />
-    <ColumnList />
+    <ColumnLeft v-model="toggleLeft" @focusedTag="onFocusedTag" />
+    <ColumnList :show="toggleList" @focusedArticle="onFocusedArticle" />
     <ColumnContent />
   </main>
 </template>
@@ -27,6 +27,14 @@ export default {
       toggleLeft: null,
       toggleList: null
     };
+  },
+  methods: {
+    onFocusedTag() {
+      this.toggleList = true;
+    },
+    onFocusedArticle() {
+      this.toggleList = false;
+    }
   },
   components: {
     FloatNavBar,
