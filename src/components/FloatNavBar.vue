@@ -95,6 +95,7 @@ export default {
   align-items: center;
   justify-content: center;
   display: flex;
+  display: none;
 }
 
 .avatar {

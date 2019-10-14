@@ -124,8 +124,8 @@ button.hide-left {
   color: #ffffff;
   padding: 12px;
   display: none;
-  right: 0;
-  top: -8px;
+  right: 8px;
+  top: 0;
   position: absolute;
   z-index: 9;
 }

@@ -55,6 +55,11 @@
 
   [data-ui-float-nav] {
     > .wrap {
+      .left,
+      .right {
+        display: flex;
+      }
+
       .avatar {
         display: block;
       }
@@ -70,6 +75,14 @@
 
         border-radius: 42px;
         padding-left: 8px;
+      }
+    }
+  }
+
+  [data-ui-column-list] {
+    > .wrap {
+      .list {
+        padding-top: 64px;
       }
     }
   }
