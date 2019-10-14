@@ -56,6 +56,10 @@
     > .wrap {
       margin-top: 8px;
 
+      .avatar {
+        display: block;
+      }
+
       .tray {
         .search {
           padding-left: 8px;
@@ -77,7 +81,7 @@
 
   [data-ui-column-content] {
     > .wrap {
-      padding-top: 72px;
+      padding-top: 64px;
     }
   }
 }
@@ -85,9 +89,10 @@
 @media screen and (max-width: 640px) {
   :root {
     --column-left-w: 280px;
-    --float-nav-tray-w: 72%;
+    --float-nav-tray-w: 64%;
+    --avatar-sz: 56px;
   }
-  
+
   [data-ui-main] {
     [data-ui-column-left] {
       .wrap {
@@ -99,10 +104,6 @@
       [data-ui-owner-area] {
         .user {
           padding-top: 8px;
-        }
-
-        .avatar {
-          --avatar-sz: 56px;
         }
       }
     }

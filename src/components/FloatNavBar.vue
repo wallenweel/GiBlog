@@ -1,6 +1,9 @@
 <template>
   <nav class="float-nav-bar" data-ui-float-nav>
     <div class="wrap">
+      <div class="left">
+        <Avatar class="avatar" />
+      </div>
       <div class="tray">
         <template>
           <Button
@@ -29,11 +32,13 @@
         />
         <div class="placeholder">{{ $t("search") }}...</div>
       </div>
+      <div class="right"></div>
     </div>
   </nav>
 </template>
 
 <script>
+import Avatar from "./Avatar.vue";
 import Button from "./Button.vue";
 import Icon from "./Icon.vue";
 import IconMenu from "./icons/Menu.vue";
@@ -49,6 +54,11 @@ export default {
       searched: false
     };
   },
+  computed: {
+    avatar() {
+      return this.$store.state.profile.avatar;
+    }
+  },
   methods: {
     handleInputChange({ target }) {
       this.searched = target.value || false;
@@ -58,6 +68,7 @@ export default {
     }
   },
   components: {
+    Avatar,
     Button,
     Icon,
     IconMenu,
@@ -68,11 +79,31 @@ export default {
 
 <style lang="scss" scoped>
 .float-nav-bar {
+  margin-top: 6px;
+
   > .wrap {
     padding: 8px 0;
     justify-content: center;
+    align-items: center;
     display: flex;
   }
+}
+
+.left,
+.right {
+  width: 18%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.avatar {
+  --avatar-sz: 44px;
+
+  box-shadow: 0 2px 4px 2px var(--float-nav-sd-c);
+  margin: 0 auto;
+  margin-left: auto;
+  display: none;
 }
 
 .tray {
@@ -84,7 +115,7 @@ export default {
   font-size: 14px;
   padding: 0 8px;
   padding-left: 4px;
-  // border: 1px solid var(--border-c-lighter);
+  margin: 0 auto;
   align-items: center;
   display: flex;
   position: relative;

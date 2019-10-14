@@ -1,12 +1,10 @@
 <template>
   <header class="ownerArea" data-ui-owner-area>
     <div class="cover">
-      <span :style="{ backgroundImage: `url(${avatar})` }"></span>
+      <span :style="{ backgroundImage: avatar && `url(${avatar})` }"></span>
     </div>
     <div class="user">
-      <div class="avatar">
-        <span :style="{ backgroundImage: `url(${avatar})` }"></span>
-      </div>
+      <Avatar class="avatar" />
       <div class="info">
         <span class="name" v-if="name">{{ name }}</span>
         <span class="name blank" data-ui-blank v-else>
@@ -26,6 +24,8 @@
 </template>
 
 <script>
+import Avatar from "./Avatar.vue";
+
 export default {
   name: "OwnerArea",
   computed: {
@@ -50,6 +50,9 @@ export default {
     updated() {
       return this.profile.updated;
     }
+  },
+  components: {
+    Avatar
   }
 };
 </script>
@@ -91,25 +94,17 @@ export default {
   color: var(--owner-area-t-c);
   font-size: 12px;
   padding: 8px;
+  padding-top: 0;
 
   flex-wrap: wrap;
+  flex-direction: column;
   display: flex;
 
   position: relative;
   z-index: 2;
-}
 
-.avatar {
-  --avatar-sz: 48px;
-
-  > span {
-    border-radius: var(--avatar-sz);
-    background: var(--owner-area-t-c) no-repeat 50% 50%;
-    background-size: cover;
-    width: var(--avatar-sz);
-    height: var(--avatar-sz);
+  .avatar {
     margin: 8px;
-    display: block;
   }
 }
 
