@@ -1,5 +1,5 @@
 <template>
-  <section class="column-content" data-ui-column-content>
+  <section class="column-content" data-ui-column-content ref="column">
     <div class="wrap">
       <article class="article">
         <header>
@@ -68,7 +68,10 @@ export default {
   name: "ColumnContent",
   data() {
     return {
-      content: ""
+      content: "",
+      scrollTop: null,
+      columnElement: null,
+      scrollTimeout: null
     };
   },
   computed: {
@@ -78,6 +81,24 @@ export default {
     }
   },
   methods: {
+    handleScroll(ev) {
+      if (this.scrollTimeout !== null) {
+        clearTimeout(this.scrollTimeout);
+      }
+
+      const top = parseInt(ev.target.scrollTop, 10);
+      const direction = top - this.scrollTop > 0 ? "down" : "up";
+
+      this.scrollTop = top;
+
+      this.scrollTimeout = setTimeout(() => {
+        this.$emit("scroll", { top, direction });
+
+        clearTimeout(this.scrollTimeout);
+        this.scrollTimeout = null;
+      }, 300);
+    },
+
     async renderMarkdown() {
       if (!this.article.content) return;
 
@@ -88,6 +109,14 @@ export default {
 
       this.content = html;
     }
+  },
+  mounted() {
+    this.columnElement = this.$refs.column;
+    this.scrollTop = parseInt(this.columnElement.scrollTop, 10);
+    this.columnElement.addEventListener("scroll", this.handleScroll, false);
+  },
+  destroyed() {
+    this.columnElement.removeEventListener("scroll", this.handleScroll, false);
   },
   watch: {
     article() {
@@ -104,6 +133,23 @@ export default {
 .column-content {
   > .wrap {
     background-color: var(--column-content-bg-c);
+
+    &::after {
+      content: "";
+      background-image: linear-gradient(
+        to bottom,
+        var(--articles-item-bg-c) 5%,
+        transparent
+      );
+      height: 64px;
+      display: block;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      position: absolute;
+      display: none;
+    }
   }
 }
 

@@ -2,12 +2,12 @@
   --main-bg-c: #fafafa;
   --column-left-w: 220px;
   --column-left-h: 100vh;
-  --column-left-p: var(--column-left-w); // position
+  --column-left-px: var(--column-left-w); // position
   --column-left-bg-c: #ffffff;
   --column-left-mask-bg-c: rgba(238, 238, 238, 0.549);
   --column-list-w: 280px;
   --column-list-h: 100vh;
-  --column-list-p: calc(var(--column-left-w) + var(--column-list-w));
+  --column-list-px: calc(var(--column-left-w) + var(--column-list-w));
   --column-list-bg-c: #edf2f3;
   --column-content-bg-c: #ffffff;
   --column-comment-w: 360px;
@@ -15,7 +15,8 @@
   --column-comment-bg-c: #ffffff;
   --float-nav-w: var(--column-list-w);
   --float-nav-h: 48px;
-  --float-nav-p: var(--column-left-w);
+  --float-nav-py: var(--float-nav-h);
+  --float-nav-px: var(--column-left-w);
   --float-nav-tray-w: 86%;
   --float-nav-tray-h: 42px;
   --float-nav-b-c: #ffffff;

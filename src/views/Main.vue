@@ -4,13 +4,14 @@
     data-ui-main
     :data-left-on="toggleLeft"
     :data-list-on="toggleList"
+    :data-scroll-direction="scrollDirection"
   >
     <div data-ui-placeholder="left"></div>
 
     <FloatNavBar @toggle-left="toggleLeft = !toggleLeft" :left="toggleLeft" />
     <ColumnLeft v-model="toggleLeft" @focusedTag="onFocusedTag" />
     <ColumnList :show="toggleList" @focusedArticle="onFocusedArticle" />
-    <ColumnContent />
+    <ColumnContent @scroll="onContentScrolling" />
   </main>
 </template>
 
@@ -25,7 +26,8 @@ export default {
   data() {
     return {
       toggleLeft: null,
-      toggleList: null
+      toggleList: null,
+      scrollDirection: null
     };
   },
   methods: {
@@ -34,6 +36,9 @@ export default {
     },
     onFocusedArticle() {
       this.toggleList = false;
+    },
+    onContentScrolling({ direction }) {
+      this.scrollDirection = direction;
     }
   },
   components: {
