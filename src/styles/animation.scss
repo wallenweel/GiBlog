@@ -1,0 +1,18 @@
+[data-ui-blank] {
+  animation-name: blank_fade;
+  animation-duration: 1.45s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes blank_fade {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scaleX(1.0125);
+    opacity: 0.65;
+  }
+}

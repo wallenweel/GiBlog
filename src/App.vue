@@ -9,9 +9,10 @@
 @import "~github-markdown-css";
 
 @import "./styles/variables.scss";
-@import "./styles/font.scss";
-@import "./styles/ui.scss";
+@import "./styles/fonts.scss";
+@import "./styles/structure.scss";
 @import "./styles/media.scss";
+// @import "./styles/animation.scss";
 
 html {
   box-sizing: border-box;

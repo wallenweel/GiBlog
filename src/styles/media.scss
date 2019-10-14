@@ -34,7 +34,7 @@
     --column-list-p: 0;
     --float-nav-p: 0;
     --float-nav-w: 100%;
-    --float-nav-tray-w: 64%;
+    --float-nav-tray-w: 76%;
   }
 
   [data-ui-main] {
@@ -77,7 +77,7 @@
 @media screen and (max-width: 640px) {
   :root {
     --column-left-w: 280px;
-    --float-nav-tray-w: 64%;
+    --float-nav-tray-w: 72%;
   }
   
   [data-ui-main] {
