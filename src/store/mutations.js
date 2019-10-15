@@ -50,6 +50,11 @@ export default {
   },
 
   updateArticle(state, article) {
+    if (["string", "number"].includes(typeof article)) {
+      state.article = state.articles.filter((a = {}) => a.id === article)[0];
+      return;
+    }
+
     state.article = article;
   },
 

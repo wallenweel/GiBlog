@@ -22,7 +22,7 @@ export default {
     [error] = await dispatch("getConfig");
     if (error !== null) return [error];
 
-    // [error] = await dispatch("firstFetching");
+    [error] = await dispatch("firstFetching");
     if (error !== null) return [error];
 
     return [error];
@@ -58,7 +58,8 @@ export default {
   genApi,
   getProfile,
   getIssues,
-  getMarkdown
+  getMarkdown,
+  switchArticle
 };
 
 async function genApi({ state }) {
@@ -96,6 +97,7 @@ async function getIssues({ state, commit, dispatch }) {
 
     commit("updateArticles", articles);
     commit("updateFocusedArticles");
+    commit("updateArticle", articles[0]);
   };
 
   const labelsHelper = async () => {
@@ -126,4 +128,31 @@ async function getMarkdown({ dispatch }, text = "") {
   if (status !== 200) return [CONNECT_API_ERROR];
 
   return [null, html];
+}
+
+function switchArticle({ commit, state }, direction /** next|prev */) {
+  const { article = {}, focusedArticles: ids = [] } = state;
+
+  let error = null;
+
+  const idx = ids.indexOf(article.id);
+
+  if (!~idx) {
+    error = "Current article is not existed.";
+    debug.log(error);
+
+    return [error];
+  }
+
+  const id = ids[idx + { next: 1, prev: -1 }[direction]];
+
+  if (!id) {
+    error = "Not found the wanted article.";
+    debug.log(error, id);
+    return [error];
+  }
+
+  commit("updateArticle", id);
+
+  return [error];
 }

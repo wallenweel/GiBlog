@@ -2,19 +2,19 @@
   <nav class="content-flip-bar" data-ui-content-flip>
     <div class="wrap">
       <div class="left">
-        <Button type="clear">
+        <Button type="clear" @click="flip('prev')">
           <Icon><IconArrowLeft /></Icon>
         </Button>
-        <Button type="clear">
+        <Button type="clear" @click="flip('next')">
           <Icon><IconArrowRight /></Icon>
         </Button>
       </div>
       <div class="middle"></div>
       <div class="right">
-        <Button type="clear">
+        <Button type="clear" @click="flip('prev')">
           <Icon><IconArrowLeft /></Icon>
         </Button>
-        <Button type="clear">
+        <Button type="clear" @click="flip('next')">
           <Icon><IconArrowRight /></Icon>
         </Button>
       </div>
@@ -30,6 +30,13 @@ import IconArrowRight from "./icons/ArrowRight.vue";
 
 export default {
   name: "ContentFlipBar",
+  methods: {
+    flip(direction) {
+      if (this.$store.state.article === null) return;
+
+      this.$store.dispatch("switchArticle", direction);
+    }
+  },
   components: {
     Button,
     Icon,
