@@ -82,16 +82,13 @@ export default {
   },
   methods: {
     handleScroll(ev) {
-      if (this.scrollTimeout !== null) {
-        clearTimeout(this.scrollTimeout);
-      }
-
-      const top = parseInt(ev.target.scrollTop, 10);
-      const direction = top - this.scrollTop > 0 ? "down" : "up";
-
-      this.scrollTop = top;
+      if (this.scrollTimeout !== null) clearTimeout(this.scrollTimeout);
 
       this.scrollTimeout = setTimeout(() => {
+        const top = parseInt(ev.target.scrollTop, 10);
+        const direction = top - this.scrollTop > 0 ? "down" : "up";
+
+        this.scrollTop = top;
         this.$emit("scroll", { top, direction });
 
         clearTimeout(this.scrollTimeout);
