@@ -7,10 +7,16 @@
     :data-scroll-direction="scrollDirection"
   >
     <div data-ui-placeholder="left"></div>
+    <div data-ui-mask="left" @click="toggleLeft = !toggleLeft"></div>
 
-    <FloatNavBar @toggle-left="toggleLeft = !toggleLeft" :left="toggleLeft" />
+    <FloatNavBar
+      @toggle-left="onToggleLeft"
+      @toggle-list="onToggleList"
+      :left="toggleLeft"
+      :list="toggleList"
+    />
     <ColumnLeft v-model="toggleLeft" @focusedTag="onFocusedTag" />
-    <ColumnList :show="toggleList" @focusedArticle="onFocusedArticle" />
+    <ColumnList v-model="toggleList" @focusedArticle="onFocusedArticle" />
     <ColumnContent @scroll="onContentScrolling" />
   </main>
 </template>
@@ -39,6 +45,13 @@ export default {
     },
     onContentScrolling({ direction }) {
       this.scrollDirection = direction;
+    },
+    onToggleLeft() {
+      this.toggleLeft = !this.toggleLeft;
+    },
+    onToggleList() {
+      this.toggleLeft = false;
+      this.toggleList = !this.toggleList;
     }
   },
   components: {
@@ -51,6 +64,12 @@ export default {
 </script>
 
 <style lang="scss">
+body {
+  height: var(--body-h);
+  width: var(--body-w);
+  overflow: var(--body-overflow);
+}
+
 #main {
   background-color: var(--main-bg-c);
 }

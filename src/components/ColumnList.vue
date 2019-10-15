@@ -52,6 +52,10 @@ import Tags from "./Tags.vue";
 
 export default {
   name: "ColumnList",
+  model: {
+    prop: "show",
+    event: "toggle"
+  },
   props: {
     show: Boolean
   },
@@ -118,7 +122,7 @@ export default {
   background-color: var(--articles-item-bg-c);
   font-size: 12px;
   padding: 12px 16px;
-  margin: 6px 0;
+  margin: 6px auto;
   position: relative;
 
   &.blank {

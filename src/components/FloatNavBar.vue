@@ -6,7 +6,6 @@
           <Button
             class="toggle-left"
             type="icon"
-            color="transparent"
             @click.stop="toggleLeft"
             v-if="!left"
           >
@@ -15,7 +14,6 @@
           <Button
             class="toggle-left"
             type="icon"
-            color="transparent"
             @click.stop="toggleLeft"
             v-if="left"
           >
@@ -31,8 +29,8 @@
       </div>
       <div class="others">
         <Avatar class="avatar" />
-        <Button class="toggle-list" type="icon">
-          <Icon><IconInbox /></Icon>
+        <Button class="toggle-list" type="icon" @click.stop="toggleList">
+          <Icon :type="!list ? 'rounded' : 'two-tone'"><IconInbox /></Icon>
         </Button>
         <Button class="toggle-menu" type="icon">
           <Icon><IconMoreVert /></Icon>
@@ -54,7 +52,8 @@ import IconMoreVert from "./icons/MoreVert.vue";
 export default {
   name: "FloatNavBar",
   props: {
-    left: Boolean
+    left: Boolean,
+    list: Boolean
   },
   data() {
     return {
@@ -72,6 +71,9 @@ export default {
     },
     toggleLeft() {
       this.$emit("toggle-left", !this.left);
+    },
+    toggleList() {
+      this.$emit("toggle-list", !this.list);
     }
   },
   components: {
@@ -179,6 +181,7 @@ input.search {
 }
 
 .toggle-left {
+  background-color: transparent;
   color: var(--float-nav-icon-c);
   display: none;
   position: relative;

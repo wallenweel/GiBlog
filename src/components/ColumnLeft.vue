@@ -35,7 +35,6 @@
 
       <footer class="info">Powered by <a href="#">GiBlog</a> & Github</footer>
     </div>
-    <div class="mask" @click="$emit('toggle', false)"></div>
   </section>
 </template>
 
@@ -91,19 +90,6 @@ export default {
     flex-direction: column;
     display: flex;
     z-index: 1;
-  }
-
-  > .mask {
-    visibility: hidden;
-    opacity: 0;
-    background-color: var(--column-left-mask-bg-c);
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    position: absolute;
-    z-index: 0;
-    overflow: hidden;
   }
 
   .blank {

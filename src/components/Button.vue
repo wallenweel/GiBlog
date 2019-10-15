@@ -2,7 +2,7 @@
   <button
     :data-type="type"
     :style="{
-      backgroundColor: color
+      background: color || null
     }"
     @click="ev => $emit('click', ev)"
   >
