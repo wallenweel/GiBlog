@@ -99,12 +99,11 @@
   [data-ui-column-list] {
     > .wrap {
       .list {
-        width: 100%;
-        padding-top: 64px;
+        padding-top: 24px;
       }
 
       .article {
-        max-width: 80%;
+        max-width: 82%;
       }
     }
   }
@@ -161,12 +160,6 @@
         .user {
           padding-top: 8px;
         }
-      }
-    }
-
-    [data-ui-column-list] {
-      .list {
-        padding-top: 64px;
       }
     }
 

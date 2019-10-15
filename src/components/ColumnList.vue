@@ -2,27 +2,30 @@
   <section class="column-list" data-ui-column-list>
     <div class="wrap">
       <div class="list">
-        <article
-          class="article blank"
-          data-ui-blank
-          @click="handleFocusedArticle()"
-          v-if="!articleList.length"
-        >
-          <h3 class="title">
-            &#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;
-          </h3>
-          <h4 class="excerpt">
-            &#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;
-          </h4>
-          <div class="meta">
-            <span class="created">&#xa1;&#xa1;&nbsp;&nbsp;&#xa1;&#xa1;</span>
-            &nbsp;&nbsp;
-            <span class="comments">&#xa1;&#xa1;&nbsp;&#xa1;</span>
-          </div>
-          <nav class="tags">
-            &#xa1;&#xa1;&#xa1;&#xa1;&nbsp;&nbsp;&#xa1;&#xa1;&nbsp;&nbsp;&#xa1;&#xa1;&#xa1;
-          </nav>
-        </article>
+        <template v-if="articles === null">
+          <article
+            class="article blank"
+            data-ui-blank
+            @click="handleFocusedArticle()"
+            v-for="n of 15"
+            :key="n"
+          >
+            <h3 class="title">
+              &#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;
+            </h3>
+            <h4 class="excerpt">
+              &#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;&#xa1;
+            </h4>
+            <div class="meta">
+              <span class="created">&#xa1;&#xa1;&nbsp;&nbsp;&#xa1;&#xa1;</span>
+              &nbsp;&nbsp;
+              <span class="comments">&#xa1;&#xa1;&nbsp;&#xa1;</span>
+            </div>
+            <nav class="tags">
+              &#xa1;&#xa1;&#xa1;&#xa1;&nbsp;&nbsp;&#xa1;&#xa1;&nbsp;&nbsp;&#xa1;&#xa1;&#xa1;
+            </nav>
+          </article>
+        </template>
         <article
           class="article"
           @click="handleFocusedArticle(article)"
@@ -97,13 +100,31 @@ export default {
     flex-shrink: 0;
     flex-direction: column;
     display: flex;
+    position: relative;
+
+    &::before {
+      content: "";
+      background-image: linear-gradient(
+        to bottom,
+        var(--column-list-bg-c) 20%,
+        transparent
+      );
+      height: 64px;
+      display: block;
+      left: 0;
+      right: 0;
+      top: 32px;
+      position: absolute;
+      z-index: 2;
+    }
   }
 }
 
 .list {
   height: 100%;
-  padding: 8px;
-  padding-top: 56px;
+  padding: 0 8px;
+  margin-top: 42px;
+  padding-bottom: 52px;
   overflow-y: auto;
 
   > footer {
@@ -122,7 +143,7 @@ export default {
   background-color: var(--articles-item-bg-c);
   font-size: 12px;
   padding: 12px 16px;
-  margin: 6px auto;
+  margin: 12px auto;
   position: relative;
 
   &.blank {
