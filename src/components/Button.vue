@@ -33,15 +33,19 @@ button {
   padding: 0;
   display: flex;
 
+  &[data-type="clear"] {
+    background: none;
+  }
+
   &[data-type="icon"] {
     border-radius: 48px;
     padding: 6px;
     justify-content: center;
     align-items: center;
+  }
 
-    &:active {
-      opacity: 0.65;
-    }
+  &:active {
+    opacity: 0.65;
   }
 }
 </style>

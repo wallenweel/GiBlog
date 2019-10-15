@@ -31,6 +31,7 @@
 
 [data-ui-column-left],
 [data-ui-column-list],
+[data-ui-content-flip],
 [data-ui-float-nav] {
   height: 0;
   width: 0;
@@ -90,7 +91,36 @@
     height: var(--float-nav-h);
     width: var(--float-nav-w);
     top: calc(var(--float-nav-h) * -1);
-    transform: translateY(var(--float-nav-py)) translateX(var(--float-nav-px));
+    transform:
+      translateY(var(--float-nav-py))
+      translateX(var(--float-nav-px));
+  }
+}
+
+[data-ui-content-flip] {
+  width: 100%;
+  bottom: 0;
+  top: initial;
+  z-index: 5;
+
+  > .wrap {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  .left {
+    transform:
+      translateX(var(--column-list-px))
+      translateY(var(--content-flip-py));
+  }
+
+  .right {
+    transform: translateY(var(--content-flip-py));
+  }
+
+  .middle {
+    margin: auto;
   }
 }
 

@@ -2,6 +2,7 @@
   --body-h: auto;
   --body-w: auto;
   --body-overflow: hidden;
+  --primary-c: #3a9cf8;
   --main-bg-c: #fafafa;
   --column-left-w: 220px;
   --column-left-h: 100vh;
@@ -27,6 +28,10 @@
   --float-nav-sd: 0 2px 4px 2px var(--float-nav-sd-c);
   --float-nav-icon-c: #222222;
   --float-nav-search-bg: transparent;
+  --content-flip-btn-h: 72px;
+  --content-flip-btn-c: var(--primary-c);
+  --content-flip-btn-b-c: #ffffff;
+  --content-flip-py: calc((50vh) * -1);
   --owner-area-t-c: #ffffff;
   --avatar-sz: 48px;
   --articles-item-bg-c: #ffffff;
