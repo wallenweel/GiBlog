@@ -31,10 +31,13 @@ button {
   outline: none;
   border: none;
   padding: 0;
+  display: flex;
 
   &[data-type="icon"] {
     border-radius: 48px;
     padding: 6px;
+    justify-content: center;
+    align-items: center;
 
     &:active {
       opacity: 0.65;

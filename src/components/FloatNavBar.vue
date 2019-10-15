@@ -1,9 +1,6 @@
 <template>
   <nav class="float-nav-bar" data-ui-float-nav>
     <div class="wrap">
-      <div class="left">
-        <Avatar class="avatar" />
-      </div>
       <div class="tray">
         <template>
           <Button
@@ -32,7 +29,15 @@
         />
         <div class="placeholder">{{ $t("search") }}...</div>
       </div>
-      <div class="right"></div>
+      <div class="others">
+        <Avatar class="avatar" />
+        <Button class="toggle-list" type="icon">
+          <Icon><IconInbox /></Icon>
+        </Button>
+        <Button class="toggle-menu" type="icon">
+          <Icon><IconMoreVert /></Icon>
+        </Button>
+      </div>
     </div>
   </nav>
 </template>
@@ -43,6 +48,8 @@ import Button from "./Button.vue";
 import Icon from "./Icon.vue";
 import IconMenu from "./icons/Menu.vue";
 import IconBack from "./icons/Back.vue";
+import IconInbox from "./icons/Inbox.vue";
+import IconMoreVert from "./icons/MoreVert.vue";
 
 export default {
   name: "FloatNavBar",
@@ -72,7 +79,9 @@ export default {
     Button,
     Icon,
     IconMenu,
-    IconBack
+    IconBack,
+    IconInbox,
+    IconMoreVert
   }
 };
 </script>
@@ -89,11 +98,11 @@ export default {
   }
 }
 
-.left,
-.right {
-  width: 18%;
+.others {
+  width: 100%;
+  padding: 0 32px;
+  position: absolute;
   align-items: center;
-  justify-content: center;
   display: flex;
   display: none;
 }
@@ -101,14 +110,32 @@ export default {
 .avatar {
   --avatar-sz: 44px;
 
-  box-shadow: 0 2px 4px 2px var(--float-nav-sd-c);
-  margin: 0 auto;
-  margin-left: auto;
+  box-shadow: var(--float-nav-sd);
   display: none;
 }
 
+.toggle-list,
+.toggle-menu {
+  --button-sz: 38px;
+
+  box-shadow: var(--float-nav-sd);
+  background-color: var(--float-nav-b-c);
+  height: var(--button-sz);
+  width: var(--button-sz);
+  color: var(--float-nav-icon-c);
+  flex-shrink: 0;
+}
+
+.toggle-list {
+  margin-left: auto;
+}
+
+.toggle-menu {
+  margin-left: 8px;
+}
+
 .tray {
-  box-shadow: 0 2px 4px 2px var(--float-nav-sd-c);
+  box-shadow: var(--float-nav-sd);
   border-radius: 8px;
   background-color: var(--float-nav-b-c);
   height: var(--float-nav-tray-h);

@@ -43,20 +43,26 @@
     --float-nav-px: 0;
     --float-nav-h: 64px;
     --float-nav-w: 100%;
-    --float-nav-tray-w: 76%;
+    --float-nav-tray-w: 64%;
   }
 
   [data-ui-main] {
     &[data-left-on] {
       --column-list-w: calc(100vw - var(--column-left-w));
       --float-nav-w: var(--column-list-w);
+      --float-nav-tray-w: 54%;
+
+      [data-ui-float-nav] {
+        .others {
+          padding: 0 16px;
+        }
+      }
     }
   }
 
   [data-ui-float-nav] {
     > .wrap {
-      .left,
-      .right {
+      .others {
         display: flex;
       }
 
@@ -65,6 +71,8 @@
       }
 
       .tray {
+        left: -16px;
+
         .search {
           padding-left: 8px;
         }
@@ -101,7 +109,7 @@
 @media screen and (max-width: 640px) {
   :root {
     --column-left-w: 280px;
-    --float-nav-tray-w: 64%;
+    --float-nav-tray-w: 54%;
     --avatar-sz: 56px;
   }
 
@@ -150,6 +158,17 @@
     &[data-list-on] {
       [data-ui-column-list] {
         --column-list-px: var(--column-list-w) !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 440px) {
+  [data-ui-float-nav] {
+    .others {
+      .toggle-list,
+      .toggle-menu {
+        --button-sz: 34px;
       }
     }
   }
