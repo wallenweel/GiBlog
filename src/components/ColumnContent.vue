@@ -130,23 +130,6 @@ export default {
 .column-content {
   > .wrap {
     background-color: var(--column-content-bg-c);
-
-    &::after {
-      content: "";
-      background-image: linear-gradient(
-        to bottom,
-        var(--articles-item-bg-c) 5%,
-        transparent
-      );
-      height: 64px;
-      display: block;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      top: 0;
-      position: absolute;
-      display: none;
-    }
   }
 }
 

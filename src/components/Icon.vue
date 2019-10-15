@@ -2,7 +2,7 @@
   <svg
     xmlns="http://www.w3.org/2000/svg"
     ref="svg"
-    :data-type="type || 'rounded'"
+    :data-type="type || 'outlined'"
     :width="size || width || 24"
     :height="size || height || 24"
     :viewBox="`0 0 ${size || width || 24} ${size || height || 24}`"

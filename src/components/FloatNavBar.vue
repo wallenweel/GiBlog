@@ -30,7 +30,7 @@
       <div class="others">
         <Avatar class="avatar" />
         <Button class="toggle-list" type="icon" @click.stop="toggleList">
-          <Icon :type="!list ? 'rounded' : 'two-tone'"><IconInbox /></Icon>
+          <Icon :type="!list ? 'outlined' : 'two-tone'"><IconInbox /></Icon>
         </Button>
         <Button class="toggle-menu" type="icon">
           <Icon><IconMoreVert /></Icon>
