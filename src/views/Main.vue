@@ -15,7 +15,7 @@
       :left="toggleLeft"
       :list="toggleList"
     />
-    <ContentFlipBar />
+    <FloatFlipBar />
     <ColumnLeft v-model="toggleLeft" @focusedTag="onFocusedTag" />
     <ColumnList v-model="toggleList" @focusedArticle="onFocusedArticle" />
     <ColumnContent @scroll="onContentScrolling" />
@@ -24,7 +24,7 @@
 
 <script>
 import FloatNavBar from "@/components/FloatNavBar.vue";
-import ContentFlipBar from "@/components/ContentFlipBar.vue";
+import FloatFlipBar from "@/components/FloatFlipBar.vue";
 import ColumnLeft from "@/components/ColumnLeft.vue";
 import ColumnList from "@/components/ColumnList.vue";
 import ColumnContent from "@/components/ColumnContent.vue";
@@ -58,7 +58,7 @@ export default {
   },
   components: {
     FloatNavBar,
-    ContentFlipBar,
+    FloatFlipBar,
     ColumnLeft,
     ColumnList,
     ColumnContent

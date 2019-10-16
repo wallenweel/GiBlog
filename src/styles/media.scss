@@ -66,6 +66,10 @@
   [data-ui-main] {
     &[data-list-on] {
       --column-list-px: var(--column-list-w);
+
+      [data-ui-float-flip] {
+        display: none;
+      }
     }
   }
 

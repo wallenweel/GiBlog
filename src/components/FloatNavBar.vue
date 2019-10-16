@@ -138,7 +138,7 @@ export default {
 
 .tray {
   box-shadow: var(--float-nav-sd);
-  border-radius: 8px;
+  border-radius: var(--float-nav-tray-h);
   background-color: var(--float-nav-b-c);
   height: var(--float-nav-tray-h);
   width: var(--float-nav-tray-w);

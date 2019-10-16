@@ -31,7 +31,7 @@
 
 [data-ui-column-left],
 [data-ui-column-list],
-[data-ui-content-flip],
+[data-ui-float-flip],
 [data-ui-float-nav] {
   height: 0;
   width: 0;
@@ -98,7 +98,7 @@
   }
 }
 
-[data-ui-content-flip] {
+[data-ui-float-flip] {
   width: 100%;
   bottom: 0;
   top: initial;
@@ -110,14 +110,19 @@
     display: flex;
   }
 
+  .left,
+  .right {
+    transition: inherit;
+  }
+  
   .left {
     transform:
       translateX(var(--column-list-px))
-      translateY(var(--content-flip-py));
+      translateY(var(--float-flip-py));
   }
 
   .right {
-    transform: translateY(var(--content-flip-py));
+    transform: translateY(var(--float-flip-py));
   }
 
   .middle {
