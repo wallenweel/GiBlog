@@ -38,6 +38,10 @@ export default {
   }
 }
 
+.comments {
+  padding-bottom: 120px;
+}
+
 .comment {
   padding-left: 32px;
   margin-bottom: 12px;

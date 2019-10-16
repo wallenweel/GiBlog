@@ -5,6 +5,11 @@
       background: color || null
     }"
     @click="ev => $emit('click', ev)"
+    @mousedown="ev => $emit('active', ev, 1)"
+    @mouseup="ev => $emit('active', ev, 0)"
+    @touchstart="ev => $emit('active', ev, 1)"
+    @touchend="ev => $emit('active', ev, 0)"
+    @focus="ev => $emit('focus', ev)"
   >
     <slot />
   </button>

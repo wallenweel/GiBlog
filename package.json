@@ -13,6 +13,7 @@
     "fetch-retry": "^2.2.3",
     "github-api": "^3.3.0",
     "github-markdown-css": "^3.0.1",
+    "is-mobile": "^2.1.0",
     "normalize.css": "^8.0.1",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.10",

@@ -2,19 +2,19 @@
   <nav class="float-flip-bar" data-ui-float-flip>
     <div class="wrap">
       <div class="left">
-        <Button type="clear" @click="flip('prev')">
+        <Button :data-on="prev" type="clear" @active="handlePrev">
           <Icon><IconArrowLeft /></Icon>
         </Button>
-        <Button type="clear" @click="flip('next')">
+        <Button :data-on="next" type="clear" @active="handleNext">
           <Icon><IconArrowRight /></Icon>
         </Button>
       </div>
       <div class="middle"></div>
       <div class="right">
-        <Button type="clear" @click="flip('prev')">
+        <Button :data-on="prev" type="clear" @active="handlePrev">
           <Icon><IconArrowLeft /></Icon>
         </Button>
-        <Button type="clear" @click="flip('next')">
+        <Button :data-on="next" type="clear" @active="handleNext">
           <Icon><IconArrowRight /></Icon>
         </Button>
       </div>
@@ -30,11 +30,25 @@ import IconArrowRight from "./icons/ArrowRight.vue";
 
 export default {
   name: "FloatFlipBar",
+  data() {
+    return {
+      prev: null,
+      next: null
+    };
+  },
   methods: {
     flip(direction) {
       if (this.$store.state.article === null) return;
 
       this.$store.dispatch("switchArticle", direction);
+    },
+    handlePrev(ev, pressed) {
+      this.prev = !!pressed;
+      this.flip("prev");
+    },
+    handleNext(ev, pressed) {
+      this.next = !!pressed;
+      this.flip("next");
     }
   },
   components: {
@@ -57,18 +71,25 @@ export default {
 .right {
   box-shadow: 0px 0px 4px 2px var(--float-nav-sd-c);
   box-sizing: content-box;
-  background-color: var(--float-flip-btn-b-c);
   margin-top: calc(var(--float-flip-btn-h) * -1);
-  padding: 8px 0;
   overflow: hidden;
 
   > button {
     box-sizing: border-box;
+    background-color: var(--float-flip-btn-b-c);
     height: var(--float-flip-btn-h);
     width: 26px;
     color: var(--float-flip-btn-c);
     display: flex;
     justify-content: center;
+
+    &[data-on] {
+      filter: brightness(0.92);
+
+      > svg {
+        transform: scale(1.25);
+      }
+    }
   }
 }
 
