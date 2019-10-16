@@ -98,12 +98,8 @@
 
   [data-ui-column-list] {
     > .wrap {
-      .list {
-        padding-top: 24px;
-      }
-
-      .article {
-        max-width: 82%;
+      .sticky > .fill {
+        height: 72px !important;
       }
     }
   }

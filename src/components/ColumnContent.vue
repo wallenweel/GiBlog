@@ -1,6 +1,6 @@
 <template>
-  <section class="column-content" data-ui-column-content ref="column">
-    <div class="wrap">
+  <section class="column-content" data-ui-column-content>
+    <div class="wrap" ref="scroll">
       <article class="article">
         <header>
           <h1 class="title" v-if="article.title">{{ article.title }}</h1>
@@ -57,12 +57,14 @@
           <p><b v-for="n of 20" :key="n">&#xa1;</b></p>
         </div>
       </article>
+      <!-- <Comment /> -->
     </div>
   </section>
 </template>
 
 <script>
 import Tags from "./Tags.vue";
+import Comment from "@/components/Comment.vue";
 
 export default {
   name: "ColumnContent",
@@ -70,7 +72,7 @@ export default {
     return {
       content: "",
       scrollTop: null,
-      columnElement: null,
+      scrollElement: null,
       scrollTimeout: null
     };
   },
@@ -108,12 +110,12 @@ export default {
     }
   },
   mounted() {
-    this.columnElement = this.$refs.column;
-    this.scrollTop = parseInt(this.columnElement.scrollTop, 10);
-    this.columnElement.addEventListener("scroll", this.handleScroll, false);
+    this.scrollElement = this.$refs.scroll;
+    this.scrollTop = parseInt(this.scrollElement.scrollTop, 10);
+    this.scrollElement.addEventListener("scroll", this.handleScroll, false);
   },
   destroyed() {
-    this.columnElement.removeEventListener("scroll", this.handleScroll, false);
+    this.scrollElement.removeEventListener("scroll", this.handleScroll, false);
   },
   watch: {
     article() {
@@ -121,6 +123,7 @@ export default {
     }
   },
   components: {
+    Comment,
     Tags
   }
 };

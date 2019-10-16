@@ -1,6 +1,7 @@
 <template>
   <section class="column-list" data-ui-column-list>
     <div class="wrap">
+      <div class="sticky"><div class="fill"></div></div>
       <div class="list">
         <template v-if="articles === null">
           <article
@@ -96,37 +97,39 @@ export default {
 <style lang="scss" scoped>
 .column-list {
   > .wrap {
-    background-color: var(--column-list-bg-c);
+    background-image: linear-gradient(
+      to bottom,
+      var(--main-bg-c) 5%,
+      var(--column-list-bg-c)
+    );
+    padding-bottom: 52px;
     flex-shrink: 0;
     flex-direction: column;
+    align-items: center;
     display: flex;
     position: relative;
 
-    &::before {
-      content: "";
+    .sticky {
+      opacity: 0.85;
       background-image: linear-gradient(
         to bottom,
-        var(--column-list-bg-c) 20%,
+        var(--main-bg-c) 60%,
         transparent
       );
-      height: 64px;
+      width: 100%;
       display: block;
-      left: 0;
-      right: 0;
-      top: 32px;
-      position: absolute;
+      top: 0;
+      position: sticky;
       z-index: 2;
+
+      .fill {
+        height: 64px;
+      }
     }
   }
 }
 
 .list {
-  height: 100%;
-  padding: 0 8px;
-  margin-top: 42px;
-  padding-bottom: 52px;
-  overflow-y: auto;
-
   > footer {
     width: 100%;
     color: var(--text-info-c-light);
@@ -143,7 +146,7 @@ export default {
   background-color: var(--articles-item-bg-c);
   font-size: 12px;
   padding: 12px 16px;
-  margin: 12px auto;
+  margin-bottom: 12px;
   position: relative;
 
   &.blank {
