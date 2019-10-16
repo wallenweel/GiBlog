@@ -1,23 +1,21 @@
 <template>
   <section class="comment-list" data-ui-comment-list>
     <div class="wrap">
-      <ul class="list">
-        <li class="item" v-for="n of 50" :key="n">
-          <article class="comment">
-            <header class="info">
-              <Avatar />
-              <div class="name">Nick Name</div>
-              <div class="date">{{ $d(new Date(), "short") }}</div>
-            </header>
-            <div class="content">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quasi
-              minus nihil quos enim ut sint qui voluptas atque placeat expedita,
-              impedit, ducimus hic cupiditate praesentium labore adipisci iure
-              dolore.
-            </div>
-          </article>
-        </li>
-      </ul>
+      <div class="comments">
+        <article class="comment" v-for="n of 50" :key="n">
+          <header class="info">
+            <Avatar class="avatar" />
+            <div class="name">Nick Name</div>
+            <div class="date">{{ $d(new Date(), "short") }}</div>
+          </header>
+          <div class="content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quasi
+            minus nihil quos enim ut sint qui voluptas atque placeat expedita,
+            impedit, ducimus hic cupiditate praesentium labore adipisci iure
+            dolore.
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 </template>
@@ -38,14 +36,35 @@ export default {
   > .wrap {
     padding: 16px;
   }
+}
 
-  ul {
-    margin: 0;
-    padding: 0;
+.comment {
+  padding-left: 32px;
+  margin-bottom: 12px;
+  position: relative;
+
+  .info {
+    color: var(--text-c-light);
+    font-size: 12px;
+    align-items: center;
+    display: flex;
+    position: relative;
+
+    .avatar {
+      --avatar-sz: 26px;
+
+      left: -32px;
+      position: absolute;
+    }
+
+    .name {
+      margin-right: 8px;
+    }
   }
 
-  li {
-    list-style: none;
+  .content {
+    font-size: 14px;
+    padding: 6px 0;
   }
 }
 </style>
