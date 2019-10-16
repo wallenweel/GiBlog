@@ -1,3 +1,7 @@
+body[data-ui-view="Main"] {
+  overflow: hidden;
+}
+
 [data-ui-main] {
   width: 100vw;
   height: 100vh;

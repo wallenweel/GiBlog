@@ -57,7 +57,7 @@
           <p><b v-for="n of 20" :key="n">&#xa1;</b></p>
         </div>
       </article>
-      <!-- <Comment /> -->
+      <Comment />
     </div>
   </section>
 </template>

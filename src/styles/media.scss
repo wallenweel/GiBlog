@@ -126,6 +126,10 @@
       --column-list-px: calc(var(--column-left-w) + var(--column-list-w));
       --float-nav-w: var(--column-list-w);
       --float-nav-tray-w: 52%;
+
+      [data-ui-float-flip] {
+        display: none;
+      }
     }
   }
 }

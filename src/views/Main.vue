@@ -38,6 +38,9 @@ export default {
       scrollDirection: null
     };
   },
+  created() {
+    document.body.setAttribute("data-ui-view", this.$options.name);
+  },
   methods: {
     onFocusedTag() {
       this.toggleList = true;
@@ -67,12 +70,6 @@ export default {
 </script>
 
 <style lang="scss">
-body {
-  height: var(--body-h);
-  width: var(--body-w);
-  overflow: var(--body-overflow);
-}
-
 #main {
   background-color: var(--main-bg-c);
 }
