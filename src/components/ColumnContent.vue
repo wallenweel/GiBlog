@@ -93,7 +93,9 @@ export default {
       this.scrollTimeoutId = setTimeout(() => {
         const top = parseInt(ev.target.scrollTop, 10);
         const direction = top - this.scrollTop > 0 ? "down" : "up";
-        const exceeded = top > this.articleElement.scrollHeight;
+        const exceeded = top > this.articleElement.scrollHeight - (window.innerHeight - 48);
+        console.log(top, window.innerHeight);
+        
 
         this.$emit("scroll", { top, direction, exceeded });
         this.scrollTop = top;

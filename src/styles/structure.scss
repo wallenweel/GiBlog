@@ -142,12 +142,21 @@
     width: 100%;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+
+    > .article {
+      min-height: 100%;
+    }
   }
 }
 
 [data-ui-comment-editor] {
-  top: 0;
-  bottom: -10vh;
+  top: 16px;
+  bottom: 0;
   position: sticky;
   z-index: 1;
+
+  > .wrap {
+    height: 48px;
+    max-width: 87%;
+  }
 }

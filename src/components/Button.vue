@@ -1,6 +1,6 @@
 <template>
   <button
-    :data-type="type"
+    :data-type="type || 'normal'"
     :style="{
       background: color || null
     }"
@@ -27,11 +27,16 @@ button {
   -webkit-appearance: none;
   cursor: pointer;
   background-color: var(--btn-normal-bg-c);
-  line-height: 0;
   outline: none;
   border: none;
   padding: 0;
   display: flex;
+
+  &[data-type="normal"] {
+    border-radius: 2px;
+    padding: 4px 6px;
+    justify-content: center;
+  }
 
   &[data-type="clear"] {
     background: none;
@@ -40,6 +45,7 @@ button {
   &[data-type="icon"] {
     border-radius: 48px;
     padding: 6px;
+    line-height: 0;
     justify-content: center;
     align-items: center;
   }

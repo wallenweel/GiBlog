@@ -22,7 +22,7 @@
         </template>
         <input
           class="search"
-          :data-searched="searched"
+          :data-inputed="inputed"
           @change="handleInputChange"
         />
         <div class="placeholder">{{ $t("search") }}...</div>
@@ -57,7 +57,7 @@ export default {
   },
   data() {
     return {
-      searched: false
+      inputed: false
     };
   },
   computed: {
@@ -67,7 +67,7 @@ export default {
   },
   methods: {
     handleInputChange({ target }) {
-      this.searched = target.value || false;
+      this.inputed = !!target.value || false;
     },
     toggleLeft() {
       this.$emit("toggle-left", !this.left);
@@ -163,7 +163,7 @@ input.search {
   position: relative;
   z-index: 2;
 
-  &[data-searched],
+  &[data-inputed],
   &:focus {
     & + .placeholder {
       visibility: hidden;

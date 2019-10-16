@@ -207,6 +207,14 @@
       padding: 0 8px;
     }
   }
+
+  [data-ui-comment-editor] > .wrap {
+    max-width: 96%;
+
+    .user {
+      padding: 0 16px;
+    }
+  }
 }
 
 @media screen and (max-width: 340px) {
