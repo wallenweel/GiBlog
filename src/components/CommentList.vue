@@ -3,10 +3,13 @@
     <div class="wrap">
       <div class="comments">
         <article class="comment" v-for="n of 50" :key="n">
-          <header class="info">
+          <header class="user">
             <Avatar class="avatar" />
             <div class="name">Nick Name</div>
             <div class="date">{{ $d(new Date(), "short") }}</div>
+            <Button class="reply" type="clear">
+              <Icon class="icon"><IconReply /></Icon>
+            </Button>
           </header>
           <div class="content">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quasi
@@ -22,11 +25,17 @@
 
 <script>
 import Avatar from "./Avatar.vue";
+import Button from "./Button.vue";
+import Icon from "./Icon.vue";
+import IconReply from "./icons/Reply.vue";
 
 export default {
   name: "CommentList",
   components: {
-    Avatar
+    Avatar,
+    Button,
+    Icon,
+    IconReply
   }
 };
 </script>
@@ -47,7 +56,7 @@ export default {
   margin-bottom: 12px;
   position: relative;
 
-  .info {
+  .user {
     color: var(--text-c-light);
     font-size: 12px;
     align-items: center;
@@ -64,10 +73,20 @@ export default {
     .name {
       margin-right: 8px;
     }
+
+    .reply {
+      height: 22px;
+      color: inherit;
+      margin-left: auto;
+
+      .icon {
+        height: 16px;
+      }
+    }
   }
 
   .content {
-    font-size: 14px;
+    font-size: 13px;
     padding: 6px 0;
   }
 }

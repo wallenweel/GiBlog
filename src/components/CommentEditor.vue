@@ -3,13 +3,7 @@
     <div class="wrap">
       <header class="user">
         <Avatar class="avatar" />
-        <template v-if="!logined">
-          <div class="info">
-            <span class="name">User Name</span>
-          </div>
-          <Button class="logout">Logout</Button>
-        </template>
-        <template v-else>
+        <template v-if="!hasLogin">
           <div class="form">
             <div class="placeholder">User Name</div>
             <input
@@ -28,9 +22,18 @@
           </div>
           <Button class="login">Login</Button>
         </template>
+        <template v-else>
+          <div class="info">
+            <span class="name">User Name</span>
+          </div>
+          <Button class="logout">Logout</Button>
+        </template>
       </header>
       <div class="editor">
         <textarea name="comment" placeholder="Leave a comment..."></textarea>
+        <Button class="send" type="icon">
+          <Icon class="icon"><IconSend /></Icon>
+        </Button>
       </div>
     </div>
   </section>
@@ -39,19 +42,23 @@
 <script>
 import Avatar from "./Avatar.vue";
 import Button from "./Button.vue";
+import Icon from "./Icon.vue";
+import IconSend from "./icons/Send.vue";
 
 export default {
   name: "CommentEditor",
   data() {
     return {
-      logined: true,
+      hasLogin: false,
       username: null,
       password: null
     };
   },
   components: {
     Avatar,
-    Button
+    Button,
+    Icon,
+    IconSend
   }
 };
 </script>
@@ -84,6 +91,10 @@ export default {
     --avatar-sz: 34px;
 
     margin-right: 8px;
+  }
+
+  .info {
+    font-size: 12px;
   }
 
   .form {
@@ -146,7 +157,8 @@ export default {
     }
   }
 
-  button.login {
+  button.login,
+  button.logout {
     background-color: var(--comment-login-b-c);
     height: var(--input-h);
     width: 96px;
@@ -156,21 +168,44 @@ export default {
     border: 1px solid var(--primary-c);
     margin-left: 8px;
   }
+
+  button.logout {
+    margin-left: auto;
+  }
 }
 
 .editor {
   height: var(--comment-editor-h);
-  padding-top: 0;
+  padding: 0 16px;
 
   textarea {
     resize: vertical;
     background: none;
     padding: 16px;
-    height: 6em;
+    height: 7em;
     width: 100%;
     font-size: 14px;
     outline: none;
     border: none;
+  }
+
+  .send {
+    --sz: 42px;
+
+    background-color: var(--primary-c);
+    color: var(--comment-login-b-c);
+    height: var(--sz);
+    width: var(--sz);
+    left: -12px;
+    top: -6px;
+    position: relative;
+
+    .icon {
+      transform: rotate(-35deg);
+      right: -2px;
+      top: -2px;
+      position: relative;
+    }
   }
 }
 </style>
