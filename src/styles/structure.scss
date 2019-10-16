@@ -96,9 +96,7 @@ body[data-ui-view="Main"] {
     height: var(--float-nav-h);
     width: var(--float-nav-w);
     top: calc(var(--float-nav-h) * -1);
-    transform:
-      translateY(var(--float-nav-py))
-      translateX(var(--float-nav-px));
+    transform: translateY(var(--float-nav-py)) translateX(var(--float-nav-px));
   }
 }
 
@@ -118,10 +116,9 @@ body[data-ui-view="Main"] {
   .right {
     transition: inherit;
   }
-  
+
   .left {
-    transform:
-      translateX(var(--column-list-px))
+    transform: translateX(var(--column-list-px))
       translateY(var(--float-flip-py));
   }
 
@@ -137,7 +134,7 @@ body[data-ui-view="Main"] {
 [data-ui-column-content] {
   height: 100vh;
   width: 100%;
-  
+
   > .wrap {
     height: 100%;
     width: 100%;

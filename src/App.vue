@@ -9,8 +9,9 @@
 @import "~github-markdown-css";
 
 @import "./styles/variables.scss";
-@import "./styles/fonts.scss";
 @import "./styles/structure.scss";
+@import "./styles/scrollbar.scss";
+@import "./styles/fonts.scss";
 @import "./styles/media.scss";
 // @import "./styles/animation.scss";
 
