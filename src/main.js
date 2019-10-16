@@ -14,11 +14,10 @@ Vue.config.productionTip = false;
   document.documentElement.setAttribute("lang", navigator.language);
   document.documentElement.setAttribute("data-not-mobile", !isMobile());
 
-  const {
-    history: { current }
-  } = router;
-
-  document.body.setAttribute("data-current-view", current.name);
+  router.beforeEach((to, from, next) => {
+    document.documentElement.setAttribute("data-current-view", to.name);
+    next();
+  });
 
   await store.dispatch("init");
 })();

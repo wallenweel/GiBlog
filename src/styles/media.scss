@@ -63,6 +63,7 @@
     --column-left-w: 260px;
     --column-list-w: 100vw;
     --column-list-px: 0;
+    --comment-mx-w: 420px;
     --float-nav-px: 0;
     --float-nav-h: 64px;
     --float-nav-w: 100%;
@@ -197,6 +198,10 @@
 }
 
 @media screen and (max-width: 520px) {
+  :root {
+    --comment-mx-w: 400px;
+  }
+  
   [data-ui-float-nav] > .wrap {
     .others {
       padding: 0 16px;

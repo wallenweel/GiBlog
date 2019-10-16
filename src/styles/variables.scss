@@ -2,18 +2,15 @@
   --primary-c: #3a9cf8;
   --main-bg-c: #ffffff;
   --column-left-w: 220px;
-  --column-left-h: 100vh;
+  --column-left-h: 100%;
   --column-left-px: var(--column-left-w); // position
   --column-left-bg-c: #ffffff;
   --column-left-mask-bg-c: rgba(238, 238, 238, 0.549);
   --column-list-w: 280px;
-  --column-list-h: 100vh;
+  --column-list-h: 100%;
   --column-list-px: calc(var(--column-left-w) + var(--column-list-w));
   --column-list-bg-c: #edf2f3;
   --column-content-bg-c: #ffffff;
-  --column-comment-w: 360px;
-  --column-comment-h: 100vh;
-  --column-comment-bg-c: #ffffff;
   --float-nav-w: var(--column-list-w);
   --float-nav-h: 48px;
   --float-nav-py: calc(var(--float-nav-h) + 6px);
@@ -35,7 +32,7 @@
   --articles-item-sd-c: #d9e9ee;
   --article-header-bg-c: #edf2f3;
   --comment-b-c: #ffffff;
-  --comment-mx-w: 86%;
+  --comment-mx-w: 480px;
   --comment-login-b-c: #ffffff;
   --comment-editor-h: 9em;
   --text-c-primary: #6f4521;
