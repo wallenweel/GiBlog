@@ -45,8 +45,10 @@ export default {
   }
 
   .blank {
+    filter: brightness(0.85);
+    height: 100%;
+    width: 100%;
     color: var(--blank-c-light);
-    filter: brightness(0.75);
   }
 }
 </style>

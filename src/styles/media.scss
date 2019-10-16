@@ -82,7 +82,7 @@
   }
 
   [data-scroll-exceeded] {
-    --float-nav-py: var(--float-nav-h);
+    --float-nav-py: calc(var(--float-nav-h) + 6px);
   }
 
   [data-ui-float-nav] {
@@ -96,6 +96,8 @@
       }
 
       .tray {
+        border-radius: 42px;
+        padding-left: 8px;
         left: -16px;
 
         .search {
@@ -105,9 +107,6 @@
         .placeholder {
           padding-left: calc(42px * 1 + 4px);
         }
-
-        border-radius: 42px;
-        padding-left: 8px;
       }
     }
   }
@@ -124,8 +123,14 @@
 
   [data-ui-column-content] {
     > .wrap {
-      padding-top: 64px;
+      .article {
+        padding-top: 72px;
+      }
     }
+  }
+
+  [data-ui-comment-editor] {
+    top: calc(var(--float-nav-h) + 6px);  
   }
 }
 

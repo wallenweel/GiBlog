@@ -90,8 +90,6 @@ export default {
 
 <style lang="scss" scoped>
 .float-nav-bar {
-  margin-top: 6px;
-
   > .wrap {
     padding: 8px 0;
     justify-content: center;

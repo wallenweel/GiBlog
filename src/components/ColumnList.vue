@@ -112,24 +112,26 @@ export default {
 }
 
 .sticky {
-  opacity: 0.85;
-  background-image: linear-gradient(
-    to bottom,
-    var(--main-bg-c) 60%,
-    transparent
-  );
+  height: 0;
   width: 100%;
-  display: block;
   top: 0;
   position: sticky;
   z-index: 2;
 
   .fill {
+    opacity: 0.85;
+    background-image: linear-gradient(
+      to bottom,
+      var(--main-bg-c) 60%,
+      transparent
+    );
     height: 64px;
   }
 }
 
 .list {
+  padding-top: calc(var(--float-nav-py) + 6px);
+
   > footer {
     width: 100%;
     color: var(--text-info-c-light);

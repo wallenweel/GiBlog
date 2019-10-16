@@ -1,6 +1,7 @@
 <template>
   <section class="column-content" data-ui-column-content>
     <div class="wrap" ref="scroll">
+      <div class="sticky"><div class="fill"></div></div>
       <article class="article" ref="article">
         <header>
           <h1 class="title" v-if="article.title">{{ article.title }}</h1>
@@ -144,9 +145,26 @@ export default {
   }
 }
 
+.sticky {
+  height: 0;
+  width: 100%;
+  top: 0;
+  position: sticky;
+  z-index: 1;
+
+  .fill {
+    background-image: linear-gradient(
+      to bottom,
+      var(--comment-b-c) 10%,
+      transparent
+    );
+    height: 64px;
+  }
+}
+
 .article {
   width: inherit;
-  padding: 16px;
+  padding: 32px 16px;
 
   > header {
     border-radius: 4px;

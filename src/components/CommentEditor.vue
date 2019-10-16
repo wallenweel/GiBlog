@@ -61,22 +61,24 @@ export default {
   > .wrap {
     box-shadow: 0 -4px 4px 0px var(--float-nav-sd-c);
     border-radius: 12px 12px 0 0;
-    background-color: var(--comment-b-c);
+    background-image: linear-gradient(
+      to bottom,
+      var(--comment-b-c) 76%,
+      transparent
+    );
     flex-direction: column;
     display: flex;
     position: relative;
-    margin: auto;
   }
 }
 
 .user {
   height: 100%;
   width: 100%;
-  padding: 0 32px;
+  padding: 6px 32px;
   align-items: center;
-  display: flex;
   flex-shrink: 0;
-  margin: auto;
+  display: flex;
 
   .avatar {
     --avatar-sz: 34px;
@@ -157,12 +159,7 @@ export default {
 }
 
 .editor {
-  background-image: linear-gradient(
-    to bottom,
-    var(--comment-b-c) 80%,
-    transparent
-  );
-  padding: 16px;
+  height: var(--comment-editor-h);
   padding-top: 0;
 
   textarea {
@@ -174,7 +171,6 @@ export default {
     font-size: 14px;
     outline: none;
     border: none;
-    margin-bottom: 16px;
   }
 }
 </style>
