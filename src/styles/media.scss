@@ -49,10 +49,9 @@
     --column-list-px: calc(var(--column-left-w) + var(--column-list-w));
 
     [data-ui-comment-editor] > .wrap {
-      max-width: 96%;
-
       .user {
-        padding: 0 16px;
+        padding-left: 16px;
+        padding-right: 16px;
       }
     }
   }

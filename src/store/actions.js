@@ -22,7 +22,7 @@ export default {
     [error] = await dispatch("getAllConfig");
     if (error !== null) return [error];
 
-    [error] = await dispatch("firstFetching");
+    // [error] = await dispatch("firstFetching");
     if (error !== null) return [error];
 
     return [error];
