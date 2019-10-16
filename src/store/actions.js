@@ -19,7 +19,7 @@ export default {
   async init({ dispatch }) {
     let [error] = [null];
 
-    [error] = await dispatch("getConfig");
+    [error] = await dispatch("getAllConfig");
     if (error !== null) return [error];
 
     // [error] = await dispatch("firstFetching");
@@ -28,39 +28,41 @@ export default {
     return [error];
   },
 
-  async getConfig({ commit }) {
-    let [error, config, settings] = [null, null];
-
-    [error, { config, settings }] = await getConfig();
-    if (error !== null) return [error];
-
-    commit("updateConfig", config);
-    debug.log("Updated Config: ", config);
-
-    commit("updateSettings", settings);
-    debug.log("Updated Settings: ", settings);
-
-    return [error];
-  },
-
-  async firstFetching({ dispatch }) {
-    let error = null;
-
-    [error] = await dispatch("getProfile");
-    if (error !== null) return [error];
-
-    [error] = await dispatch("getIssues");
-    if (error !== null) return [error];
-
-    return [error];
-  },
-
+  getAllConfig,
+  firstFetching,
   genApi,
   getProfile,
   getIssues,
   getMarkdown,
   switchArticle
 };
+
+async function getAllConfig({ commit }) {
+  let [error, config, settings] = [null, null];
+
+  [error, { config, settings }] = await getConfig();
+  if (error !== null) return [error];
+
+  commit("updateConfig", config);
+  debug.log("Updated Config: ", config);
+
+  commit("updateSettings", settings);
+  debug.log("Updated Settings: ", settings);
+
+  return [error];
+}
+
+async function firstFetching({ dispatch }) {
+  let error = null;
+
+  [error] = await dispatch("getProfile");
+  if (error !== null) return [error];
+
+  [error] = await dispatch("getIssues");
+  if (error !== null) return [error];
+
+  return [error];
+}
 
 async function genApi({ state }) {
   const { username, password, token } = state;

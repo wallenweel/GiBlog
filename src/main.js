@@ -9,7 +9,16 @@ import "./registerServiceWorker";
 
 Vue.config.productionTip = false;
 
-store.dispatch("init");
+(async () => {
+  await store.dispatch("init");
+
+  const {
+    history: { current }
+  } = router;
+
+  document.documentElement.setAttribute("lang", navigator.language);
+  document.body.setAttribute("data-current-view", current.name);
+})();
 
 new Vue({
   router,

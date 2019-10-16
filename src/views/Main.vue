@@ -42,9 +42,6 @@ export default {
       scrollExceeded: null
     };
   },
-  created() {
-    document.body.setAttribute("data-ui-view", this.$options.name);
-  },
   methods: {
     onFocusedTag() {
       this.toggleList = true;
