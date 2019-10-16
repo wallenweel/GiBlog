@@ -45,9 +45,15 @@
 }
 
 @media screen and (max-width: 1024px) and (min-width: 800px) {
-  [data-ui-main] {
-    &[data-left-on] {
-      --column-list-px: calc(var(--column-left-w) + var(--column-list-w));
+  [data-left-on] {
+    --column-list-px: calc(var(--column-left-w) + var(--column-list-w));
+
+    [data-ui-comment-editor] > .wrap {
+      max-width: 96%;
+
+      .user {
+        padding: 0 16px;
+      }
     }
   }
 }
@@ -63,22 +69,20 @@
     --float-nav-tray-w: 62%;
   }
 
-  [data-ui-main] {
-    &[data-list-on] {
-      --column-list-px: var(--column-list-w);
+  [data-list-on] {
+    --column-list-px: var(--column-list-w);
 
-      [data-ui-float-flip] {
-        display: none;
-      }
+    [data-ui-float-flip] {
+      display: none;
     }
+  }
 
-    &[data-scroll-direction="down"] {
-      --float-nav-py: 0;
-    }
+  [data-scroll-direction="down"] {
+    --float-nav-py: 0;
+  }
 
-    &[data-scroll-exceeded] {
-      --float-nav-py: var(--float-nav-h);
-    }
+  [data-scroll-exceeded] {
+    --float-nav-py: var(--float-nav-h);
   }
 
   [data-ui-float-nav] {
@@ -108,11 +112,9 @@
     }
   }
 
-  [data-ui-column-list] {
-    > .wrap {
-      .sticky > .fill {
-        height: 72px !important;
-      }
+  [data-ui-column-list] > .wrap {
+    .sticky > .fill {
+      height: 72px;
     }
   }
 
@@ -128,16 +130,14 @@
 }
 
 @media screen and (max-width: 800px) and (min-width: 640px) {
-  [data-ui-main] {
-    &[data-left-on] {
-      --column-list-w: calc(100vw - var(--column-left-w));
-      --column-list-px: calc(var(--column-left-w) + var(--column-list-w));
-      --float-nav-w: var(--column-list-w);
-      --float-nav-tray-w: 52%;
+  [data-left-on] {
+    --column-list-w: calc(100vw - var(--column-left-w));
+    --column-list-px: calc(var(--column-left-w) + var(--column-list-w));
+    --float-nav-w: var(--column-list-w);
+    --float-nav-tray-w: 52%;
 
-      [data-ui-float-flip] {
-        display: none;
-      }
+    [data-ui-float-flip] {
+      display: none;
     }
   }
 }
@@ -160,36 +160,34 @@
     --avatar-sz: 56px;
   }
 
-  [data-ui-main] {
-    [data-ui-column-left] {
-      .wrap {
-        .hide-left {
-          display: block;
-        }
-      }
-
-      [data-ui-owner-area] {
-        .user {
-          padding-top: 8px;
-        }
+  [data-ui-column-left] {
+    .wrap {
+      .hide-left {
+        display: block;
       }
     }
 
-    [data-ui-float-nav] {
-      --float-nav-px: 0;
-      --float-nav-w: 100%;
-    }
-
-    &[data-left-on] {
-      [data-ui-mask~="left"] {
-        opacity: 1;
-        visibility: visible;
+    [data-ui-owner-area] {
+      .user {
+        padding-top: 8px;
       }
     }
+  }
 
-    &[data-list-on] {
-      --column-list-px: var(--column-list-w);
+  [data-ui-float-nav] {
+    --float-nav-px: 0;
+    --float-nav-w: 100%;
+  }
+
+  [data-left-on] {
+    [data-ui-mask~="left"] {
+      opacity: 1;
+      visibility: visible;
     }
+  }
+
+  [data-list-on] {
+    --column-list-px: var(--column-list-w);
   }
 }
 

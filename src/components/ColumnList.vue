@@ -108,24 +108,24 @@ export default {
     align-items: center;
     display: flex;
     position: relative;
+  }
+}
 
-    .sticky {
-      opacity: 0.85;
-      background-image: linear-gradient(
-        to bottom,
-        var(--main-bg-c) 60%,
-        transparent
-      );
-      width: 100%;
-      display: block;
-      top: 0;
-      position: sticky;
-      z-index: 2;
+.sticky {
+  opacity: 0.85;
+  background-image: linear-gradient(
+    to bottom,
+    var(--main-bg-c) 60%,
+    transparent
+  );
+  width: 100%;
+  display: block;
+  top: 0;
+  position: sticky;
+  z-index: 2;
 
-      .fill {
-        height: 64px;
-      }
-    }
+  .fill {
+    height: 64px;
   }
 }
 

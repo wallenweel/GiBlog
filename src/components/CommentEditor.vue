@@ -157,7 +157,11 @@ export default {
 }
 
 .editor {
-  background-image: linear-gradient(to bottom, var(--comment-b-c) 80%, transparent);
+  background-image: linear-gradient(
+    to bottom,
+    var(--comment-b-c) 80%,
+    transparent
+  );
   padding: 16px;
   padding-top: 0;
 
