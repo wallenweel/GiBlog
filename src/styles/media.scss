@@ -75,6 +75,10 @@
     &[data-scroll-direction="down"] {
       --float-nav-py: 0;
     }
+
+    &[data-scroll-exceeded] {
+      --float-nav-py: var(--float-nav-h);
+    }
   }
 
   [data-ui-float-nav] {

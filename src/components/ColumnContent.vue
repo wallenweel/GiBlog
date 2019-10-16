@@ -95,9 +95,8 @@ export default {
         const direction = top - this.scrollTop > 0 ? "down" : "up";
         const exceeded = top > this.articleElement.scrollHeight;
 
-        this.scrollTop = top;
-        // this.$emit("scroll", { top, direction });
         this.$emit("scroll", { top, direction, exceeded });
+        this.scrollTop = top;
 
         clearTimeout(this.scrollTimeoutId);
         this.scrollTimeoutId = null;

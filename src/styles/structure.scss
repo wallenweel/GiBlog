@@ -1,4 +1,4 @@
-body[data-ui-view="Main"] {
+[data-ui-view="Main"] {
   overflow: hidden;
 }
 
@@ -143,4 +143,11 @@ body[data-ui-view="Main"] {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
   }
+}
+
+[data-ui-comment-editor] {
+  top: 0;
+  bottom: -10vh;
+  position: sticky;
+  z-index: 1;
 }

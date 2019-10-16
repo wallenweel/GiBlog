@@ -5,6 +5,7 @@
     :data-left-on="toggleLeft"
     :data-list-on="toggleList"
     :data-scroll-direction="scrollDirection"
+    :data-scroll-exceeded="scrollExceeded"
   >
     <div class="wrap">
       <div data-ui-placeholder="left"></div>
@@ -37,7 +38,8 @@ export default {
     return {
       toggleLeft: null,
       toggleList: null,
-      scrollDirection: null
+      scrollDirection: null,
+      scrollExceeded: null
     };
   },
   created() {
@@ -51,11 +53,7 @@ export default {
       this.toggleList = false;
     },
     onContentScrolling({ direction, exceeded }) {
-      if (exceeded) {
-        this.scrollDirection = null;
-        return;
-      }
-
+      this.scrollExceeded = exceeded;
       this.scrollDirection = direction;
     },
     onToggleLeft() {
