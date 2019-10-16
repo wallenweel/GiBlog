@@ -4,7 +4,7 @@
       <span :style="{ backgroundImage: avatar && `url(${avatar})` }"></span>
     </div>
     <div class="user">
-      <Avatar class="avatar" />
+      <Avatar class="avatar" :avatar="avatar" />
       <div class="info">
         <span class="name" v-if="name">{{ name }}</span>
         <span class="name blank" data-ui-blank v-else>

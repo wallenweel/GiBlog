@@ -12,10 +12,8 @@ import IconPerson from "./icons/Person.vue";
 
 export default {
   name: "Avatar",
-  computed: {
-    avatar() {
-      return this.$store.state.profile.avatar;
-    }
+  props: {
+    avatar: String
   },
   components: {
     Icon,
