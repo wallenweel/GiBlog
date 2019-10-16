@@ -3,10 +3,12 @@ body[data-ui-view="Main"] {
 }
 
 [data-ui-main] {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  overflow: hidden;
+  > .wrap {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+  }
 }
 
 [data-ui-blank] {

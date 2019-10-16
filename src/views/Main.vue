@@ -6,19 +6,21 @@
     :data-list-on="toggleList"
     :data-scroll-direction="scrollDirection"
   >
-    <div data-ui-placeholder="left"></div>
-    <div data-ui-mask="left" @click="toggleLeft = !toggleLeft"></div>
+    <div class="wrap">
+      <div data-ui-placeholder="left"></div>
+      <div data-ui-mask="left" @click="toggleLeft = !toggleLeft"></div>
 
-    <FloatNavBar
-      @toggle-left="onToggleLeft"
-      @toggle-list="onToggleList"
-      :left="toggleLeft"
-      :list="toggleList"
-    />
-    <FloatFlipBar />
-    <ColumnLeft v-model="toggleLeft" @focusedTag="onFocusedTag" />
-    <ColumnList v-model="toggleList" @focusedArticle="onFocusedArticle" />
-    <ColumnContent @scroll="onContentScrolling" />
+      <FloatNavBar
+        @toggle-left="onToggleLeft"
+        @toggle-list="onToggleList"
+        :left="toggleLeft"
+        :list="toggleList"
+      />
+      <FloatFlipBar />
+      <ColumnLeft v-model="toggleLeft" @focusedTag="onFocusedTag" />
+      <ColumnList v-model="toggleList" @focusedArticle="onFocusedArticle" />
+      <ColumnContent @scroll="onContentScrolling" />
+    </div>
   </main>
 </template>
 
@@ -48,7 +50,12 @@ export default {
     onFocusedArticle() {
       this.toggleList = false;
     },
-    onContentScrolling({ direction }) {
+    onContentScrolling({ direction, exceeded }) {
+      if (exceeded) {
+        this.scrollDirection = null;
+        return;
+      }
+
       this.scrollDirection = direction;
     },
     onToggleLeft() {

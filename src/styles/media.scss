@@ -71,6 +71,10 @@
         display: none;
       }
     }
+
+    &[data-scroll-direction="down"] {
+      --float-nav-py: 0;
+    }
   }
 
   [data-ui-float-nav] {
@@ -170,10 +174,6 @@
     [data-ui-float-nav] {
       --float-nav-px: 0;
       --float-nav-w: 100%;
-    }
-
-    &[data-scroll-direction="down"] {
-      --float-nav-py: 0;
     }
 
     &[data-left-on] {

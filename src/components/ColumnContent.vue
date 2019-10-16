@@ -1,7 +1,7 @@
 <template>
   <section class="column-content" data-ui-column-content>
     <div class="wrap" ref="scroll">
-      <article class="article">
+      <article class="article" ref="article">
         <header>
           <h1 class="title" v-if="article.title">{{ article.title }}</h1>
           <h1 class="title blank" data-ui-blank v-else>
@@ -57,23 +57,27 @@
           <p><b v-for="n of 20" :key="n">&#xa1;</b></p>
         </div>
       </article>
-      <Comment />
+
+      <CommentEditor />
+      <CommentList />
     </div>
   </section>
 </template>
 
 <script>
 import Tags from "./Tags.vue";
-import Comment from "@/components/Comment.vue";
+import CommentEditor from "@/components/CommentEditor.vue";
+import CommentList from "@/components/CommentList.vue";
 
 export default {
   name: "ColumnContent",
   data() {
     return {
       content: "",
-      scrollTop: null,
+      articleElement: null,
       scrollElement: null,
-      scrollTimeout: null
+      scrollTop: null,
+      scrollTimeoutId: null
     };
   },
   computed: {
@@ -84,17 +88,19 @@ export default {
   },
   methods: {
     handleScroll(ev) {
-      if (this.scrollTimeout !== null) clearTimeout(this.scrollTimeout);
+      if (this.scrollTimeoutId !== null) clearTimeout(this.scrollTimeoutId);
 
-      this.scrollTimeout = setTimeout(() => {
+      this.scrollTimeoutId = setTimeout(() => {
         const top = parseInt(ev.target.scrollTop, 10);
         const direction = top - this.scrollTop > 0 ? "down" : "up";
+        const exceeded = top > this.articleElement.scrollHeight;
 
         this.scrollTop = top;
-        this.$emit("scroll", { top, direction });
+        // this.$emit("scroll", { top, direction });
+        this.$emit("scroll", { top, direction, exceeded });
 
-        clearTimeout(this.scrollTimeout);
-        this.scrollTimeout = null;
+        clearTimeout(this.scrollTimeoutId);
+        this.scrollTimeoutId = null;
       }, 300);
     },
 
@@ -110,6 +116,7 @@ export default {
     }
   },
   mounted() {
+    this.articleElement = this.$refs.article;
     this.scrollElement = this.$refs.scroll;
     this.scrollTop = parseInt(this.scrollElement.scrollTop, 10);
     this.scrollElement.addEventListener("scroll", this.handleScroll, false);
@@ -123,8 +130,9 @@ export default {
     }
   },
   components: {
-    Comment,
-    Tags
+    Tags,
+    CommentEditor,
+    CommentList
   }
 };
 </script>
