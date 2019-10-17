@@ -1,6 +1,6 @@
 <template>
   <section class="column-list" data-ui-column-list>
-    <div class="wrap">
+    <div class="wrap" data-ui-scroll>
       <div class="sticky"><div class="fill"></div></div>
       <div class="list">
         <template v-if="articles === null">

@@ -80,8 +80,9 @@ export default {
     height: var(--float-flip-btn-h);
     width: 26px;
     color: var(--float-flip-btn-c);
-    display: flex;
+    align-items: center;
     justify-content: center;
+    display: flex;
 
     &[data-on] {
       filter: brightness(0.92);

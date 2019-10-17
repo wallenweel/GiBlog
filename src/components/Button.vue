@@ -40,6 +40,7 @@ button {
   &[data-type="normal"] {
     border-radius: 2px;
     padding: 4px 6px;
+    align-items: center;
     justify-content: center;
   }
 

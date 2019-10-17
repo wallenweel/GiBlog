@@ -1,6 +1,6 @@
 <template>
   <section class="column-content" data-ui-column-content>
-    <div class="wrap" ref="scroll">
+    <div class="wrap" data-ui-scroll ref="scroll">
       <div class="sticky"><div class="fill"></div></div>
       <article class="article" ref="article">
         <header>
