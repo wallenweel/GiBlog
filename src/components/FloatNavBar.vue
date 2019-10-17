@@ -29,10 +29,14 @@
       </div>
       <div class="others">
         <Avatar class="avatar" :avatar="avatar" />
-        <Button class="toggle-list" type="icon" @click.stop="toggleList">
+        <Button class="action toggle-list" type="icon" @click.stop="toggleList">
           <Icon :type="!list ? 'outlined' : 'two-tone'"><IconInbox /></Icon>
         </Button>
-        <Button class="toggle-menu" type="icon">
+        <div class="spacer"></div>
+        <Button class="action sync" type="icon">
+          <Icon><IconSync /></Icon>
+        </Button>
+        <Button class="action toggle-menu" type="icon">
           <Icon><IconMoreVert /></Icon>
         </Button>
       </div>
@@ -47,6 +51,7 @@ import Icon from "./Icon.vue";
 import IconMenu from "./icons/Menu.vue";
 import IconBack from "./icons/Back.vue";
 import IconInbox from "./icons/Inbox.vue";
+import IconSync from "./icons/Sync.vue";
 import IconMoreVert from "./icons/MoreVert.vue";
 
 export default {
@@ -83,6 +88,7 @@ export default {
     IconMenu,
     IconBack,
     IconInbox,
+    IconSync,
     IconMoreVert
   }
 };
@@ -105,29 +111,27 @@ export default {
   align-items: center;
   display: flex;
   display: none;
+
+  .spacer {
+    margin: auto;
+  }
 }
 
 .avatar {
-  --avatar-sz: 44px;
+  --avatar-sz: 38px;
 
   box-shadow: var(--float-nav-sd);
+  margin-right: 8px;
   display: none;
 }
 
-.toggle-list,
-.toggle-menu {
+button.action {
   --button-sz: 38px;
 
   box-shadow: var(--float-nav-sd);
   background-color: var(--float-nav-b-c);
-  height: var(--button-sz);
-  width: var(--button-sz);
   color: var(--float-nav-icon-c);
   flex-shrink: 0;
-}
-
-.toggle-list {
-  margin-left: auto;
 }
 
 .toggle-menu {
@@ -141,8 +145,6 @@ export default {
   height: var(--float-nav-tray-h);
   width: var(--float-nav-tray-w);
   font-size: 14px;
-  padding: 0 8px;
-  padding-left: 4px;
   margin: 0 auto;
   align-items: center;
   display: flex;
@@ -179,8 +181,11 @@ input.search {
 }
 
 .toggle-left {
+  height: 48px;
+  width: 48px;
   background-color: transparent;
   color: var(--float-nav-icon-c);
+  flex-shrink: 0;
   display: none;
   position: relative;
   z-index: 1;

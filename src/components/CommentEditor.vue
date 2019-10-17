@@ -30,8 +30,12 @@
         </template>
       </header>
       <div class="editor">
-        <textarea name="comment" placeholder="Leave a comment..."></textarea>
-        <Button class="send" type="icon">
+        <textarea
+          name="comment"
+          placeholder="Leave a comment..."
+          v-model="comment"
+        ></textarea>
+        <Button class="send" :disabled="!comment" type="icon">
           <Icon class="icon"><IconSend /></Icon>
         </Button>
       </div>
@@ -51,7 +55,8 @@ export default {
     return {
       hasLogin: false,
       username: null,
-      password: null
+      password: null,
+      comment: null
     };
   },
   components: {
@@ -70,7 +75,7 @@ export default {
     border-radius: 12px 12px 0 0;
     background-image: linear-gradient(
       to bottom,
-      var(--comment-b-c) 76%,
+      var(--comment-bg-c) 76%,
       transparent
     );
     flex-direction: column;
@@ -190,15 +195,18 @@ export default {
   }
 
   .send {
-    --sz: 42px;
+    --button-sz: 40px;
 
+    box-shadow: 0px 4px 8px var(--float-nav-sd-c);
     background-color: var(--primary-c);
     color: var(--comment-login-b-c);
-    height: var(--sz);
-    width: var(--sz);
-    left: -12px;
-    top: -6px;
-    position: relative;
+    bottom: 6px;
+    right: 16px;
+    position: absolute;
+
+    &:disabled {
+      background-color: var(--btn-disabled-bg-c);
+    }
 
     .icon {
       transform: rotate(-35deg);

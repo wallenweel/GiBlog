@@ -155,7 +155,7 @@ export default {
   .fill {
     background-image: linear-gradient(
       to bottom,
-      var(--comment-b-c) 10%,
+      var(--column-content-bg-c) 10%,
       transparent
     );
     height: 64px;

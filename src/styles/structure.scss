@@ -125,6 +125,16 @@
   [data-ui-float-flip] {
     display: none;
   }
+
+  [data-ui-column-content] {
+    .sticky > .fill {
+      background-image: linear-gradient(
+        to bottom,
+        var(--comment-bg-c) 92%,
+        transparent
+      );
+    }
+  }
 }
 
 [data-ui-float-flip] {

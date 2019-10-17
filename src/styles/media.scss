@@ -66,7 +66,11 @@
     --float-nav-px: 0;
     --float-nav-h: 64px;
     --float-nav-w: 100%;
-    --float-nav-tray-w: 62%;
+    --float-nav-tray-w: 52%;
+  }
+
+  [data-left-on] {
+    --float-nav-tray-w: 46%;
   }
 
   [data-list-on] {
@@ -96,9 +100,7 @@
       }
 
       .tray {
-        border-radius: 42px;
-        padding-left: 8px;
-        left: -16px;
+        border-radius: var(--float-nav-tray-h);
 
         .search {
           padding-left: 8px;
@@ -130,7 +132,7 @@
   }
 
   [data-ui-comment-editor] {
-    top: calc(var(--float-nav-h) + 6px);  
+    top: calc(var(--float-nav-h) + 6px);
   }
 }
 
@@ -139,7 +141,6 @@
     --column-list-w: calc(100vw - var(--column-left-w));
     --column-list-px: calc(var(--column-left-w) + var(--column-list-w));
     --float-nav-w: var(--column-list-w);
-    --float-nav-tray-w: 52%;
 
     [data-ui-float-flip] {
       display: none;
@@ -161,7 +162,6 @@
   :root {
     --column-left-w: 280px;
     --column-list-w: 100vw;
-    --float-nav-tray-w: 54%;
     --avatar-sz: 56px;
   }
 
@@ -199,8 +199,9 @@
 @media screen and (max-width: 520px) {
   :root {
     --comment-mx-w: 400px;
+    --float-nav-tray-w: 50%;
   }
-  
+
   [data-ui-float-nav] > .wrap {
     .others {
       padding: 0 16px;
@@ -209,9 +210,20 @@
 }
 
 @media screen and (max-width: 420px) {
+  :root {
+    --float-nav-tray-w: 46%;
+  }
+
   [data-ui-float-nav] > .wrap {
     .others {
       padding: 0 8px;
+      .avatar {
+        --avatar-sz: 32px;
+      }
+
+      .action {
+        --button-sz: 32px;
+      }
     }
   }
 
@@ -228,15 +240,6 @@
   [data-ui-float-nav] > .wrap {
     .others {
       padding: 0 4px;
-
-      .avatar {
-        --avatar-sz: 42px;
-      }
-
-      .toggle-list,
-      .toggle-menu {
-        --button-sz: 32px;
-      }
     }
   }
 }

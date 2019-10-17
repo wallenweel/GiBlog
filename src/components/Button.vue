@@ -28,6 +28,8 @@ export default {
 
 <style lang="scss" scoped>
 button {
+  --button-sz: 48px;
+
   -webkit-tap-highlight-color: transparent;
   -webkit-appearance: none;
   cursor: pointer;
@@ -35,13 +37,13 @@ button {
   outline: none;
   border: none;
   padding: 0;
+  justify-content: center;
+  align-items: center;
   display: flex;
 
   &[data-type="normal"] {
     border-radius: 2px;
     padding: 4px 6px;
-    align-items: center;
-    justify-content: center;
   }
 
   &[data-type="clear"] {
@@ -49,11 +51,10 @@ button {
   }
 
   &[data-type="icon"] {
-    border-radius: 48px;
-    padding: 6px;
+    border-radius: var(--button-sz);
+    height: var(--button-sz);
+    width: var(--button-sz);
     line-height: 0;
-    justify-content: center;
-    align-items: center;
   }
 
   &:active {
