@@ -13,8 +13,6 @@ import {
   BLANK_MARKDOWN_TEXT
 } from "@/types";
 
-// /* eslint-disable no-unused-vars */
-
 export default {
   async init({ dispatch }) {
     let [error] = [null];
@@ -22,7 +20,7 @@ export default {
     [error] = await dispatch("getAllConfig");
     if (error !== null) return [error];
 
-    // [error] = await dispatch("firstFetching");
+    [error] = await dispatch("firstFetching");
     if (error !== null) return [error];
 
     return [error];

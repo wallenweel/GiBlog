@@ -19,7 +19,8 @@ Vue.config.productionTip = false;
     next();
   });
 
-  await store.dispatch("init");
+  // blank demo, no need init data
+  if (!location.search.match("blank")) await store.dispatch("init");
 })();
 
 new Vue({
