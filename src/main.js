@@ -1,10 +1,10 @@
 import Vue from "vue";
-import isMobile from "is-mobile";
 
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import i18n from "./i18n";
+import { isMobile } from "./functions/utilities";
 
 import "./registerServiceWorker";
 

@@ -1,9 +1,7 @@
 dependencies:
   core-js: 2.6.10
-  fetch-retry: 2.2.3
   github-api: 3.3.0
   github-markdown-css: 3.0.1
-  is-mobile: 2.1.0
   normalize.css: 8.0.1
   register-service-worker: 1.6.2
   vue: 2.6.10
@@ -1170,7 +1168,7 @@ packages:
       vue-loader: 15.7.1_css-loader@1.0.1+webpack@4.41.2
       vue-template-compiler: 2.6.10
       webpack: 4.41.2_webpack@4.41.2
-      webpack-bundle-analyzer: 3.5.2
+      webpack-bundle-analyzer: 3.6.0
       webpack-chain: 4.12.1
       webpack-dev-server: 3.8.2_webpack@4.41.2
       webpack-merge: 4.2.2
@@ -2382,7 +2380,7 @@ packages:
   /browserslist/4.7.0:
     dependencies:
       caniuse-lite: 1.0.30000999
-      electron-to-chromium: 1.3.282
+      electron-to-chromium: 1.3.284
       node-releases: 1.1.36
     dev: true
     hasBin: true
@@ -3929,11 +3927,11 @@ packages:
     resolution:
       integrity: sha1-W1q1f3GLedSsqSVEV6/s02+oAig=
       tarball: ejs/download/ejs-2.7.1.tgz
-  /electron-to-chromium/1.3.282:
+  /electron-to-chromium/1.3.284:
     dev: true
     resolution:
-      integrity: sha1-FhGK6ceaMuqToXWR1bFuKNEPwI0=
-      tarball: electron-to-chromium/download/electron-to-chromium-1.3.282.tgz
+      integrity: sha1-skNZ+k9Js6fFKvwAXVnsOqn2eW4=
+      tarball: electron-to-chromium/download/electron-to-chromium-1.3.284.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Felectron-to-chromium%2Fdownload%2Felectron-to-chromium-1.3.284.tgz
   /elliptic/6.5.1:
     dependencies:
       bn.js: 4.11.8
@@ -3966,13 +3964,6 @@ packages:
     resolution:
       integrity: sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
       tarball: encodeurl/download/encodeurl-1.0.2.tgz
-  /encoding/0.1.12:
-    dependencies:
-      iconv-lite: 0.4.24
-    dev: false
-    resolution:
-      integrity: sha1-U4tm8+5izRq1HsMjgp0flIDHS+s=
-      tarball: encoding/download/encoding-0.1.12.tgz
   /end-of-stream/1.4.4:
     dependencies:
       once: 1.4.0
@@ -4052,11 +4043,6 @@ packages:
     resolution:
       integrity: sha1-7fckeAM0VujdqO8J4ArZZQcH83c=
       tarball: es-to-primitive/download/es-to-primitive-1.2.0.tgz
-  /es6-promise/4.2.8:
-    dev: false
-    resolution:
-      integrity: sha1-TrIVlMlyvEBVPSduUQU5FD21Pgo=
-      tarball: es6-promise/download/es6-promise-4.2.8.tgz
   /escape-html/1.0.3:
     dev: true
     resolution:
@@ -4716,14 +4702,6 @@ packages:
     resolution:
       integrity: sha1-VOmr99+i8mzZsWNsWIwa/AXeXVg=
       tarball: fb-watchman/download/fb-watchman-2.0.0.tgz
-  /fetch-retry/2.2.3:
-    dependencies:
-      es6-promise: 4.2.8
-      isomorphic-fetch: 2.2.1
-    dev: false
-    resolution:
-      integrity: sha1-r7IW8QXBIAjbldmBmPzKfOzKDE0=
-      tarball: fetch-retry/download/fetch-retry-2.2.3.tgz
   /figgy-pudding/3.5.1:
     dev: true
     resolution:
@@ -5686,6 +5664,7 @@ packages:
   /iconv-lite/0.4.24:
     dependencies:
       safer-buffer: 2.1.2
+    dev: true
     engines:
       node: '>=0.10.0'
     resolution:
@@ -6185,11 +6164,6 @@ packages:
     resolution:
       integrity: sha1-dWfb6fL14kZ7x3q4PEopSCQHpdw=
       tarball: is-glob/download/is-glob-4.0.1.tgz
-  /is-mobile/2.1.0:
-    dev: false
-    resolution:
-      integrity: sha1-TAyrcvM1jdmYYAc4mzByn66A2gs=
-      tarball: is-mobile/download/is-mobile-2.1.0.tgz
   /is-number/2.1.0:
     dependencies:
       kind-of: 3.2.2
@@ -6311,6 +6285,7 @@ packages:
       integrity: sha1-+xj4fOH+uSUWnJpAfBkxijIG7Yg=
       tarball: is-resolvable/download/is-resolvable-1.1.0.tgz
   /is-stream/1.1.0:
+    dev: true
     engines:
       node: '>=0.10.0'
     resolution:
@@ -6414,14 +6389,6 @@ packages:
     resolution:
       integrity: sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
       tarball: isobject/download/isobject-3.0.1.tgz
-  /isomorphic-fetch/2.2.1:
-    dependencies:
-      node-fetch: 1.7.3
-      whatwg-fetch: 3.0.0
-    dev: false
-    resolution:
-      integrity: sha1-YRrhrPFPXoH3KVB0coGf6XM1WKk=
-      tarball: isomorphic-fetch/download/isomorphic-fetch-2.2.1.tgz
   /isstream/0.1.2:
     dev: true
     resolution:
@@ -7825,14 +7792,6 @@ packages:
     resolution:
       integrity: sha1-79hHTe5O3sQTjN3tWA9VFlAPczQ=
       tarball: node-cache/download/node-cache-4.2.1.tgz
-  /node-fetch/1.7.3:
-    dependencies:
-      encoding: 0.1.12
-      is-stream: 1.1.0
-    dev: false
-    resolution:
-      integrity: sha1-mA9vcthSEaU0fGsrwYxbhMPrR+8=
-      tarball: node-fetch/download/node-fetch-1.7.3.tgz
   /node-forge/0.9.0:
     dev: true
     engines:
@@ -9913,6 +9872,7 @@ packages:
       integrity: sha1-QKNmnzsHfR6UPURinhV91IAjvy4=
       tarball: safe-regex/download/safe-regex-1.1.0.tgz
   /safer-buffer/2.1.2:
+    dev: true
     resolution:
       integrity: sha1-RPoWGwGHuVSd2Eu5GAL5vYOFzWo=
       tarball: safer-buffer/download/safer-buffer-2.1.2.tgz
@@ -11591,7 +11551,7 @@ packages:
     resolution:
       integrity: sha1-qFWYCx8LazWbodXZ+zmulB+qY60=
       tarball: webidl-conversions/download/webidl-conversions-4.0.2.tgz
-  /webpack-bundle-analyzer/3.5.2:
+  /webpack-bundle-analyzer/3.6.0:
     dependencies:
       acorn: 6.3.0
       acorn-walk: 6.2.0
@@ -11611,8 +11571,8 @@ packages:
       node: '>= 6.14.4'
     hasBin: true
     resolution:
-      integrity: sha1-rAKDT0sx3o4n1x5semEjAevdt58=
-      tarball: webpack-bundle-analyzer/download/webpack-bundle-analyzer-3.5.2.tgz
+      integrity: sha1-ObOo+CnKBEaCvG+eARyV3rVUrv0=
+      tarball: webpack-bundle-analyzer/download/webpack-bundle-analyzer-3.6.0.tgz
   /webpack-chain/4.12.1:
     dependencies:
       deepmerge: 1.5.2
@@ -11766,11 +11726,6 @@ packages:
     resolution:
       integrity: sha1-WrrPd3wyFmpR0IXWtPPn0nET3bA=
       tarball: whatwg-encoding/download/whatwg-encoding-1.0.5.tgz
-  /whatwg-fetch/3.0.0:
-    dev: false
-    resolution:
-      integrity: sha1-/IBORYzEYACbGiuWa8iBfSV4rvs=
-      tarball: whatwg-fetch/download/whatwg-fetch-3.0.0.tgz
   /whatwg-mimetype/2.3.0:
     dev: true
     resolution:
@@ -12172,10 +12127,8 @@ specifiers:
   eslint: ^5.16.0
   eslint-plugin-prettier: ^3.1.0
   eslint-plugin-vue: ^5.0.0
-  fetch-retry: ^2.2.3
   github-api: ^3.3.0
   github-markdown-css: ^3.0.1
-  is-mobile: ^2.1.0
   normalize.css: ^8.0.1
   prettier: ^1.18.2
   register-service-worker: ^1.6.2
