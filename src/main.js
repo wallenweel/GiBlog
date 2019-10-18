@@ -4,25 +4,42 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import i18n from "./i18n";
-import { isMobile } from "./functions/utilities";
+import { getConfig } from "@/functions/config";
+import { isMobile, isBlank } from "./functions/utilities";
 
 import "./registerServiceWorker";
 
 Vue.config.productionTip = false;
 
-(async () => {
-  document.documentElement.setAttribute("lang", navigator.language);
-  document.documentElement.setAttribute("data-not-mobile", !isMobile());
+// ready
+(async (html, language) => {
+  // set user language
+  html.setAttribute("lang", language);
+  // checking mobile devices
+  html.setAttribute("data-not-mobile", !isMobile());
 
+  // listen routes
   router.beforeEach((to, from, next) => {
-    document.documentElement.setAttribute("data-current-view", to.name);
+    // set current view type
+    html.setAttribute("data-current-view", to.name);
+
     next();
   });
 
-  // blank demo, no need init data
-  if (!location.search.match("blank")) await store.dispatch("init");
-})();
+  // get all configs
+  const [error, { config, settings }] = await getConfig();
+  if (error !== null) return [error];
 
+  // blank demo, no need init data
+  if (!isBlank())
+    // init store by configs
+    await store.dispatch("init", {
+      config,
+      settings
+    });
+})(document.documentElement, navigator.language);
+
+// render
 new Vue({
   router,
   store,

@@ -20,3 +20,8 @@ export const fuse = (func = () => {}, ...params) => {
  */
 export const isMobile = () =>
   !!navigator.userAgent.match(/(android|iphone|ipad)/i);
+
+/**
+ * isBlank is checked does not render any data
+ */
+export const isBlank = () => !!location.search.match("blank");

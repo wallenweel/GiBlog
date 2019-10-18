@@ -1,12 +1,13 @@
-import { getConfig } from "@/functions/config";
 import debug from "@/functions/debug";
 
 export default {
-  async init({ dispatch }) {
+  async init({ dispatch, commit }, { config, settings }) {
     let [error] = [null];
 
-    [error] = await dispatch("getAllConfig");
-    if (error !== null) return [error];
+    commit("updateConfig", config);
+    debug.log("Updated Config: ", config);
+    commit("updateSettings", settings);
+    debug.log("Updated Settings: ", settings);
 
     [error] = await dispatch("firstFetching");
     if (error !== null) return [error];
@@ -14,7 +15,6 @@ export default {
     return [error];
   },
 
-  getAllConfig,
   firstFetching,
   getProfile,
   getArticles,
@@ -22,21 +22,6 @@ export default {
   getMarkdownHTML,
   switchArticle
 };
-
-async function getAllConfig({ commit }) {
-  let [error, config, settings] = [null, null];
-
-  [error, { config, settings }] = await getConfig();
-  if (error !== null) return [error];
-
-  commit("updateConfig", config);
-  debug.log("Updated Config: ", config);
-
-  commit("updateSettings", settings);
-  debug.log("Updated Settings: ", settings);
-
-  return [error];
-}
 
 async function firstFetching({ dispatch }) {
   let error = null;
