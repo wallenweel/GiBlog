@@ -3,6 +3,8 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
+import github from "@/apis/github";
+
 import actions from "./actions";
 import mutations from "./mutations";
 
@@ -42,5 +44,11 @@ const state = {
 export default new Vuex.Store({
   state,
   mutations,
-  actions
+  actions,
+  getters: {
+    api(state) {
+      const { api = "github", username, password, token } = state;
+      return { github }[api]({ username, password, token });
+    }
+  }
 });

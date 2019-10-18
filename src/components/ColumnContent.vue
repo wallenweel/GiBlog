@@ -109,7 +109,7 @@ export default {
       if (!this.article.content) return;
 
       const [, html] = await this.$store.dispatch(
-        "getMarkdown",
+        "getMarkdownHTML",
         this.article.content
       );
 

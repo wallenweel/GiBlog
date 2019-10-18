@@ -1,17 +1,5 @@
-import GitHub from "github-api";
 import { getConfig } from "@/functions/config";
 import debug from "@/functions/debug";
-import {
-  profileCleaner,
-  issuesCleaner,
-  labelsCleaner
-} from "@/functions/github";
-
-import {
-  CONNECT_API_ERROR,
-  NOT_FOUND_ANY_ISSUES,
-  BLANK_MARKDOWN_TEXT
-} from "@/types";
 
 export default {
   async init({ dispatch }) {
@@ -28,10 +16,10 @@ export default {
 
   getAllConfig,
   firstFetching,
-  genApi,
   getProfile,
-  getIssues,
-  getMarkdown,
+  getArticles,
+  getTags,
+  getMarkdownHTML,
   switchArticle
 };
 
@@ -56,78 +44,58 @@ async function firstFetching({ dispatch }) {
   [error] = await dispatch("getProfile");
   if (error !== null) return [error];
 
-  [error] = await dispatch("getIssues");
+  [error] = await dispatch("getArticles");
+  if (error !== null) return [error];
+
+  [error] = await dispatch("getTags");
   if (error !== null) return [error];
 
   return [error];
 }
 
-async function genApi({ state }) {
-  const { username, password, token } = state;
-  const api = new GitHub({ username, password, token });
+async function getProfile({ getters, commit }) {
+  const [error, profile] = await getters.api("getProfile");
 
-  return [null, api];
-}
-
-async function getProfile({ commit, dispatch }) {
-  const [, api] = await dispatch("genApi");
-  const { status, data = [] } = await api.getUser().getProfile();
-
-  if (status !== 200) return [CONNECT_API_ERROR];
-
-  const profile = profileCleaner(data);
+  if (error !== null) return [error];
 
   commit("updateProfile", profile);
-
-  return [null];
-}
-
-async function getIssues({ state, commit, dispatch }) {
-  const [, api] = await dispatch("genApi");
-  const { username, repo } = state;
-  const issues = api.getIssues(username, repo);
-
-  const issuesHelper = async () => {
-    const { status, data = [] } = await issues.listIssues();
-
-    if (status !== 200) return CONNECT_API_ERROR;
-    if (!data.length) return NOT_FOUND_ANY_ISSUES;
-
-    const articles = issuesCleaner(data);
-
-    commit("updateArticles", articles);
-    commit("updateFocusedArticles");
-    commit("updateArticle", articles[0]);
-  };
-
-  const labelsHelper = async () => {
-    const { status, data = [] } = await issues.listLabels();
-
-    if (status !== 200) return CONNECT_API_ERROR;
-    if (!data.length) return NOT_FOUND_ANY_ISSUES;
-
-    const tags = labelsCleaner(data, true);
-
-    commit("updateTags", tags);
-  };
-
-  let error = null;
-
-  error = (await issuesHelper()) || null;
-  error = (await labelsHelper()) || null;
 
   return [error];
 }
 
-async function getMarkdown({ dispatch }, text = "") {
-  if (!text) return [BLANK_MARKDOWN_TEXT];
+async function getArticles({ state, getters, commit }) {
+  const { username, repo } = state;
+  const [error, articles] = await getters.api("getArticles", {
+    username,
+    repo
+  });
 
-  const [, api] = await dispatch("genApi");
-  const { status, data: html } = await api.getMarkdown().render({ text });
+  if (error !== null) return [error];
 
-  if (status !== 200) return [CONNECT_API_ERROR];
+  commit("updateArticles", articles);
+  commit("updateFocusedArticles");
+  commit("updateArticle", articles[0]);
 
-  return [null, html];
+  return [error];
+}
+
+async function getTags({ state, getters, commit }) {
+  const { username, repo } = state;
+  const [error, tags] = await getters.api("getTags", {
+    username,
+    repo
+  });
+
+  if (error !== null) return [error];
+
+  commit("updateTags", tags);
+
+  return [error];
+}
+
+async function getMarkdownHTML({ getters }, text = "") {
+  const [error, html] = await getters.api("getMarkdownHTML", text);
+  return [error, html];
 }
 
 function switchArticle({ commit, state }, direction /** next|prev */) {
