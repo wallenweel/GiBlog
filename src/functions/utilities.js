@@ -15,6 +15,16 @@ export const fuse = (func = () => {}, ...params) => {
 };
 
 /**
+ * getSearchSeries is a simple url search params tool
+ */
+export const getSearchSeries = () =>
+  location.search
+    .slice(1)
+    .split("&")
+    .map(a => a.split("="))
+    .reduce((p, [k, v]) => ({ ...p, [k]: v || true }), {});
+
+/**
  * isMobile is a simple checker for devices of phone and pad
  * @return {boolean}
  */
@@ -22,6 +32,6 @@ export const isMobile = () =>
   !!navigator.userAgent.match(/(android|iphone|ipad)/i);
 
 /**
- * isBlank is checked does not render any data
+ * isBlank can check whether enable blank viewing mode
  */
-export const isBlank = () => !!location.search.match("blank");
+export const isBlank = () => !!getSearchSeries()["blank"];

@@ -13,10 +13,18 @@ const state = {
   config: null,
 
   // current config
+  title: null,
+  description: null,
+  owner: null,
+  email: null,
   repo: null,
+  repos: null,
   username: null,
   password: null,
   token: null,
+
+  // settings
+  theme: null,
 
   // data
   profile: {
@@ -35,10 +43,7 @@ const state = {
   article: null,
   comments: null,
   tags: null,
-  focusedTags: null,
-
-  // settings
-  theme: null
+  focusedTags: null
 };
 
 export default new Vuex.Store({
