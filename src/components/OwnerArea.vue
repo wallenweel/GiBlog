@@ -33,10 +33,10 @@ export default {
       return this.$store.state.profile;
     },
     name() {
-      return this.profile.name;
+      return this.$store.state.owner || this.profile.name;
     },
     email() {
-      return this.profile.email;
+      return this.$store.state.email || this.profile.email;
     },
     avatar() {
       return this.profile.avatar;

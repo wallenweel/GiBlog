@@ -9,41 +9,55 @@ import actions from "./actions";
 import mutations from "./mutations";
 
 const state = {
-  // [{token,...}, {token,...}]
-  config: null,
+  // config
+  ...{
+    // [{token,...}, {token,...}]
+    config: null,
 
-  // current config
-  title: null,
-  description: null,
-  owner: null,
-  email: null,
-  repo: null,
-  repos: null,
-  username: null,
-  password: null,
-  token: null,
+    // current config
+    title: null,
+    description: null,
+    owner: null,
+    email: null,
+    theme: null,
+
+    // current selected
+    currRepo: null,
+
+    // where blog was installed
+    repo: null,
+    repos: null,
+    username: null,
+    password: null,
+    token: null
+  },
 
   // settings
-  theme: null,
+  ...{
+    // can be overwrited by config
+    theme: null
+  },
 
   // data
-  profile: {
-    id: null,
-    name: null,
-    email: null,
-    home: null,
-    avatar: null,
-    description: null,
-    followers: null,
-    following: null,
-    updated: null
-  },
-  articles: null,
-  focusedArticles: null,
-  article: null,
-  comments: null,
-  tags: null,
-  focusedTags: null
+  ...{
+    profile: {
+      id: null,
+      name: null,
+      email: null,
+      home: null,
+      avatar: null,
+      description: null,
+      followers: null,
+      following: null,
+      updated: null
+    },
+    articles: null,
+    focusedArticles: null,
+    article: null,
+    comments: null,
+    tags: null,
+    focusedTags: null
+  }
 };
 
 export default new Vuex.Store({

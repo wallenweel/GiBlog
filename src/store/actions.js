@@ -4,15 +4,30 @@ export default {
   async init({ dispatch, commit }, { config, settings }) {
     let [error] = [null];
 
-    commit("updateConfig", config);
-    debug.log("Updated Config: ", config);
     commit("updateSettings", settings);
     debug.log("Updated Settings: ", settings);
+
+    commit("updateConfig", config);
+    commit("updateCurrentConfig", config[0]);
+    debug.log("Updated Config: ", config);
+
+    dispatch("updateAppInfo");
 
     [error] = await dispatch("firstFetching");
     if (error !== null) return [error];
 
     return [error];
+  },
+
+  updateAppInfo({ state }) {
+    const { title, description } = state;
+    const setMeta = (name, content) =>
+      document
+        .querySelector(`meta[name="${name}"]`)
+        .setAttribute("content", content);
+
+    document.title = `${title} - ${description}`;
+    setMeta("description", description);
   },
 
   firstFetching,
@@ -49,7 +64,7 @@ async function getProfile({ getters, commit }) {
 }
 
 async function getArticles({ state, getters, commit }) {
-  const { username, repo } = state;
+  const { username, currRepo: repo } = state;
   const [error, articles] = await getters.api("getArticles", {
     username,
     repo
@@ -65,7 +80,7 @@ async function getArticles({ state, getters, commit }) {
 }
 
 async function getTags({ state, getters, commit }) {
-  const { username, repo } = state;
+  const { username, currRepo: repo } = state;
   const [error, tags] = await getters.api("getTags", {
     username,
     repo

@@ -3,16 +3,41 @@ export default {
     Object.assign(state.install, { repo, config });
   },
 
-  updateConfig(state, config = []) {
+  updateConfig(state, config = {}) {
     state.config = config;
+  },
 
-    const currentConfig = config[0];
-    const { base64_token, username, theme, repos } = currentConfig;
+  updateCurrentConfig(state, config = {}) {
+    const {
+      token,
+      base64_token,
+      username,
+      theme,
+      title,
+      description,
+      owner,
+      email,
+      repo,
+      repos
+    } = config;
 
-    state.token = atob(base64_token);
-    state.username = username;
-    state.repo = repos[0];
-    state.theme = theme;
+    state = Object.assign(state, {
+      username,
+      repo,
+      title,
+      description,
+      owner,
+      email
+    });
+    state.token = token || atob(base64_token);
+    state.currRepo = repos[0];
+    state.theme = theme || state.theme;
+    // state.username = username;
+    // state.repo = repo;
+    // state.title = title;
+    // state.description = description;
+    // state.owner = owner;
+    // state.email = email;
   },
 
   updateSettings(state, settings = {}) {
