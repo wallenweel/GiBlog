@@ -21,10 +21,7 @@ const state = {
     email: null,
     theme: null,
 
-    // current selected
-    currRepo: null,
-
-    // where blog was installed
+    // current repo
     repo: null,
     repos: null,
     username: null,
@@ -34,6 +31,8 @@ const state = {
 
   // settings
   ...{
+    // the repo of the blog to be installed
+    mounted: null,
     // can be overwrited by config
     theme: null
   },

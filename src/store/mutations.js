@@ -17,26 +17,25 @@ export default {
       description,
       owner,
       email,
-      repo,
       repos
     } = config;
 
     state = Object.assign(state, {
       username,
-      repo,
       title,
       description,
       owner,
       email
     });
     state.token = token || atob(base64_token);
-    state.currRepo = repos[0];
+    state.repo = repos[0];
     state.theme = theme || state.theme;
   },
 
   updateSettings(state, settings = {}) {
-    const { theme } = settings;
+    const { mounted, theme } = settings;
 
+    state.mounted = mounted;
     state.theme = theme;
   },
 

@@ -65,7 +65,7 @@ async function getProfile({ getters, commit }) {
 }
 
 async function getArticles({ state, getters, commit }) {
-  const { username, currRepo: repo } = state;
+  const { username, repo } = state;
   const [error, articles] = await getters.api("getArticles", {
     username,
     repo
@@ -81,7 +81,7 @@ async function getArticles({ state, getters, commit }) {
 }
 
 async function getTags({ state, getters, commit }) {
-  const { username, currRepo: repo } = state;
+  const { username, repo } = state;
   const [error, tags] = await getters.api("getTags", {
     username,
     repo
@@ -100,7 +100,7 @@ async function getMarkdownHTML({ getters }, text = "") {
 }
 
 async function getComments({ state, getters, commit }, number) {
-  const { username, currRepo: repo } = state;
+  const { username, repo } = state;
   const [error, comments] = await getters.api("getComments", {
     username,
     repo,

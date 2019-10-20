@@ -130,6 +130,8 @@ export default {
 }
 
 .list {
+  width: 100%;
+  padding: 0 16px;
   padding-top: calc(var(--float-nav-py) + 6px);
 
   > footer {
