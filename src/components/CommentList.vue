@@ -5,7 +5,7 @@
         <template v-if="comments">
           <article class="comment" v-for="c of comments" :key="c.id">
             <header class="user">
-              <Avatar class="avatar" :avatar="c.user.avatar" />
+              <Avatar class="avatar" :url="c.user.avatar" />
               <div class="name">{{ c.user.username }}</div>
               <div class="date">{{ $d(new Date(c.updated), "short") }}</div>
               <Button class="reply" type="clear">

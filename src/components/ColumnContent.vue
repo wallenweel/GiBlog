@@ -109,6 +109,7 @@ export default {
     },
 
     fetchComments() {
+      if (!this.article.number) return;
       this.$store.dispatch("getComments", this.article.number);
     },
 

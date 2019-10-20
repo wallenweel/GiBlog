@@ -28,7 +28,7 @@
         <div class="placeholder">{{ $t("search") }}...</div>
       </div>
       <div class="others">
-        <Avatar class="avatar" :avatar="avatar" />
+        <Avatar class="avatar" :url="avatar" />
         <Button class="action toggle-list" type="icon" @click.stop="toggleList">
           <Icon :type="!list ? 'outlined' : 'two-tone'"><IconInbox /></Icon>
         </Button>

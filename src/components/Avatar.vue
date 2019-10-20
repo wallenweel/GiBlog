@@ -1,7 +1,7 @@
 <template>
   <div class="avatar" data-ui-avatar>
-    <span :style="{ backgroundImage: avatar && `url('${avatar}')` }">
-      <Icon class="blank" type="rounded" v-if="!avatar"><IconPerson /></Icon>
+    <span :style="{ backgroundImage: url && `url('${url}')` }">
+      <Icon class="blank" type="rounded" v-if="!url"><IconPerson /></Icon>
     </span>
   </div>
 </template>
@@ -13,7 +13,7 @@ import IconPerson from "./icons/Person.vue";
 export default {
   name: "Avatar",
   props: {
-    avatar: String
+    url: String
   },
   components: {
     Icon,
