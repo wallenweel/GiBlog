@@ -32,12 +32,6 @@ export default {
     state.token = token || atob(base64_token);
     state.currRepo = repos[0];
     state.theme = theme || state.theme;
-    // state.username = username;
-    // state.repo = repo;
-    // state.title = title;
-    // state.description = description;
-    // state.owner = owner;
-    // state.email = email;
   },
 
   updateSettings(state, settings = {}) {

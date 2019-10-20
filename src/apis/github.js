@@ -14,7 +14,8 @@ export default ({ username, password, token }) => {
       getProfile,
       getArticles: getIssues,
       getTags: getLabels,
-      getMarkdownHTML: getMarkdown
+      getMarkdownHTML: getMarkdown,
+      getComments: getIssueComments
     }[name](api, ...params));
 };
 
@@ -60,6 +61,18 @@ async function getMarkdown(api, text = "") {
   if (status !== 200) return [CONNECT_API_ERROR];
 
   return [null, html];
+}
+
+async function getIssueComments(api, { username, repo, number }) {
+  const wrap = api.getIssues(username, repo);
+  const { status, data } = await wrap.listIssueComments(number);
+
+  if (status !== 200) return [CONNECT_API_ERROR];
+  if (!data.length) return [NOT_FOUND_ANY_ISSUES];
+
+  const comments = commentsCleaner(data);
+
+  return [null, comments];
 }
 
 /** Helper Functions */
@@ -139,4 +152,38 @@ export function labelsCleaner(labels = [], withnotag = false) {
       url
     })
   );
+}
+
+export function commentsCleaner(comments = []) {
+  return comments.map(
+    ({
+      author_association: association,
+      body: content,
+      created_at: created,
+      html_url: url,
+      id,
+      updated_at: updated,
+      user
+    }) => ({
+      association,
+      content,
+      created,
+      url,
+      id,
+      updated,
+      user: userCleaner(user)
+    })
+  );
+}
+
+export function userCleaner(user = {}) {
+  const { avatar_url: avatar, html_url: url, id, login: username, type } = user;
+
+  return {
+    avatar,
+    url,
+    id,
+    username,
+    type: (type || "").toLowerCase()
+  };
 }

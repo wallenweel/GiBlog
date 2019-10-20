@@ -35,6 +35,7 @@ export default {
   getArticles,
   getTags,
   getMarkdownHTML,
+  getComments,
   switchArticle
 };
 
@@ -96,6 +97,19 @@ async function getTags({ state, getters, commit }) {
 async function getMarkdownHTML({ getters }, text = "") {
   const [error, html] = await getters.api("getMarkdownHTML", text);
   return [error, html];
+}
+
+async function getComments({ state, getters, commit }, number) {
+  const { username, currRepo: repo } = state;
+  const [error, comments] = await getters.api("getComments", {
+    username,
+    repo,
+    number
+  });
+
+  commit("updateComments", comments);
+
+  return [error];
 }
 
 function switchArticle({ commit, state }, direction /** next|prev */) {

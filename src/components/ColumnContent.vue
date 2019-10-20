@@ -97,12 +97,19 @@ export default {
         const exceeded =
           top > this.articleElement.scrollHeight - window.innerHeight * 0.5;
 
+        // TODO: improve this
+        if (exceeded) this.fetchComments();
+
         this.$emit("scroll", { top, direction, exceeded });
         this.scrollTop = top;
 
         clearTimeout(this.scrollTimeoutId);
         this.scrollTimeoutId = null;
       }, 300);
+    },
+
+    fetchComments() {
+      this.$store.dispatch("getComments", this.article.number);
     },
 
     async renderMarkdown() {

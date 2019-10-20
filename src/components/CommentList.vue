@@ -3,24 +3,19 @@
     <div class="wrap">
       <div class="comments">
         <template v-if="comments">
-          <article class="comment" v-for="n of 50" :key="n">
+          <article class="comment" v-for="c of comments" :key="c.id">
             <header class="user">
-              <Avatar class="avatar" />
-              <div class="name">Nick Name</div>
-              <div class="date">{{ $d(new Date(), "short") }}</div>
+              <Avatar class="avatar" :avatar="c.user.avatar" />
+              <div class="name">{{ c.user.username }}</div>
+              <div class="date">{{ $d(new Date(c.updated), "short") }}</div>
               <Button class="reply" type="clear">
                 <Icon class="icon"><IconReply /></Icon>
               </Button>
             </header>
-            <div class="content">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quasi
-              minus nihil quos enim ut sint qui voluptas atque placeat expedita,
-              impedit, ducimus hic cupiditate praesentium labore adipisci iure
-              dolore.
-            </div>
+            <div class="content">{{ c.content }}</div>
           </article>
         </template>
-        <template>
+        <template v-else>
           <article class="comment blank" data-ui-blank v-for="n of 50" :key="n">
             <header class="user">
               <Avatar class="avatar" />
@@ -53,10 +48,15 @@ import IconReply from "./icons/Reply.vue";
 
 export default {
   name: "CommentList",
-  data() {
-    return {
-      comments: null
-    };
+  // data() {
+  //   return {
+  //     comments: null
+  //   };
+  // },
+  computed: {
+    comments() {
+      return this.$store.state.comments;
+    }
   },
   components: {
     Avatar,
