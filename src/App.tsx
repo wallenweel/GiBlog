@@ -1,6 +1,6 @@
-import React from 'react';
-import logo from './logo.svg';
-import styles from './App.module.css';
+import React from 'react'
+import logo from './logo.svg'
+import styles from './App.module.css'
 
 const App = () => {
   return (
@@ -20,7 +20,7 @@ const App = () => {
         </a>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
