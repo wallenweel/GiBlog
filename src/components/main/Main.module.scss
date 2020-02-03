@@ -1,5 +1,6 @@
 .container {
-  height: inherit;
-  width: inherit;
+  height: var(--app-height);
+  width: var(--app-width);
   position: relative;
+  overflow: hidden;
 }

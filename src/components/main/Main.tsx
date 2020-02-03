@@ -8,11 +8,11 @@ import Article from '../article/Article'
 import { container } from './Main.module.scss'
 
 export default () => (
-  <div className={container}>
+  <main className={container}>
     {false && <Toolbar />}
 
     <Drawer />
     <List />
     <Article />
-  </div>
+  </main>
 )
