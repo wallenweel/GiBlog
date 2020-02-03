@@ -21,7 +21,6 @@
 <App />
     <Main />
     <Setting />
-    <Editor />
 ```
 
 ### 主界面

@@ -12,6 +12,7 @@
     "@types/react-dom": "^16.9.0",
     "i18next": "^19.1.0",
     "i18next-browser-languagedetector": "^4.0.1",
+    "node-sass": "npm:sass",
     "normalize.css": "^8.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

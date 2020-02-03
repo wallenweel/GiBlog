@@ -1,0 +1,7 @@
+%pos {
+  position: relative;
+  color: red;
+}
+.container {
+  @extend %pos;
+}
