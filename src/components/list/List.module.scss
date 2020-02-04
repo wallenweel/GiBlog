@@ -1,7 +1,8 @@
 .container {
-  position: relative;
-}
+  background-color: var(--list-background-color);
 
-.wrap {
-  background-color: lightslategray;
+  height: var(--list-height);
+  width: 100%;
+
+  position: relative;
 }

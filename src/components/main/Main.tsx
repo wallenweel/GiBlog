@@ -10,35 +10,33 @@ import ListItem from '../list/ListItem'
 import Article from '../article/Article'
 import ArticleInfo from '../article/ArticleInfo'
 
-import { container, wrap } from './Main.module.scss'
+import { container } from './Main.module.scss'
 
 export default function Main() {
   return (
-    <main className={container}>
-      <div className={wrap}>
-        {false && <Toolbar />}
+    <div className={container}>
+      {false && <Toolbar />}
 
-        <Drawer>
-          <OwnerArea />
-          <Store />
-          <Taxonomy />
-          {/* <NavTag />
+      <Drawer>
+        <OwnerArea />
+        <Store />
+        <Taxonomy />
+        {/* <NavTag />
           <NavCategory />
         </Taxonomy> */}
-        </Drawer>
+      </Drawer>
 
-        <List>
-          {(Array(12).fill(null) || []).map((_, i) => (
-            <ListItem num={i + 1} key={i}>
-              Item {i + 1}
-            </ListItem>
-          ))}
-        </List>
+      <List>
+        {(Array(12).fill(null) || []).map((_, i) => (
+          <ListItem num={i + 1} key={i}>
+            Item {i + 1}
+          </ListItem>
+        ))}
+      </List>
 
-        <Article>
-          <ArticleInfo />
-        </Article>
-      </div>
-    </main>
+      <Article>
+        <ArticleInfo />
+      </Article>
+    </div>
   )
 }

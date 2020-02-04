@@ -1,8 +1,20 @@
 :root {
+  /* App */
   --app-height: 100vh;
   --app-width: 100vw;
 
-  --drawer-width: 242rem;
-  --drawer-height: 100%;
+  /* Main */
+  --main-background-color: lightsteelblue;
+  --main-height: var(--app-height);
+  --main-width: var(--app-width);
+
+  /* Drawer */
   --drawer-background-color: lightskyblue;
+  --drawer-height: var(--app-height);
+  --drawer-width: 242rem;
+
+  /* List */
+  --list-background-color: lightslategray;
+  --list-height: var(--app-height);
+  --list-width: 100%;
 }

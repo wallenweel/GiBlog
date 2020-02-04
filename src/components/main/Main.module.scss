@@ -1,14 +1,11 @@
 .container {
-  height: var(--app-height);
-  width: var(--app-width);
-  position: relative;
-  overflow: hidden;
-}
+  background-color: var(--main-background-color);
 
-.wrap {
-  background-color: lightsteelblue;
-  height: 100%;
-  width: 100%;
+  height: var(--main-height);
+  width: var(--main-width);
+
+  position: relative;
+
   flex-direction: row;
   display: flex;
 }
