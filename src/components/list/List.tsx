@@ -1,3 +1,9 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-export default () => <div>List</div>
+export default function List({ children }: { children: ReactNode }) {
+  return (
+    <section>
+      <div>{children}</div>
+    </section>
+  )
+}

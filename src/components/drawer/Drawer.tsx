@@ -1,4 +1,10 @@
-import React from 'react'
-import { container } from './Drawer.module.scss'
+import React, { ReactNode } from 'react'
+import { container, wrap } from './Drawer.module.scss'
 
-export default () => <div className={container}>Drawer</div>
+export default function Drawer(props: { children: ReactNode }) {
+  return (
+    <aside className={container}>
+      <div className={wrap}>{props.children}</div>
+    </aside>
+  )
+}

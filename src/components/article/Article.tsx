@@ -1,3 +1,9 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-export default () => <div>Article</div>
+export default function Article({ children }: { children: ReactNode }) {
+  return (
+    <section>
+      <div>{children}</div>
+    </section>
+  )
+}

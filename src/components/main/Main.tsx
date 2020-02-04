@@ -2,17 +2,43 @@ import React from 'react'
 
 import Toolbar from '../toolbar/Toolbar'
 import Drawer from '../drawer/Drawer'
+import OwnerArea from '../drawer/OwnerArea'
 import List from '../list/List'
+import ListItem from '../list/ListItem'
 import Article from '../article/Article'
+import ArticleInfo from '../article/ArticleInfo'
 
-import { container } from './Main.module.scss'
+import { container, wrap } from './Main.module.scss'
 
-export default () => (
-  <main className={container}>
-    {false && <Toolbar />}
+export default function Main() {
+  return (
+    <main className={container}>
+      <div className={wrap}>
+        {false && <Toolbar />}
 
-    <Drawer />
-    <List />
-    <Article />
-  </main>
-)
+        <Drawer>
+          <OwnerArea />
+          {/* <Sources /> */}
+          {/* <Taxonomy>
+          <NavTag />
+          <NavCategory />
+        </Taxonomy> */}
+        </Drawer>
+
+        <List>
+          {Array(10)
+            .fill(null)
+            .map((_, i) => (
+              <ListItem num={i + 1} key={i}>
+                Item {i + 1}
+              </ListItem>
+            ))}
+        </List>
+
+        <Article>
+          <ArticleInfo />
+        </Article>
+      </div>
+    </main>
+  )
+}

@@ -27,6 +27,15 @@
 
 ```jsx
 <Main />
+    <Toolbar />
+        <OwnerAvatar />
+        <ListBtn />
+        <Filter />
+            <DrawerBtn /> // ?= Drawer is hide
+            <Back />
+        <RefreshBtn />
+        <MoreBtn />
+
     <Drawer />
         <OwnerArea />
 
@@ -37,18 +46,9 @@
             <NavTag /> // ?= issues or gist
             <NavCategory /> // ?= files
 
-    <Toolbar />
-        <OwnerAvatar />
-        <ListBtn />
-        <Filter />
-            <DrawerBtn /> // ?= Drawer is hide
-            <Back />
-        <RefreshBtn />
-        <MoreBtn />
-
     <List />
         // maybe has other types
-        <ListArticleItem />
+        <ListItem />
 
     <Article />
         <ArticleInfo />

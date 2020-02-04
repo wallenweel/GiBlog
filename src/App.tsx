@@ -1,11 +1,11 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 
 import Main from './components/main/Main'
 
-const App = (props: { children: ReactNode }) => <>{props.children}</>
-
-export default () => (
-  <App>
-    <Main />
-  </App>
-)
+export default function App() {
+  return (
+    <>
+      <Main />
+    </>
+  )
+}
