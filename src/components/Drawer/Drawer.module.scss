@@ -1,3 +1,16 @@
 .container {
+  height: 100%;
   position: relative;
+}
+
+.wrap {
+  background-color: white;
+  height: 100%;
+  width: 220rem;
+
+  & {
+    background-color: var(--drawer-background-color);
+    height: var(--drawer-height);
+    width: var(--drawer-width);
+  }
 }

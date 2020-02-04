@@ -1,4 +1,8 @@
 :root {
   --app-height: 100vh;
   --app-width: 100vw;
+
+  --drawer-width: 242rem;
+  --drawer-height: 100%;
+  --drawer-background-color: lightskyblue;
 }

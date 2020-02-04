@@ -1,7 +1,8 @@
 @import './assets/styles/variables.css';
 
-html {
+:root {
   box-sizing: border-box;
+  font-size: 0.0625em;
 }
 
 * {
@@ -9,5 +10,20 @@ html {
   &::before,
   &::after {
     box-sizing: inherit;
+  }
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-size: 16rem;
+
+  &,
+  #root {
+    height: inherit;
+    width: inherit;
   }
 }

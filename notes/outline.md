@@ -40,7 +40,7 @@
         <OwnerArea />
 
         // repo's issues[, files, gists]
-        <Sources />
+        <Store />
 
         <Taxonomy />
             <NavTag /> // ?= issues or gist
