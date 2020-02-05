@@ -10,7 +10,7 @@ import ListItem from '../list/ListItem'
 import Article from '../article/Article'
 import ArticleInfo from '../article/ArticleInfo'
 
-import { container } from './Main.module.scss'
+import { container } from './Main.module.css'
 
 export default function Main() {
   return (

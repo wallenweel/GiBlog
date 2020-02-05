@@ -1,35 +1,26 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    browser: true,
+    es6: true
   },
-  extends: ['plugin:vue/essential', '@vue/prettier'],
-  rules: {
-    indent: ['error', 2],
-    // 'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'prettier/prettier': [
-      'warn',
-      {
-        singleQuote: true,
-        tabWidth: 2,
-        semi: false,
-        trailingComma: 'none'
-      }
-    ]
+  extends: [
+    // 'airbnb',
+    'plugin:react/recommended',
+    'plugin:prettier/recommended'
+  ],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly'
   },
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    parser: 'babel-eslint'
+    ecmaFeatures: {
+      jsx: true
+    },
+    ecmaVersion: 2018,
+    sourceType: 'module'
   },
-  overrides: [
-    {
-      files: [
-        '**/__tests__/*.{j,t}s?(x)',
-        '**/tests/unit/**/*.spec.{j,t}s?(x)'
-      ],
-      env: {
-        jest: true
-      }
-    }
-  ]
+  plugins: ['react', '@typescript-eslint'],
+  rules: {}
 }

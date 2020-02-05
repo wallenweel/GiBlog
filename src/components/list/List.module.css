@@ -2,7 +2,9 @@
   background-color: var(--list-background-color);
 
   height: var(--list-height);
-  width: 100%;
+  width: var(--list-width);
+
+  flex: none;
 
   position: relative;
 }

@@ -11,10 +11,15 @@
   /* Drawer */
   --drawer-background-color: lightskyblue;
   --drawer-height: var(--app-height);
-  --drawer-width: 242rem;
+  --drawer-width: 224rem;
 
   /* List */
   --list-background-color: lightslategray;
   --list-height: var(--app-height);
-  --list-width: 100%;
+  --list-width: 286rem;
+
+  /* Article */
+  --article-background-color: lightgrey;
+  --article-height: var(--app-height);
+  --article-width: 100%;
 }

@@ -4,5 +4,7 @@
   height: var(--drawer-height);
   width: var(--drawer-width);
 
+  flex: none;
+
   position: relative;
 }

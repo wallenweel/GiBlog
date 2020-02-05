@@ -1,5 +1,8 @@
 .container {
   background-color: var(--article-background-color);
 
+  height: var(--article-height);
+  width: var(--article-width);
+
   position: relative;
 }
