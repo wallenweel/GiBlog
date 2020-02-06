@@ -1,3 +1,5 @@
 import React from 'react'
 
-export default () => <div>Toolbar</div>
+export default function Toolbar() {
+  return <div>Toolbar</div>
+}
