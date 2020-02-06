@@ -1,19 +1,32 @@
-import React, { ReactNode } from 'react'
+import React, { SVGAttributes } from 'react'
+import camelCase from 'camelcase'
 
 import * as icons from './icons'
 
-// import { ReactComponent as Language } from './icons/language.svg'
+export default function Icon({
+  name,
+  title,
+  ...others
+}: {
+  name: string
+  title?: string
+} & SVGAttributes<any>) {
+  // TODO: improve here, remove the Svg variable
+  const Svg = (icons as SvgIcons)[camelCase(name, { pascalCase: true })]
 
-const renderIcon = (name: string): ReactNode | null => {
-  switch (name) {
-    case 'language':
-      // return <Language />
-      return <icons.Language />
-    default:
-      return null
+  return (
+    <i data-icon={name}>
+      <Svg {...{ title, ...(others || {}) }} />
+    </i>
+  )
+}
+
+declare type SvgIcons = {
+  [name: string]: SvgComponent
+}
+
+declare type SvgComponent = React.FunctionComponent<
+  React.SVGProps<SVGSVGElement> & {
+    title?: string
   }
-}
-
-export default function Icon({ name }: { name: string }) {
-  return <i>{renderIcon(name)}</i>
-}
+>
