@@ -6,7 +6,7 @@ import './index.css'
 
 import './i18n'
 
-import * as serviceWorker from './serviceWorker'
+import * as serviceWorker from "./serviceWorker"
 
 import App from './components/app/App'
 
