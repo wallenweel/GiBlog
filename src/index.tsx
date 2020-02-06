@@ -1,9 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import 'normalize.css'
 import './index.css'
-
 import './i18n'
 
 import * as serviceWorker from './serviceWorker'

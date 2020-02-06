@@ -1,3 +1,5 @@
+@import-normalize;
+
 @import './assets/styles/variables.css';
 
 :root {
@@ -5,12 +7,10 @@
   font-size: 0.0625em;
 }
 
-* {
-  &,
-  &::before,
-  &::after {
-    box-sizing: inherit;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 html {
@@ -18,12 +18,9 @@ html {
   width: 100%;
 }
 
-body {
+body,
+#root {
   font-size: 16rem;
-
-  &,
-  #root {
-    height: inherit;
-    width: inherit;
-  }
+  height: inherit;
+  width: inherit;
 }

@@ -4,13 +4,15 @@ import Main from '../main/Main'
 
 import { container } from './App.module.css'
 
-import { ReactComponent as Language } from '../../assets/icons/language.svg'
+// import { ReactComponent as Language } from '../../assets/icons/language.svg'
+import Icon from '../common/Icon'
 
 export default function App() {
   return (
     <div className={container}>
       <Main />
-      <Language />
+      {/* <Language /> */}
+      <Icon name="language" />
     </div>
   )
 }

@@ -4003,7 +4003,7 @@ eslint-visitor-keys@^1.0.0, eslint-visitor-keys@^1.1.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-1.1.0.tgz#e2a82cea84ff246ad6fb57f9bde5b46621459ec2"
   integrity sha512-8y9YjtM1JBJU/A9Kc+SbaOV4y29sSWckBwMHa+FGtVj5gN/sbnKDf6xJUl+8g7FAij9LVaP8C24DUiH/f/2Z9A==
 
-eslint@^6.6.0:
+eslint@^6.6.0, eslint@^6.8.0:
   version "6.8.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-6.8.0.tgz#62262d6729739f9275723824302fb227c8c93ffb"
   integrity sha512-K+Iayyo2LtyYhDSYwz5D5QdWw0hCacNzyq1Y821Xna2xSJj7cijoLLYmLxTQgcgZ9mC61nryMy9S7GRbYpI5Ig==
@@ -7079,11 +7079,6 @@ normalize-url@^3.0.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-3.3.0.tgz#b2e1c4dc4f7c6d57743df733a4f5978d18650559"
   integrity sha512-U+JJi7duF1o+u2pynbp2zXDW2/PADgC30f0GsHZtRh+HOcXHnw137TrNlyxxRvWW5fjKd3bcLHPxofWuCjaeZg==
-
-normalize.css@^8.0.1:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-8.0.1.tgz#9b98a208738b9cc2634caacbc42d131c97487bf3"
-  integrity sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==
 
 npm-run-path@^2.0.0:
   version "2.0.2"
