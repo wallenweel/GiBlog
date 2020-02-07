@@ -14,6 +14,8 @@ import { container } from './Main.module.css'
 
 import avatar from '../../assets/images/avatar_lp.jpg'
 
+import { log } from '../../functions/util'
+
 export default function Main() {
   const [_userInfo] = useState({
     avatar,
@@ -23,14 +25,16 @@ export default function Main() {
       'You know some birds are not meant to be caged, their feathers are just too bright.'
   })
 
+  log('test', _userInfo)
+
   return (
     <div className={container}>
       {false && <Toolbar />}
 
       <Drawer>
         <OwnerArea user={_userInfo} />
-        <Store />
-        <Taxonomy />
+        {false && <Store />}
+        {false && <Taxonomy />}
         {/* <NavTag />
           <NavCategory />
         </Taxonomy> */}

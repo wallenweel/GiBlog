@@ -1,4 +1,7 @@
 :root {
+  /* Common */
+  --background-color-lighter: #edf2f3;
+
   /* App */
   --app-height: 100vh;
   --app-width: 100vw;
@@ -14,9 +17,12 @@
   --drawer-width: 224rem;
 
   /* List */
-  --list-background-color: lightslategray;
+  --list-background-color: white;
   --list-height: var(--app-height);
   --list-width: 286rem;
+
+  /* ListItem */
+  --list-item-background-color: white;
 
   /* Article */
   --article-background-color: lightgrey;

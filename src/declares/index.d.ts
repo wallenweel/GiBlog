@@ -8,7 +8,7 @@ type UserInfo = {
 type PictureProps = {
   url?: string
   alt?: string
-  className?: string
+  className?: MoudleClassName
   style?: any
   radius?: numstr
   height?: numstr
@@ -16,5 +16,9 @@ type PictureProps = {
   fit?: 'cover' | 'contain' | 'fill'
   useImg?: boolean
 }
+
+type logTag = string
+
+type MoudleClassName = string | undefined
 
 type numstr = number | string

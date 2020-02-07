@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react'
 
 import styles, { wrap } from './Picture.module.css'
+import { classNames } from '../../functions/util'
 
 export default function Picture({
   url,
@@ -29,10 +30,7 @@ export default function Picture({
   if (!width) delete styleObject.width
 
   return (
-    <div
-      className={[wrap, className].join(className ? ' ' : '')}
-      style={styleObject}
-    >
+    <div className={classNames(wrap, className)} style={styleObject}>
       {useImg ? (
         <img
           className={styles.image}

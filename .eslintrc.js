@@ -23,5 +23,7 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['react', 'react-hooks', 'import', '@typescript-eslint'],
-  rules: {}
+  rules: {
+    'no-console': 2
+  }
 }
