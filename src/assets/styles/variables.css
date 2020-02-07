@@ -9,7 +9,7 @@
   --main-width: var(--app-width);
 
   /* Drawer */
-  --drawer-background-color: lightskyblue;
+  --drawer-background-color: white;
   --drawer-height: var(--app-height);
   --drawer-width: 224rem;
 

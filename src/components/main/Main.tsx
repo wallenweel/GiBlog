@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Toolbar from '../toolbar/Toolbar'
 import Drawer from '../drawer/Drawer'
@@ -12,13 +12,23 @@ import ArticleInfo from '../article/ArticleInfo'
 
 import { container } from './Main.module.css'
 
+import avatar from '../../assets/images/avatar_lp.jpg'
+
 export default function Main() {
+  const [_userInfo] = useState({
+    avatar,
+    name: 'Hahahah',
+    email: 'hahaha@haha.ha',
+    intro:
+      'You know some birds are not meant to be caged, their feathers are just too bright.'
+  })
+
   return (
     <div className={container}>
       {false && <Toolbar />}
 
       <Drawer>
-        <OwnerArea />
+        <OwnerArea user={_userInfo} />
         <Store />
         <Taxonomy />
         {/* <NavTag />

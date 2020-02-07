@@ -1,11 +1,8 @@
-declare module '*.css'
+module '*.css'
 
-declare type MoudleClassName = string | undefined
+module '*.module.css' {
+  export const container: MoudleClassName
+  export const wrap: MoudleClassName
+}
 
-declare module '*.module.css' {
-  export const container: MoudleClassName;
-}
-declare module '*.module.scss' {
-  export const container: MoudleClassName;
-  export const wrap: MoudleClassName;
-}
+type MoudleClassName = string | undefined

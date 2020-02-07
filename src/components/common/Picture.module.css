@@ -1,0 +1,17 @@
+.wrap {
+  background-repeat: no-repeat;
+  background-position: center center;
+  flex: none;
+  display: flex;
+  overflow: hidden;
+}
+
+.image {
+  /* height: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 100%; */
+  height: 100%;
+  width: 100%;
+  object-position: center center;
+}
