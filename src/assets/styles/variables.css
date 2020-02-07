@@ -2,6 +2,9 @@
   /* Common */
   --background-color-lighter: #edf2f3;
 
+  /* Common/Card */
+  --card-background-color: #ffffff;
+
   /* App */
   --app-height: 100vh;
   --app-width: 100vw;

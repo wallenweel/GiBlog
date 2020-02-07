@@ -8,13 +8,12 @@ import Taxonomy from '../taxonomy/Taxonomy'
 import List from '../list/List'
 import ListItem from '../list/ListItem'
 import Article from '../article/Article'
+import ArticleCard from '../article/ArticleCard'
 import ArticleInfo from '../article/ArticleInfo'
 
 import { container } from './Main.module.css'
 
 import avatar from '../../assets/images/avatar_lp.jpg'
-
-import { log } from '../../functions/util'
 
 export default function Main() {
   const [_userInfo] = useState({
@@ -24,8 +23,6 @@ export default function Main() {
     intro:
       'You know some birds are not meant to be caged, their feathers are just too bright.'
   })
-
-  log('test', _userInfo)
 
   return (
     <div className={container}>
@@ -43,7 +40,7 @@ export default function Main() {
       <List>
         {(Array(12).fill(null) || []).map((_, i) => (
           <ListItem num={i + 1} key={i}>
-            Item {i + 1}
+            <ArticleCard />
           </ListItem>
         ))}
       </List>

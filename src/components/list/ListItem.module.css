@@ -1,4 +1,4 @@
 .wrap {
-  background-color: var(--list-item-background-color);
+  padding: 6rem 8rem;
   position: relative;
 }
