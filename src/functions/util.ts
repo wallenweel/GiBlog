@@ -31,3 +31,6 @@ export const log = (tag: logTag, ...anything: any): void => {
 
 export const classNames = (...names: (string | undefined)[]): string =>
   names.join(' ').trim()
+
+export const subExcerpt = (excerpt: string, length: number = 50): string =>
+  excerpt.length > length ? `${excerpt.substr(0, length)}...` : excerpt

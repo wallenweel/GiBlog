@@ -10,5 +10,5 @@ export default function Card({
   className?: MoudleClassName
   children?: ReactNode
 }) {
-  return <div className={classNames(wrap, className)}>{children}</div>
+  return <div className={classNames(className, wrap)}>{children}</div>
 }

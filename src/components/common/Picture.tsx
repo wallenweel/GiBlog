@@ -30,7 +30,7 @@ export default function Picture({
   if (!width) delete styleObject.width
 
   return (
-    <div className={classNames(wrap, className)} style={styleObject}>
+    <div className={classNames(className, wrap)} style={styleObject}>
       {useImg ? (
         <img
           className={styles.image}

@@ -1,3 +1,13 @@
 .wrap {
   padding: 8rem;
 }
+
+.title {
+  font-size: 16rem;
+  margin: 0;
+}
+
+.excerpt {
+  font-size: 14rem;
+  margin: 0;
+}

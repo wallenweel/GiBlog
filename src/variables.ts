@@ -10,7 +10,7 @@ export const app = {
 
 export const theme = {
   color: {
-    primary: '#4a0cca'
+    primary: '#f8c424'
   }
 }
 

@@ -13,7 +13,7 @@ export default function ListItem({
   children: ReactNode
 }) {
   return (
-    <div className={classNames(wrap, className)} data-num={num}>
+    <div className={classNames(className, wrap)} data-num={num}>
       {children}
     </div>
   )

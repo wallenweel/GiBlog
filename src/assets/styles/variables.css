@@ -3,6 +3,7 @@
   --background-color-lighter: #edf2f3;
 
   /* Common/Card */
+  --card-shadow-color: rgba(248, 196, 36, 0.225);
   --card-background-color: #ffffff;
 
   /* App */
