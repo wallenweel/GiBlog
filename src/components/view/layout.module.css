@@ -1,0 +1,56 @@
+:root {
+  --translate-x-transition: transform 0.25s ease;
+
+  --offset-x: 0rem;
+  /* --offset-x: calc(var(--drawer-width) * -1); */
+  /* --offset-x: calc(calc(var(--drawer-width) + var(--list-width)) * -1); */
+
+  --drawer-offset-x: calc(var(--offset-x));
+  --list-offset-x: calc(var(--drawer-offset-x) + var(--drawer-width));
+  --article-offset-x: calc(var(--list-offset-x) + var(--list-width));
+}
+
+@media screen and (max-width: 80rem) {
+  :root {
+    --offset-x: calc(var(--drawer-width) * -1);
+  }
+}
+
+@media screen and (max-width: 70rem) {
+  :root {
+    --offset-x: calc(calc(var(--drawer-width) + var(--list-width)) * -1);
+  }
+}
+
+.main {
+  flex-direction: row;
+  display: flex;
+}
+
+.drawer {
+  width: 0;
+  z-index: 7;
+  position: relative;
+}
+
+.drawer > div {
+  transition: var(--translate-x-transition);
+  transform: translateX(var(--drawer-offset-x));
+}
+
+.list {
+  width: 0;
+  z-index: 4;
+  position: relative;
+}
+
+.list > div {
+  transition: var(--translate-x-transition);
+  transform: translateX(var(--list-offset-x));
+}
+
+.article {
+  width: 100%;
+  padding-left: var(--article-offset-x);
+  position: relative;
+}

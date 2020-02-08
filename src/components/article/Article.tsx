@@ -1,6 +1,18 @@
 import React, { ReactNode } from 'react'
-import { container } from './Article.module.css'
 
-export default function Article({ children }: { children: ReactNode }) {
-  return <section className={container}>{children}</section>
+import { container, wrap } from './Article.module.css'
+import { classNames } from '../../functions/util'
+
+export default function Article({
+  className,
+  children
+}: {
+  className?: MoudleClassName
+  children: ReactNode
+}) {
+  return (
+    <section className={classNames(className, container)}>
+      <div className={wrap}>{children}</div>
+    </section>
+  )
 }

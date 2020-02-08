@@ -12,9 +12,11 @@ import Article from '../article/Article'
 import ArticleCard from '../article/ArticleCard'
 import ArticleInfo from '../article/ArticleInfo'
 
-import { container } from './Main.module.css'
+import { view } from './Main.module.css'
+import layouts from './layout.module.css'
 
 import avatar from '../../assets/images/avatar_lp.jpg'
+import { classNames } from '../../functions/util'
 
 export default function Main() {
   const [userInfo] = useState({
@@ -26,12 +28,12 @@ export default function Main() {
   })
 
   return (
-    <div className={container}>
-      <Toolbar>
+    <div className={classNames(view, layouts.main)}>
+      <Toolbar className={layouts.toolbar}>
         <Filter />
       </Toolbar>
 
-      <Drawer>
+      <Drawer className={layouts.drawer}>
         <OwnerArea user={userInfo} />
         {false && <Store />}
         {false && <Taxonomy />}
@@ -40,7 +42,7 @@ export default function Main() {
         </Taxonomy> */}
       </Drawer>
 
-      <List>
+      <List className={layouts.list}>
         {(Array(12).fill(null) || []).map((_, i) => (
           <ListItem num={i + 1} key={i}>
             <ArticleCard />
@@ -48,7 +50,7 @@ export default function Main() {
         ))}
       </List>
 
-      <Article>
+      <Article className={layouts.article}>
         <ArticleInfo />
       </Article>
     </div>

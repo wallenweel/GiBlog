@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Main from '../main/Main'
+import Main from '../view/Main'
 
 import { container } from './App.module.css'
 

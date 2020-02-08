@@ -1,11 +1,6 @@
-.container {
+.view {
   background-color: var(--main-background-color);
-
   height: var(--main-height);
   width: var(--main-width);
-
   position: relative;
-
-  flex-direction: row;
-  display: flex;
 }
