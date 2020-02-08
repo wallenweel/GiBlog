@@ -16,6 +16,15 @@ export default function ArticleCard() {
     <Card className={wrap}>
       <h4 className={styles.title}>This is title</h4>
       <p className={styles.excerpt}>{subExcerpt(excerpt, 20)}</p>
+      <nav className={styles.tags}>
+        {[1, 2].map(e => (
+          // eslint-disable-next-line jsx-a11y/anchor-is-valid
+          <a key={e}>tag {e}</a>
+        ))}
+      </nav>
+      <div className={styles.extra}>
+        <span className={styles.date}></span>
+      </div>
     </Card>
   )
 }

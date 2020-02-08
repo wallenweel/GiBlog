@@ -1,5 +1,11 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-export default function Toolbar() {
-  return <div>Toolbar</div>
+import { container, wrap } from './Toolbar.module.css'
+
+export default function Toolbar({ children }: { children: ReactNode }) {
+  return (
+    <div className={container}>
+      <div className={wrap}>{children}</div>
+    </div>
+  )
 }

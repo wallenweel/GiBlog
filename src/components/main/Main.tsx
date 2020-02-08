@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import Toolbar from '../toolbar/Toolbar'
+import Filter from '../filter/Filter'
 import Drawer from '../drawer/Drawer'
 import OwnerArea from '../drawer/OwnerArea'
 import Store from '../store/Store'
@@ -16,7 +17,7 @@ import { container } from './Main.module.css'
 import avatar from '../../assets/images/avatar_lp.jpg'
 
 export default function Main() {
-  const [_userInfo] = useState({
+  const [userInfo] = useState({
     avatar,
     name: 'Hahahah',
     email: 'hahaha@haha.ha',
@@ -26,10 +27,12 @@ export default function Main() {
 
   return (
     <div className={container}>
-      {false && <Toolbar />}
+      <Toolbar>
+        <Filter />
+      </Toolbar>
 
       <Drawer>
-        <OwnerArea user={_userInfo} />
+        <OwnerArea user={userInfo} />
         {false && <Store />}
         {false && <Taxonomy />}
         {/* <NavTag />

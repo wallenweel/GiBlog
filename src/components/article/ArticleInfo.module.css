@@ -1,0 +1,40 @@
+.wrap {
+  background-color: var(--article-info-background-color);
+  padding: 16rem;
+}
+
+.title {
+  font-size: 20rem;
+  margin: 0;
+}
+
+.tags {
+  font-size: 12rem;
+  margin-top: 6rem;
+  display: flex;
+}
+
+.tag {
+  border-radius: 2rem;
+  background-color: var(--color-primary);
+  color: white;
+  padding: 2rem 4rem;
+  margin-right: 4rem;
+  justify-content: center;
+  display: flex;
+}
+
+.extra {
+  font-size: 14rem;
+  margin-top: 6rem;
+}
+
+.extra span {
+  color: var(--color-text-light4);
+  margin-right: 4rem;
+}
+
+.extra b {
+  color: var(--color-text-normal);
+  font-weight: normal;
+}

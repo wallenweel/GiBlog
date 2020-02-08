@@ -1,5 +1,5 @@
 .wrap {
-  padding: 8rem;
+  padding: 16rem;
 }
 
 .title {
@@ -10,4 +10,10 @@
 .excerpt {
   font-size: 14rem;
   margin: 0;
+  margin-top: 6rem;
+}
+
+.tags {
+  font-size: 12rem;
+  margin-top: 6rem;
 }

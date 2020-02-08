@@ -1,0 +1,11 @@
+.wrap {
+  box-shadow: 0 1rem 2rem 1rem var(--toolbar-shadow-color);
+  border-radius: 48rem;
+  background-color: var(--toolbar-background-color);
+  height: 48rem;
+  width: auto;
+  padding: 0 8rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}

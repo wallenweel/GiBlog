@@ -1,9 +1,18 @@
 :root {
+  /* Base */
+  --color-primary: #f8c424;
+  --color-text-normal: #202020;
+  --color-text-light0: var(--color-text-normal);
+  --color-text-light1: #353535;
+  --color-text-light2: #4b4b4b;
+  --color-text-light3: #505050;
+  --color-text-light4: #6e6e6e;
+
   /* Common */
   --background-color-lighter: #edf2f3;
 
   /* Common/Card */
-  --card-shadow-color: rgba(248, 196, 36, 0.225);
+  --card-shadow-color: rgba(192, 173, 89, 0.225);
   --card-background-color: #ffffff;
 
   /* App */
@@ -11,25 +20,32 @@
   --app-width: 100vw;
 
   /* Main */
-  --main-background-color: lightsteelblue;
+  --main-background-color: #ffffff;
   --main-height: var(--app-height);
   --main-width: var(--app-width);
 
+  /* Toolbar */
+  --toolbar-shadow-color: rgba(194, 178, 108, 0.225);
+  --toolbar-background-color: #ffffff;
+
   /* Drawer */
-  --drawer-background-color: white;
+  --drawer-background-color: #ffffff;
   --drawer-height: var(--app-height);
   --drawer-width: 224rem;
 
   /* List */
-  --list-background-color: white;
+  --list-background-color: #ffffff;
   --list-height: var(--app-height);
   --list-width: 286rem;
 
   /* ListItem */
-  --list-item-background-color: white;
+  --list-item-background-color: #ffffff;
 
   /* Article */
-  --article-background-color: lightgrey;
+  --article-background-color: #ffffff;
   --article-height: var(--app-height);
   --article-width: 100%;
+
+  /* Article/Info */
+  --article-info-background-color: #f5f5f5;
 }
