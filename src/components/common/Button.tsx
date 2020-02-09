@@ -1,14 +1,31 @@
 import React, { ReactNode } from 'react'
 
-import Icon from '../common/Icon'
+import styles from './Button.module.css'
 
-export function NormalButton({ children }: { children: ReactNode }) {
-  return <button>{children}</button>
+import Icon from '../common/Icon'
+import { classNames } from '../../functions/util'
+
+export function NormalButton({
+  children,
+  className
+}: {
+  children: ReactNode
+  className: MoudleClassName
+}) {
+  return (
+    <button className={classNames(className, styles.normal)}>{children}</button>
+  )
 }
 
-export function IconButton({ children: icon }: { children: svgIconName }) {
+export function IconButton({
+  children: icon,
+  className
+}: {
+  children: svgIconName
+  className?: MoudleClassName
+}) {
   return (
-    <button>
+    <button className={classNames(className, styles.icon)}>
       <Icon name={icon} />
     </button>
   )

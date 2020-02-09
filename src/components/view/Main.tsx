@@ -12,8 +12,7 @@ import Article from '../article/Article'
 import ArticleCard from '../article/ArticleCard'
 import ArticleInfo from '../article/ArticleInfo'
 
-import { IconButton as IconBtn } from '../common/Button'
-// import DrawerBtn from '../buttons/DrawerBtn'
+import DrawerBtn from '../buttons/DrawerBtn'
 
 import { view } from './Main.module.css'
 import layouts from './layout.module.css'
@@ -34,9 +33,7 @@ export default function Main() {
     <div className={classNames(view, layouts.main)}>
       <Toolbar className={layouts.toolbar}>
         <Filter>
-          <IconBtn data-slot="left">view_day-line</IconBtn>
-          {/* <DrawerBtn data-slot="left" /> */}
-          <IconBtn data-slot="right">language</IconBtn>
+          <DrawerBtn data-slot="left" />
         </Filter>
       </Toolbar>
 

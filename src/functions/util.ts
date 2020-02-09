@@ -1,6 +1,12 @@
 import { env, isProduction, app, theme, canLogInProduction } from '../variables'
 import { ReactElement } from 'react'
 
+export const gettype = (target: any): string =>
+  Object.prototype.toString.call(target)
+
+export const istype = (target: any, type: string): boolean =>
+  gettype(target) === type
+
 export const log = (tag: logTag, ...anything: any): void => {
   // filter tags to show in production
   if (isProduction && !canLogInProduction.includes(tag)) return
@@ -42,17 +48,17 @@ export const slots = (
   const slots: { [slot: string]: ReactElement[] } = {}
 
   if (children) {
-    if (children.length) {
-      children.reduce((p, c: ReactElement) => {
-        if (typeof c === 'object' && c) {
-          if (c.props && typeof c.props === 'object') {
-            const slot: string = c.props['data-slot']
-            p[slot] = (p[slot] || (p[slot] = [])).concat(c)
-          }
+    const items = (istype(children, 'array') ? children : [children]) as []
+
+    items.reduce((p, c: ReactElement) => {
+      if (typeof c === 'object' && c) {
+        if (c.props && typeof c.props === 'object') {
+          const slot: string = c.props['data-slot'] || 'defaults'
+          p[slot] = (p[slot] || (p[slot] = [])).concat(c)
         }
-        return p
-      }, slots)
-    }
+      }
+      return p
+    }, slots)
   }
 
   return slots
