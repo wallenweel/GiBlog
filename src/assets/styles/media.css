@@ -1,0 +1,14 @@
+@media screen and (max-width: 996px) {
+  :root {
+    --offset-x: calc(var(--drawer-width) * -1);
+  }
+}
+
+@media screen and (max-width: 762px) {
+  :root {
+    --offset-x: calc(calc(var(--drawer-width) + var(--list-width)) * -1);
+
+    --toolbar-offset-x: var(--article-offset-x);
+    --toolbar-width: var(--article-width);
+  }
+}

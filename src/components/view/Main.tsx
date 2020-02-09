@@ -30,7 +30,9 @@ export default function Main() {
   return (
     <div className={classNames(view, layouts.main)}>
       <Toolbar className={layouts.toolbar}>
+        <button>M</button>
         <Filter />
+        <button>M</button>
       </Toolbar>
 
       <Drawer className={layouts.drawer}>

@@ -1,5 +1,5 @@
+/* Base */
 :root {
-  /* Base */
   --color-primary: #f8c424;
   --color-text-normal: #202020;
   --color-text-light0: var(--color-text-normal);
@@ -7,45 +7,59 @@
   --color-text-light2: #4b4b4b;
   --color-text-light3: #505050;
   --color-text-light4: #6e6e6e;
+}
 
-  /* Common */
+/* Theme */
+:root {
   --background-color-lighter: #edf2f3;
 
-  /* Common/Card */
   --card-shadow-color: rgba(192, 173, 89, 0.225);
   --card-background-color: #ffffff;
 
-  /* App */
-  --app-height: 100vh;
-  --app-width: 100vw;
-
-  /* Main */
   --main-background-color: #ffffff;
-  --main-height: var(--app-height);
-  --main-width: var(--app-width);
 
-  /* Toolbar */
   --toolbar-shadow-color: rgba(194, 178, 108, 0.225);
   --toolbar-background-color: #ffffff;
 
-  /* Drawer */
   --drawer-background-color: #ffffff;
+
+  --list-background-color: #ffffff;
+  --list-item-background-color: #ffffff;
+
+  --article-background-color: #ffffff;
+  --article-info-background-color: #f5f5f5;
+}
+
+/* Size */
+:root {
+  --app-height: 100vh;
+  --app-width: 100vw;
+
+  --main-height: var(--app-height);
+  --main-width: var(--app-width);
+
   --drawer-height: var(--app-height);
   --drawer-width: 224rem;
 
-  /* List */
-  --list-background-color: #ffffff;
   --list-height: var(--app-height);
   --list-width: 286rem;
 
-  /* ListItem */
-  --list-item-background-color: #ffffff;
-
-  /* Article */
-  --article-background-color: #ffffff;
   --article-height: var(--app-height);
   --article-width: 100%;
 
-  /* Article/Info */
-  --article-info-background-color: #f5f5f5;
+  --toolbar-width: var(--list-width);
+}
+
+/* Layout */
+:root {
+  --translate-x-transition: transform 0.25s ease;
+
+  --offset-x: 0rem;
+  /* --offset-x: calc(var(--drawer-width) * -1); */
+  /* --offset-x: calc(calc(var(--drawer-width) + var(--list-width)) * -1); */
+
+  --toolbar-offset-x: var(--list-offset-x);
+  --drawer-offset-x: calc(var(--offset-x));
+  --list-offset-x: calc(var(--drawer-offset-x) + var(--drawer-width));
+  --article-offset-x: calc(var(--list-offset-x) + var(--list-width));
 }

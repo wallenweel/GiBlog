@@ -3,7 +3,8 @@
   border-radius: 48rem;
   background-color: var(--toolbar-background-color);
   height: 48rem;
-  width: auto;
+  width: 100%;
+  max-width: 460rem;
   padding: 0 8rem;
   align-items: center;
   justify-content: center;

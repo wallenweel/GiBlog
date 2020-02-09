@@ -1,13 +1,13 @@
 .container {
-  height: 0;
-  width: 0;
-  z-index: 6;
-  left: 0;
-  top: 0;
-  position: absolute;
+  width: var(--toolbar-width);
 }
 
 .wrap {
-  transform: translateX(var(--toolbar-translate-x));
-  width: var(--toolbar-width);
+  height: auto;
+  /* width: var(--toolbar-width); */
+  width: inherit;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  display: flex;
 }
