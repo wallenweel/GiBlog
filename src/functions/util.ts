@@ -1,4 +1,5 @@
 import { env, isProduction, app, theme, canLogInProduction } from '../variables'
+import { ReactElement } from 'react'
 
 export const log = (tag: logTag, ...anything: any): void => {
   // filter tags to show in production
@@ -34,3 +35,25 @@ export const classNames = (...names: (string | undefined)[]): string =>
 
 export const subExcerpt = (excerpt: string, length: number = 50): string =>
   excerpt.length > length ? `${excerpt.substr(0, length)}...` : excerpt
+
+export const slots = (
+  children?: ReactElement[]
+): { [slot: string]: ReactElement[] } => {
+  const slots: { [slot: string]: ReactElement[] } = {}
+
+  if (children) {
+    if (children.length) {
+      children.reduce((p, c: ReactElement) => {
+        if (typeof c === 'object' && c) {
+          if (c.props && typeof c.props === 'object') {
+            const slot: string = c.props['data-slot']
+            p[slot] = (p[slot] || (p[slot] = [])).concat(c)
+          }
+        }
+        return p
+      }, slots)
+    }
+  }
+
+  return slots
+}

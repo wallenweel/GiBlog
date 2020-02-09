@@ -8,7 +8,7 @@ export default function Icon({
   title,
   ...others
 }: {
-  name: string
+  name: svgIconName
   title?: string
 } & SVGAttributes<any>) {
   // TODO: improve here, remove the Svg variable

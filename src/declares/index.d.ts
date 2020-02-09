@@ -21,4 +21,6 @@ type logTag = string
 
 type MoudleClassName = string | undefined
 
+type svgIconName = string
+
 type numstr = number | string
