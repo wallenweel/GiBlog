@@ -1,12 +1,15 @@
 /* Base */
 :root {
   --color-primary: #f8c424;
+  --color-light10: #ffffff;
+
   --color-text-normal: #202020;
   --color-text-light0: var(--color-text-normal);
   --color-text-light1: #353535;
   --color-text-light2: #4b4b4b;
   --color-text-light3: #505050;
   --color-text-light4: #6e6e6e;
+  --color-text-light10: #ffffff;
 }
 
 /* Theme */
@@ -47,6 +50,7 @@
   --article-height: var(--app-height);
   --article-width: 100%;
 
+  --toolbar-height: 72rem;
   --toolbar-width: var(--list-width);
 }
 
@@ -59,7 +63,10 @@
   /* --offset-x: calc(calc(var(--drawer-width) + var(--list-width)) * -1); */
 
   --toolbar-offset-x: var(--list-offset-x);
+  --toolbar-offset-y: -0%;
   --drawer-offset-x: calc(var(--offset-x));
   --list-offset-x: calc(var(--drawer-offset-x) + var(--drawer-width));
+  --list-before-height: calc(var(--toolbar-height) - 8rem);
   --article-offset-x: calc(var(--list-offset-x) + var(--list-width));
+  --article-before-height: 0;
 }

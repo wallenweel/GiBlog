@@ -12,7 +12,107 @@ export default function Article({
 }) {
   return (
     <section className={classNames(className, container)}>
-      <div className={wrap}>{children}</div>
+      <div className={wrap}>
+        {children}
+        <div>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi
+            ipsam vero numquam consequatur earum nihil sapiente, praesentium
+            dolores ea aut, accusantium et placeat. Tempora, dolor itaque
+            aspernatur libero et animi?
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi
+            ipsam vero numquam consequatur earum nihil sapiente, praesentium
+            dolores ea aut, accusantium et placeat. Tempora, dolor itaque
+            aspernatur libero et animi?
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi
+            ipsam vero numquam consequatur earum nihil sapiente, praesentium
+            dolores ea aut, accusantium et placeat. Tempora, dolor itaque
+            aspernatur libero et animi?
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi
+            ipsam vero numquam consequatur earum nihil sapiente, praesentium
+            dolores ea aut, accusantium et placeat. Tempora, dolor itaque
+            aspernatur libero et animi?
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi
+            ipsam vero numquam consequatur earum nihil sapiente, praesentium
+            dolores ea aut, accusantium et placeat. Tempora, dolor itaque
+            aspernatur libero et animi?
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi
+            ipsam vero numquam consequatur earum nihil sapiente, praesentium
+            dolores ea aut, accusantium et placeat. Tempora, dolor itaque
+            aspernatur libero et animi?
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi
+            ipsam vero numquam consequatur earum nihil sapiente, praesentium
+            dolores ea aut, accusantium et placeat. Tempora, dolor itaque
+            aspernatur libero et animi?
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi
+            ipsam vero numquam consequatur earum nihil sapiente, praesentium
+            dolores ea aut, accusantium et placeat. Tempora, dolor itaque
+            aspernatur libero et animi?
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi
+            ipsam vero numquam consequatur earum nihil sapiente, praesentium
+            dolores ea aut, accusantium et placeat. Tempora, dolor itaque
+            aspernatur libero et animi?
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi
+            ipsam vero numquam consequatur earum nihil sapiente, praesentium
+            dolores ea aut, accusantium et placeat. Tempora, dolor itaque
+            aspernatur libero et animi?
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi
+            ipsam vero numquam consequatur earum nihil sapiente, praesentium
+            dolores ea aut, accusantium et placeat. Tempora, dolor itaque
+            aspernatur libero et animi?
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi
+            ipsam vero numquam consequatur earum nihil sapiente, praesentium
+            dolores ea aut, accusantium et placeat. Tempora, dolor itaque
+            aspernatur libero et animi?
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi
+            ipsam vero numquam consequatur earum nihil sapiente, praesentium
+            dolores ea aut, accusantium et placeat. Tempora, dolor itaque
+            aspernatur libero et animi?
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi
+            ipsam vero numquam consequatur earum nihil sapiente, praesentium
+            dolores ea aut, accusantium et placeat. Tempora, dolor itaque
+            aspernatur libero et animi?
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi
+            ipsam vero numquam consequatur earum nihil sapiente, praesentium
+            dolores ea aut, accusantium et placeat. Tempora, dolor itaque
+            aspernatur libero et animi?
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi
+            ipsam vero numquam consequatur earum nihil sapiente, praesentium
+            dolores ea aut, accusantium et placeat. Tempora, dolor itaque
+            aspernatur libero et animi?
+          </p>
+        </div>
+      </div>
     </section>
   )
 }

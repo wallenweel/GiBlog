@@ -5,8 +5,8 @@ import { IconButton as IconBtn } from '../common/Button'
 export default function DrawerBtn() {
   return (
     <>
-      <IconBtn>menu</IconBtn>
-      <IconBtn>menu_open</IconBtn>
+      <IconBtn>{true ? 'menu' : 'menu_open'}</IconBtn>
+      {/* <IconBtn>menu_open</IconBtn> */}
     </>
   )
 }

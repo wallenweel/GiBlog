@@ -2,11 +2,33 @@
   box-shadow: 0 1rem 2rem 1rem var(--toolbar-shadow-color);
   border-radius: 48rem;
   background-color: var(--toolbar-background-color);
+  /* background-color: var(--color-primary); */
   height: 48rem;
-  width: 100%;
+  width: calc(100% - 32rem);
   max-width: 460rem;
+  color: var(--color-text-normal);
   padding: 0 8rem;
   align-items: center;
   justify-content: center;
   display: flex;
+}
+
+.wrap button {
+  color: currentColor;
+  background: none;
+  flex: none;
+}
+
+.input {
+  color: currentColor;
+  background: none;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+input::placeholder {
+  color: currentColor;
+  opacity: 0.625;
 }

@@ -4,4 +4,5 @@
   width: var(--article-width);
   padding: 16rem;
   position: relative;
+  overflow: auto;
 }

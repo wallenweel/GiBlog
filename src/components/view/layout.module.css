@@ -14,7 +14,8 @@
 
 .toolbar > div {
   transition: var(--translate-x-transition), width 0.25s ease;
-  transform: translateX(var(--toolbar-offset-x));
+  transform: translateX(var(--toolbar-offset-x))
+    translateY(var(--toolbar-offset-y));
 }
 
 .drawer {
@@ -39,8 +40,20 @@
   transform: translateX(var(--list-offset-x));
 }
 
+.list > div::before {
+  content: '';
+  height: var(--list-before-height);
+  display: block;
+}
+
 .article {
   width: 100%;
   padding-left: var(--article-offset-x);
   position: relative;
+}
+
+.article > div::before {
+  content: '';
+  height: var(--article-before-height);
+  display: block;
 }

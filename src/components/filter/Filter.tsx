@@ -1,6 +1,6 @@
 import React, { ReactNode, ReactElement } from 'react'
 
-import { wrap } from './Filter.module.css'
+import styles, { wrap } from './Filter.module.css'
 import { slots } from '../../functions/util'
 
 export default function Filter({ children }: { children?: ReactNode }) {
@@ -9,9 +9,7 @@ export default function Filter({ children }: { children?: ReactNode }) {
   return (
     <form className={wrap}>
       {left}
-      <div>
-        <input type="text" placeholder="Search..." />
-      </div>
+      <input className={styles.input} type="text" placeholder="Search..." />
       {right}
     </form>
   )

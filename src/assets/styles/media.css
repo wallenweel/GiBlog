@@ -10,5 +10,7 @@
 
     --toolbar-offset-x: var(--article-offset-x);
     --toolbar-width: var(--article-width);
+
+    --article-before-height: calc(var(--toolbar-height) - 16rem);
   }
 }

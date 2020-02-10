@@ -1,4 +1,9 @@
 .normal,
 .icon {
+  background-color: var(--color-light10);
+  outline: none;
   border: none;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }

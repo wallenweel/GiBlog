@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, CSSProperties } from 'react'
 
 import styles from './Button.module.css'
 
@@ -6,11 +6,11 @@ import Icon from '../common/Icon'
 import { classNames } from '../../functions/util'
 
 export function NormalButton({
-  children,
-  className
+  className,
+  children
 }: {
-  children: ReactNode
   className: MoudleClassName
+  children: ReactNode
 }) {
   return (
     <button className={classNames(className, styles.normal)}>{children}</button>
@@ -19,13 +19,31 @@ export function NormalButton({
 
 export function IconButton({
   children: icon,
+  size = 48,
+  radius = size,
+  height = size,
+  width = size,
   className
 }: {
-  children: svgIconName
   className?: MoudleClassName
+  size?: numstr
+  radius?: numstr
+  height?: numstr
+  width?: numstr
+  children: svgIconName
 }) {
+  const styleObject: CSSProperties = {}
+
+  if (radius) styleObject.borderRadius = `${radius}rem`
+  if (height) styleObject.height = `${height}rem`
+  if (width) styleObject.width = `${width}rem`
+
   return (
-    <button className={classNames(className, styles.icon)}>
+    <button
+      type="button"
+      className={classNames(className, styles.icon)}
+      style={styleObject}
+    >
       <Icon name={icon} />
     </button>
   )
