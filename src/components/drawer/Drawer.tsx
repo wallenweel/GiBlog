@@ -11,7 +11,7 @@ export default function Drawer({
   children: ReactNode
 }) {
   return (
-    <aside className={classNames(className, container)}>
+    <aside data-ui-drawer className={classNames(className, container)}>
       <div className={wrap}>{children}</div>
     </aside>
   )

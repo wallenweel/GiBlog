@@ -1,23 +1,23 @@
-.main {
+[data-ui-main] {
   flex-direction: row;
   display: flex;
 }
 
-.main[data-ui-drawer-on] {
+[data-ui-main][data-ui-drawer-on] {
   --drawer-offset-x: 0;
 }
 
-.mask {
+[data-ui-main-mask] {
   transition: visibility 0.25s ease, opacity 0.25s ease;
 }
 
-.main[data-ui-drawer-on] .mask {
+[data-ui-main][data-ui-drawer-on] [data-ui-main-mask] {
   --main-mask-visibility: visible;
   --main-mask-opacity: 0.9;
   --main-mask-z-index: 7;
 }
 
-.toolbar {
+[data-ui-toolbar] {
   height: 0;
   z-index: 6;
   left: 0;
@@ -25,47 +25,47 @@
   position: absolute;
 }
 
-.toolbar > div {
+[data-ui-toolbar] > div {
   transition: var(--translate-x-transition), width 0.25s ease;
   transform: translateX(var(--toolbar-offset-x))
     translateY(var(--toolbar-offset-y));
 }
 
-.drawer {
+[data-ui-drawer] {
   width: 0;
   z-index: 7;
   position: relative;
 }
 
-.drawer > div {
+[data-ui-drawer] > div {
   transition: var(--translate-x-transition);
   transform: translateX(var(--drawer-offset-x));
 }
 
-.list {
+[data-ui-list] {
   width: 0;
   z-index: 4;
   position: relative;
 }
 
-.list > div {
+[data-ui-list] > div {
   transition: var(--translate-x-transition);
   transform: translateX(var(--list-offset-x));
 }
 
-.list > div::before {
+[data-ui-list] > div::before {
   content: '';
   height: var(--list-before-height);
   display: block;
 }
 
-.article {
+[data-ui-article] {
   width: 100%;
   padding-left: var(--article-offset-x);
   position: relative;
 }
 
-.article > div::before {
+[data-ui-article] > div::before {
   content: '';
   height: var(--article-before-height);
   display: block;

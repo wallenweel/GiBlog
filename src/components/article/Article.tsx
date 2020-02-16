@@ -11,7 +11,7 @@ export default function Article({
   children: ReactNode
 }) {
   return (
-    <section className={classNames(className, container)}>
+    <section data-ui-article className={classNames(className, container)}>
       <div className={wrap}>
         {children}
         <div>

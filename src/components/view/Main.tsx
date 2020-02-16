@@ -15,16 +15,16 @@ import ArticleInfo from '../article/ArticleInfo'
 import DrawerButton from '../drawer/DrawerButton'
 
 import styles, { view } from './Main.module.css'
-import layouts from './layout.module.css'
+// import layouts from './layout.module.css'
 
 import avatar from '../../assets/images/avatar_lp.jpg'
-import { classNames } from '../../functions/util'
 
 const maskCallbacks: (() => void)[] = []
 const Mask = () => {
   return (
     <div
-      className={classNames(styles.mask, layouts.mask)}
+      data-ui-main-mask
+      className={styles.mask}
       onClick={() =>
         maskCallbacks.length && maskCallbacks[maskCallbacks.length - 1]()
       }
@@ -50,7 +50,7 @@ export default function Main() {
       `data-ui-${(typeof target === 'string'
         ? target
         : target.name
-      ).toLowerCase()}`,
+      ).toLowerCase()}-on`,
       () => UIData.filter(_n => _n !== n),
       () => [...UIData, n]
     ]
@@ -64,19 +64,19 @@ export default function Main() {
 
     return callback
   }
-  const UIDataProps = UIData.reduce((p: any, c) => (p[c] = '') || p, {})
+  const UIDataProps = UIData.reduce((p: any, c) => (p[c] = true) && p, {})
 
   return (
-    <div className={classNames(view, layouts.main)} {...UIDataProps}>
+    <div data-ui-main className={view} {...UIDataProps}>
       <Mask />
 
-      <Toolbar className={layouts.toolbar}>
+      <Toolbar>
         <Filter>
           <DrawerButton onClick={toggleDataUIs(Drawer)} data-slot="left" />
         </Filter>
       </Toolbar>
 
-      <Drawer className={layouts.drawer}>
+      <Drawer>
         <OwnerArea user={userInfo} />
         {false && <Store />}
         {false && <Taxonomy />}
@@ -85,7 +85,7 @@ export default function Main() {
         </Taxonomy> */}
       </Drawer>
 
-      <List className={layouts.list}>
+      <List>
         {(Array(12).fill(null) || []).map((_, i) => (
           <ListItem num={i + 1} key={i}>
             <ArticleCard />
@@ -93,7 +93,7 @@ export default function Main() {
         ))}
       </List>
 
-      <Article className={layouts.article}>
+      <Article>
         <ArticleInfo />
       </Article>
     </div>

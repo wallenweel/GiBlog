@@ -11,7 +11,7 @@ export default function List({
   children: ReactNode
 }) {
   return (
-    <section className={classNames(className, container)}>
+    <section data-ui-list className={classNames(className, container)}>
       <div className={wrap}>{children}</div>
     </section>
   )

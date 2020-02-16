@@ -11,7 +11,7 @@ export default function Toolbar({
   children: ReactNode
 }) {
   return (
-    <div className={classNames(className, container)}>
+    <div data-ui-toolbar className={classNames(className, container)}>
       <div className={wrap}>{children}</div>
     </div>
   )
