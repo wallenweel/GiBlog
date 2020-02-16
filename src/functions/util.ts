@@ -2,7 +2,10 @@ import { env, isProduction, app, theme, canLogInProduction } from '../variables'
 import { ReactElement } from 'react'
 
 export const gettype = (target: any): string =>
-  Object.prototype.toString.call(target)
+  Object.prototype.toString
+    .call(target)
+    .match(/\[object (.+)\]/)![1]
+    .toLowerCase()
 
 export const istype = (target: any, type: string): boolean =>
   gettype(target) === type
@@ -48,17 +51,19 @@ export const slots = (
   const slots: { [slot: string]: ReactElement[] } = {}
 
   if (children) {
-    const items = (istype(children, 'array') ? children : [children]) as []
-
-    items.reduce((p, c: ReactElement) => {
-      if (typeof c === 'object' && c) {
-        if (c.props && typeof c.props === 'object') {
-          const slot: string = c.props['data-slot'] || 'defaults'
-          p[slot] = (p[slot] || (p[slot] = [])).concat(c)
+    ;((istype(children, 'array') ? children : [children]) as []).reduce(
+      (p, c: ReactElement) => {
+        if (typeof c === 'object' && c) {
+          if (c.props && typeof c.props === 'object') {
+            const slot: string = c.props['data-slot'] || 'defaults'
+            p[slot] = (p[slot] || (p[slot] = [])).concat(c)
+          }
         }
-      }
-      return p
-    }, slots)
+
+        return p
+      },
+      slots
+    )
   }
 
   return slots

@@ -10,16 +10,17 @@
   --color-text-light3: #505050;
   --color-text-light4: #6e6e6e;
   --color-text-light10: #ffffff;
-}
 
-/* Theme */
-:root {
   --background-color-lighter: #edf2f3;
 
   --card-shadow-color: rgba(192, 173, 89, 0.225);
   --card-background-color: #ffffff;
 
   --main-background-color: #ffffff;
+  --main-mask-background-color: #edf2f3;
+  --main-mask-opacity: 0;
+  --main-mask-visibility: hidden;
+  --main-mask-z-index: 0;
 
   --toolbar-shadow-color: rgba(194, 178, 108, 0.225);
   --toolbar-background-color: #ffffff;

@@ -1,4 +1,4 @@
-import React, { ReactNode, CSSProperties } from 'react'
+import React, { ReactNode, CSSProperties, ComponentProps } from 'react'
 
 import styles from './Button.module.css'
 
@@ -23,7 +23,9 @@ export function IconButton({
   radius = size,
   height = size,
   width = size,
-  className
+  className,
+
+  ...others
 }: {
   className?: MoudleClassName
   size?: numstr
@@ -31,7 +33,7 @@ export function IconButton({
   height?: numstr
   width?: numstr
   children: svgIconName
-}) {
+} & ComponentProps<any>) {
   const styleObject: CSSProperties = {}
 
   if (radius) styleObject.borderRadius = `${radius}rem`
@@ -43,6 +45,7 @@ export function IconButton({
       type="button"
       className={classNames(className, styles.icon)}
       style={styleObject}
+      {...others}
     >
       <Icon name={icon} />
     </button>

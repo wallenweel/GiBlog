@@ -3,10 +3,23 @@
   display: flex;
 }
 
+.main[data-ui-drawer] {
+  --drawer-offset-x: 0;
+}
+
+.mask {
+  transition: visibility 0.25s ease, opacity 0.25s ease;
+}
+
+.main[data-ui-drawer] .mask {
+  --main-mask-visibility: visible;
+  --main-mask-opacity: 0.9;
+  --main-mask-z-index: 7;
+}
+
 .toolbar {
   height: 0;
-  /* width: 0; */
-  z-index: 9;
+  z-index: 6;
   left: 0;
   top: 0;
   position: absolute;

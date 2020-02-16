@@ -4,3 +4,15 @@
   width: var(--main-width);
   position: relative;
 }
+
+.mask {
+  visibility: var(--main-mask-visibility);
+  opacity: var(--main-mask-opacity);
+  background-color: var(--main-mask-background-color);
+  z-index: var(--main-mask-z-index);
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  position: absolute;
+}
