@@ -15,7 +15,6 @@ import ArticleInfo from '../article/ArticleInfo'
 import DrawerButton from '../drawer/DrawerButton'
 
 import styles, { view } from './Main.module.css'
-// import layouts from './layout.module.css'
 
 import avatar from '../../assets/images/avatar_lp.jpg'
 

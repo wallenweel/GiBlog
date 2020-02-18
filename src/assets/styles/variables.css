@@ -9,28 +9,28 @@
   --color-text-light2: #4b4b4b;
   --color-text-light3: #505050;
   --color-text-light4: #6e6e6e;
-  --color-text-light10: #ffffff;
+  --color-text-light10: var(--color-light10);
 
   --background-color-lighter: #edf2f3;
 
   --card-shadow-color: rgba(192, 173, 89, 0.225);
-  --card-background-color: #ffffff;
+  --card-background-color: var(--color-light10);
 
-  --main-background-color: #ffffff;
+  --main-background-color: var(--color-light10);
   --main-mask-background-color: #edf2f3;
   --main-mask-opacity: 0;
   --main-mask-visibility: hidden;
   --main-mask-z-index: 0;
 
   --toolbar-shadow-color: rgba(194, 178, 108, 0.225);
-  --toolbar-background-color: #ffffff;
+  --toolbar-background-color: var(--color-light10);
 
-  --drawer-background-color: #ffffff;
+  --drawer-background-color: var(--color-light10);
 
-  --list-background-color: #ffffff;
-  --list-item-background-color: #ffffff;
+  --list-background-color: var(--color-light10);
+  --list-item-background-color: var(--color-light10);
 
-  --article-background-color: #ffffff;
+  --article-background-color: var(--color-light10);
   --article-info-background-color: #f5f5f5;
 }
 
@@ -67,7 +67,7 @@
   --toolbar-offset-y: -0%;
   --drawer-offset-x: calc(var(--offset-x));
   --list-offset-x: calc(var(--drawer-offset-x) + var(--drawer-width));
-  --list-before-height: calc(var(--toolbar-height) - 8rem);
+  --list-padding-top: calc(var(--toolbar-height) - 8rem);
   --article-offset-x: calc(var(--list-offset-x) + var(--list-width));
   --article-before-height: 0;
 }

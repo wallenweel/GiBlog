@@ -51,12 +51,7 @@
 [data-ui-list] > div {
   transition: var(--translate-x-transition);
   transform: translateX(var(--list-offset-x));
-}
-
-[data-ui-list] > div::before {
-  content: '';
-  height: var(--list-before-height);
-  display: block;
+  padding-top: var(--list-padding-top);
 }
 
 [data-ui-article] {
@@ -65,8 +60,6 @@
   position: relative;
 }
 
-[data-ui-article] > div::before {
-  content: '';
-  height: var(--article-before-height);
-  display: block;
+[data-ui-article] > div {
+  padding-top: var(--article-before-height);
 }

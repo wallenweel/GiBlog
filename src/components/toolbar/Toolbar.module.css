@@ -3,6 +3,11 @@
 }
 
 .wrap {
+  background-image: linear-gradient(
+    0deg,
+    transparent 5%,
+    var(--toolbar-background-color)
+  );
   height: var(--toolbar-height);
   width: inherit;
   justify-content: center;
