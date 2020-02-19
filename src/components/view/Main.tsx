@@ -46,10 +46,10 @@ export default function Main() {
   })
 
   const [UIData, setUIData] = useState([] as string[])
-  const toggleDataUIs = (
+  const toggleDataUI = (
     target: string | { name: string },
     toggle?: boolean
-  ): (() => void) => {
+  ): (() => boolean) => {
     const [n, r, a] = [
       `data-ui-${(typeof target === 'string'
         ? target
@@ -58,10 +58,15 @@ export default function Main() {
       () => UIData.filter(_n => _n !== n),
       () => [...UIData, n]
     ]
-
-    const callback = (): void => {
-      if (toggle === undefined) setUIData(UIData.includes(n) ? r() : a())
-      else setUIData(toggle ? a() : r())
+    const callback = (): boolean => {
+      if (toggle === undefined) {
+        const has = UIData.includes(n)
+        setUIData(has ? r() : a())
+        return has
+      } else {
+        setUIData(toggle ? a() : r())
+        return toggle
+      }
     }
 
     maskCallbacks.push(callback)
@@ -75,9 +80,9 @@ export default function Main() {
       <Mask />
 
       <Toolbar>
-        <ListButton onClick={toggleDataUIs(List)} />
+        <ListButton onClick={toggleDataUI(List)} />
         <Filter>
-          <DrawerButton onClick={toggleDataUIs(Drawer)} data-slot="left" />
+          <DrawerButton onClick={toggleDataUI(Drawer)} data-slot="left" />
         </Filter>
         <AvatarButton name="right" url={userInfo.avatar} />
       </Toolbar>
