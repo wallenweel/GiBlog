@@ -61,5 +61,5 @@
 }
 
 [data-ui-article] > div {
-  padding-top: var(--article-before-height);
+  padding-top: var(--article-padding-top);
 }

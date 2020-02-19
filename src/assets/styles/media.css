@@ -4,13 +4,13 @@
   }
 }
 
-@media (max-width: 762px) {
+@media (max-width: 862px) {
   :root {
     --offset-x: calc(calc(var(--drawer-width) + var(--list-width)) * -1);
 
     --toolbar-offset-x: var(--article-offset-x);
     --toolbar-width: var(--article-width);
 
-    --article-before-height: calc(var(--toolbar-height) - 16rem);
+    --article-padding-top: calc(var(--toolbar-height) - 0rem);
   }
 }

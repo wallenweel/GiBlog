@@ -1,18 +1,23 @@
 import React, { useState } from 'react'
 
-import Toolbar from '../toolbar/Toolbar'
-import Filter from '../filter/Filter'
-import Drawer from '../drawer/Drawer'
-import OwnerArea from '../drawer/OwnerArea'
-import Store from '../store/Store'
-import Taxonomy from '../taxonomy/Taxonomy'
-import List from '../list/List'
-import ListItem from '../list/ListItem'
-import Article from '../article/Article'
-import ArticleCard from '../article/ArticleCard'
-import ArticleInfo from '../article/ArticleInfo'
-
-import DrawerButton from '../drawer/DrawerButton'
+import {
+  // eslint-disable-next-line prettier/prettier
+  Toolbar,
+  Filter,
+  DrawerButton,
+  // eslint-disable-next-line prettier/prettier
+  Drawer,
+  OwnerArea,
+  Store,
+  Taxonomy,
+  // eslint-disable-next-line prettier/prettier
+  List,
+  ListItem,
+  // eslint-disable-next-line prettier/prettier
+  Article,
+  ArticleCard,
+  ArticleInfo
+} from './main.imports'
 
 import styles, { view } from './Main.module.css'
 
