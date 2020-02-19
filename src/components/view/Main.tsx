@@ -1,21 +1,23 @@
 import React, { useState } from 'react'
 
-import {
-  Toolbar,
-  Filter,
-  DrawerButton,
-  ListButton,
-  Drawer,
-  OwnerArea,
-  Store,
-  Taxonomy,
-  List,
-  ListItem,
-  ArticleCard,
-  Article,
-  ArticleInfo,
-  ArticleContent
-} from './main.imports'
+import Toolbar from '../toolbar/Toolbar'
+import Filter from '../filter/Filter'
+import DrawerButton from '../drawer/DrawerButton'
+import ListButton from '../list/ListButton'
+import { AvatarButton } from '../common/Button'
+
+import Drawer from '../drawer/Drawer'
+import OwnerArea from '../drawer/OwnerArea'
+import Store from '../store/Store'
+import Taxonomy from '../taxonomy/Taxonomy'
+
+import List from '../list/List'
+import ListItem from '../list/ListItem'
+import ArticleCard from '../article/ArticleCard'
+
+import Article from '../article/Article'
+import ArticleInfo from '../article/ArticleInfo'
+import ArticleContent from '../article/ArticleContent'
 
 import styles, { view } from './Main.module.css'
 
@@ -77,6 +79,7 @@ export default function Main() {
         <Filter>
           <DrawerButton onClick={toggleDataUIs(Drawer)} data-slot="left" />
         </Filter>
+        <AvatarButton url={userInfo.avatar} />
       </Toolbar>
 
       <Drawer>

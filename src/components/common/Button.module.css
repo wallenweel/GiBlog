@@ -1,5 +1,4 @@
-.normal,
-.icon {
+.wrap {
   box-shadow: 0 1rem 2rem 1rem var(--button-shadow-color);
   background-color: var(--color-light10);
   outline: none;
@@ -7,4 +6,10 @@
   justify-content: center;
   align-items: center;
   display: flex;
+}
+
+.avatar {
+  border-color: var(--color-light10);
+  border-style: solid;
+  border-width: 2rem;
 }
