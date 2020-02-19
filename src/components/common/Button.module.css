@@ -1,5 +1,6 @@
 .normal,
 .icon {
+  box-shadow: 0 1rem 2rem 1rem var(--button-shadow-color);
   background-color: var(--color-light10);
   outline: none;
   border: none;

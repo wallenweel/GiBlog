@@ -13,6 +13,8 @@
 
   --background-color-lighter: #edf2f3;
 
+  --button-shadow-color: rgba(192, 173, 89, 0.225);
+
   --card-shadow-color: rgba(192, 173, 89, 0.225);
   --card-background-color: var(--color-light10);
 

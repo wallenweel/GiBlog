@@ -1,22 +1,20 @@
 import React, { useState } from 'react'
 
 import {
-  // eslint-disable-next-line prettier/prettier
   Toolbar,
   Filter,
   DrawerButton,
-  // eslint-disable-next-line prettier/prettier
+  ListButton,
   Drawer,
   OwnerArea,
   Store,
   Taxonomy,
-  // eslint-disable-next-line prettier/prettier
   List,
   ListItem,
-  // eslint-disable-next-line prettier/prettier
-  Article,
   ArticleCard,
-  ArticleInfo
+  Article,
+  ArticleInfo,
+  ArticleContent
 } from './main.imports'
 
 import styles, { view } from './Main.module.css'
@@ -75,6 +73,7 @@ export default function Main() {
       <Mask />
 
       <Toolbar>
+        <ListButton data-ui-list-button onClick={toggleDataUIs(List)} />
         <Filter>
           <DrawerButton onClick={toggleDataUIs(Drawer)} data-slot="left" />
         </Filter>
@@ -99,6 +98,7 @@ export default function Main() {
 
       <Article>
         <ArticleInfo />
+        <ArticleContent />
       </Article>
     </div>
   )

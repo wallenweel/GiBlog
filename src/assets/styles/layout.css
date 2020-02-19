@@ -3,18 +3,8 @@
   display: flex;
 }
 
-[data-ui-main][data-ui-drawer-on] {
-  --drawer-offset-x: 0;
-}
-
 [data-ui-main-mask] {
   transition: visibility 0.25s ease, opacity 0.25s ease;
-}
-
-[data-ui-main][data-ui-drawer-on] [data-ui-main-mask] {
-  --main-mask-visibility: visible;
-  --main-mask-opacity: 0.9;
-  --main-mask-z-index: 7;
 }
 
 [data-ui-toolbar] {
@@ -29,6 +19,10 @@
   transition: var(--translate-x-transition), width 0.25s ease;
   transform: translateX(var(--toolbar-offset-x))
     translateY(var(--toolbar-offset-y));
+}
+
+[data-ui-list-button] {
+  display: none !important;
 }
 
 [data-ui-drawer] {
@@ -55,6 +49,7 @@
 }
 
 [data-ui-article] {
+  transition: padding-left 0.25s ease;
   width: 100%;
   padding-left: var(--article-offset-x);
   position: relative;

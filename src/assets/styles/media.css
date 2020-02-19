@@ -2,6 +2,16 @@
   :root {
     --offset-x: calc(var(--drawer-width) * -1);
   }
+
+  [data-ui-drawer-on] {
+    --drawer-offset-x: 0;
+  }
+
+  [data-ui-drawer-on] [data-ui-main-mask] {
+    --main-mask-visibility: visible;
+    --main-mask-opacity: 0.9;
+    --main-mask-z-index: 7;
+  }
 }
 
 @media (max-width: 862px) {
@@ -12,5 +22,15 @@
     --toolbar-width: var(--article-width);
 
     --article-padding-top: calc(var(--toolbar-height) - 0rem);
+  }
+
+  [data-ui-list-button] {
+    display: flex !important;
+  }
+
+  [data-ui-list-on] {
+    --list-offset-x: 0;
+    /* --toolbar-width: var(--list-width); */
+    --article-offset-x: var(--list-width);
   }
 }
