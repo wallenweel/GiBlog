@@ -75,11 +75,11 @@ export default function Main() {
       <Mask />
 
       <Toolbar>
-        <ListButton data-ui-list-button onClick={toggleDataUIs(List)} />
+        <ListButton onClick={toggleDataUIs(List)} />
         <Filter>
           <DrawerButton onClick={toggleDataUIs(Drawer)} data-slot="left" />
         </Filter>
-        <AvatarButton url={userInfo.avatar} />
+        <AvatarButton name="right" url={userInfo.avatar} />
       </Toolbar>
 
       <Drawer>

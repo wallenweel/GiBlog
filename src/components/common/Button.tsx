@@ -32,18 +32,20 @@ export function IconButton({
   }
 
   return (
-    <ButtonWrap {...props} {...others}>
+    <ButtonWrap data-ui-icon-button={icon} {...props} {...others}>
       <Icon name={icon} />
     </ButtonWrap>
   )
 }
 
 export function AvatarButton({
+  name = '',
   size = 42,
   border = 4,
   url,
   ...others
 }: {
+  name?: string
   size?: numstr
   border?: numstr
   url?: string
@@ -62,6 +64,7 @@ export function AvatarButton({
 
   return (
     <ButtonWrap
+      data-ui-avatar-button={name}
       className={styles.avatar}
       style={styleObject}
       {...props}
@@ -71,6 +74,7 @@ export function AvatarButton({
         width={pictureSize}
         height={pictureSize}
         radius={pictureSize}
+        alt={name}
         {...{ url }}
       />
     </ButtonWrap>

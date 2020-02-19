@@ -21,6 +21,10 @@
     translateY(var(--toolbar-offset-y));
 }
 
+[data-ui-toolbar] [data-ui-avatar-button] {
+  display: none;
+}
+
 [data-ui-list-button] {
   display: none !important;
 }

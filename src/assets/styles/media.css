@@ -3,6 +3,10 @@
     --offset-x: calc(var(--drawer-width) * -1);
   }
 
+  [data-ui-toolbar] [data-ui-avatar-button] {
+    display: flex !important;
+  }
+
   [data-ui-drawer-on] {
     --drawer-offset-x: 0;
   }
@@ -32,5 +36,13 @@
     --list-offset-x: 0;
     /* --toolbar-width: var(--list-width); */
     --article-offset-x: var(--list-width);
+  }
+}
+
+@media (max-width: 584px) {
+  [data-ui-list-on] {
+    --list-offset-x: 0;
+    --list-width: var(--main-width);
+    --article-offset-x: 0;
   }
 }
