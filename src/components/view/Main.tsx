@@ -20,21 +20,9 @@ import ArticleInfo from '../article/ArticleInfo'
 import ArticleContent from '../article/ArticleContent'
 
 import styles, { view } from './Main.module.css'
+import dataAttrs from './dataAttrs'
 
 import avatar from '../../assets/images/avatar_lp.jpg'
-
-const maskCallbacks: (() => void)[] = []
-const Mask = () => {
-  return (
-    <div
-      data-ui-main-mask
-      className={styles.mask}
-      onClick={() =>
-        maskCallbacks.length && maskCallbacks[maskCallbacks.length - 1]()
-      }
-    />
-  )
-}
 
 export default function Main() {
   const [userInfo] = useState({
@@ -45,44 +33,19 @@ export default function Main() {
       'You know some birds are not meant to be caged, their feathers are just too bright.'
   })
 
-  const [UIData, setUIData] = useState([] as string[])
-  const toggleDataUI = (
-    target: string | { name: string },
-    toggle?: boolean
-  ): (() => boolean) => {
-    const [n, r, a] = [
-      `data-ui-${(typeof target === 'string'
-        ? target
-        : target.name
-      ).toLowerCase()}-on`,
-      () => UIData.filter(_n => _n !== n),
-      () => [...UIData, n]
-    ]
-    const callback = (): boolean => {
-      if (toggle === undefined) {
-        const has = UIData.includes(n)
-        setUIData(has ? r() : a())
-        return has
-      } else {
-        setUIData(toggle ? a() : r())
-        return toggle
-      }
-    }
-
-    maskCallbacks.push(callback)
-
-    return callback
+  const Mask = ({ onClick }: any) => {
+    return <div data-ui-main-mask className={styles.mask} onClick={onClick} />
   }
-  const UIDataProps = UIData.reduce((p: any, c) => (p[c] = true) && p, {})
+  const [attrs, toggle, removeLast] = dataAttrs(useState([] as string[]))
 
   return (
-    <div data-ui-main className={view} {...UIDataProps}>
-      <Mask />
+    <div data-ui-main className={view} {...attrs}>
+      <Mask onClick={() => removeLast()} />
 
       <Toolbar>
-        <ListButton onClick={toggleDataUI(List)} />
+        <ListButton onClick={() => toggle(List.name)} />
         <Filter>
-          <DrawerButton onClick={toggleDataUI(Drawer)} data-slot="left" />
+          <DrawerButton onClick={() => toggle(Drawer.name)} data-slot="left" />
         </Filter>
         <AvatarButton name="right" url={userInfo.avatar} />
       </Toolbar>
