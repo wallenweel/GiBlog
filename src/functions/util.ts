@@ -1,5 +1,5 @@
-import { env, isProduction, app, theme, canLogInProduction } from '../variables'
 import { ReactElement } from 'react'
+import { env, isProduction, app, theme, canLogInProduction } from '../variables'
 
 export const gettype = (target: any): string =>
   Object.prototype.toString
@@ -45,26 +45,24 @@ export const classNames = (...names: (string | undefined)[]): string =>
 export const subExcerpt = (excerpt: string, length: number = 50): string =>
   excerpt.length > length ? `${excerpt.substr(0, length)}...` : excerpt
 
+type slots = { [slot: string]: ReactElement[] }
 export const slots = (
-  children?: ReactElement[]
-): { [slot: string]: ReactElement[] } => {
-  const slots: { [slot: string]: ReactElement[] } = {}
+  children?: ReactElement[],
+  defaults: ReactElement[] = []
+): slots => {
+  if (!children) return { defaults }
 
-  if (children) {
-    ;((istype(children, 'array') ? children : [children]) as []).reduce(
-      (p, c: ReactElement) => {
-        if (typeof c === 'object' && c) {
-          if (c.props && typeof c.props === 'object') {
-            const slot: string = c.props['data-slot'] || 'defaults'
-            p[slot] = (p[slot] || (p[slot] = [])).concat(c)
-          }
+  return ((istype(children, 'array') ? children : [children]) as []).reduce(
+    (p: slots, c: ReactElement) => {
+      if (typeof c === 'object' && c) {
+        if (c.props && typeof c.props === 'object') {
+          const slot: string = c.props['data-slot'] || 'defaults'
+          return { ...p, [slot]: (p[slot] || []).concat(c) }
         }
+      }
 
-        return p
-      },
-      slots
-    )
-  }
-
-  return slots
+      return p
+    },
+    { defaults }
+  )
 }

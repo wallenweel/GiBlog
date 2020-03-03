@@ -14,7 +14,9 @@ export function NormalButton({
   children: ReactNode
 }) {
   return (
-    <button className={classNames(className, styles.normal)}>{children}</button>
+    <button className={classNames(className, styles.normal)} type="button">
+      {children}
+    </button>
   )
 }
 

@@ -61,7 +61,7 @@ export default function Main() {
 
       <List>
         {(Array(12).fill(null) || []).map((_, i) => (
-          <ListItem num={i + 1} key={i}>
+          <ListItem num={i + 1} key={_ || i}>
             <ArticleCard />
           </ListItem>
         ))}

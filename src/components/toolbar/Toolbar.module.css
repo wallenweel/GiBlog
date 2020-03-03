@@ -11,7 +11,7 @@
   height: var(--toolbar-height);
   width: inherit;
   padding: 0 8rem;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   display: flex;

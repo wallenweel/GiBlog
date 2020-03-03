@@ -1,3 +1,4 @@
+/* eslint-disable no-constant-condition */
 import React, { ComponentProps } from 'react'
 
 import { IconButton } from '../common/Button'

@@ -23,7 +23,7 @@ export default function ArticleCard() {
         ))}
       </nav>
       <div className={styles.extra}>
-        <span className={styles.date}></span>
+        <span className={styles.date} />
       </div>
     </Card>
   )
